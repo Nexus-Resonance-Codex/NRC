@@ -1,1 +1,183 @@
-NRC Workspace.code-workspace
+# ==========================================
+# Environments and Local Configurations
+# ==========================================
+.env
+.env.local
+.env.*.local
+config/secrets.yml
+auth.json
+
+# ==========================================
+# IDEs and Editors
+# ==========================================
+.vscode/
+.vscode-test/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+*.code-workspace
+.history/
+
+# ==========================================
+# Operating Systems
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ==========================================
+# LaTeX Temporary and Build Files
+# ==========================================
+# Core LaTeX build/temp files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+*.out
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.bcf
+*.thm
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.spl
+
+# Packages and Tools temp files
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.slg
+*.syg
+*.syi
+*.xyc
+
+# ==========================================
+# Python, Machine Learning, and Jupyter
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch and Machine Learning artifacts
+*.pt
+*.pth
+*.bin
+*.onnx
+*.pb
+*.safetensors
+wandb/
+runs/
+lightning_logs/
+checkpoints/
+models/
+
+# Dataset folders
+data/
+datasets/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env_dir/
+virtualenv/
+VENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Pytest / coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ==========================================
+# Node.js (If web/frontend interfaces are added later)
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ==========================================
+# Project Specific (Nexus-Resonance-Codex)
+# ==========================================
+# (Add any specific NRC temp directories here if needed in the future)
