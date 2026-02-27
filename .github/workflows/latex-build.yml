@@ -36,6 +36,9 @@ jobs:
           # If there is an index.html, we can move it too
           cp docs/index.html public/ || true
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
