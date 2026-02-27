@@ -1,0 +1,53 @@
+name: Compile LaTeX and Deploy to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX Document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Nexus-Resonance-Codex.tex
+          working_directory: docs/Nexus-Resonance-Codex-tex-files/
+          compiler: latexmk
+          args: -pdf -interaction=nonstopmode -synctex=1
+
+      - name: Move Compiled PDF to deployment root
+        run: |
+          mkdir -p public
+          cp docs/Nexus-Resonance-Codex-tex-files/Nexus-Resonance-Codex.pdf public/
+          # If there is an index.html, we can move it too
+          cp docs/index.html public/ || true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "public"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
