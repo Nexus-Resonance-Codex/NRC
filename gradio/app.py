@@ -202,7 +202,7 @@ print(f"Output shape: {{out.shape}}")   # torch.Size([8, 64, 512])
 **Install & use:**
 ```bash
 pip install "nrc @ git+https://github.com/Nexus-Resonance-Codex/NRC.git"
-pip install "nrc_ai @ git+https://github.com/Nexus-Resonance-Codex/ai-enhancements.git"
+pip install "nrc_ai @ git+https://github.com/Nexus-Resonance-Codex/Ai-Enhancements.git"
 ```
 """
 

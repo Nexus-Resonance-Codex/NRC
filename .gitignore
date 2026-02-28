@@ -181,3 +181,5 @@ yarn-error.log*
 # Project Specific (Nexus-Resonance-Codex)
 # ==========================================
 # (Add any specific NRC temp directories here if needed in the future)
+*.parquet
+*.jsonl

@@ -12,7 +12,7 @@ short_description: Live NRC math explorer, protein lattice projections & AI enha
 tags:
   - mathematics
   - golden-ratio
-  - protein-folding
+  - Protein-Folding
   - deep-learning
   - interactive
   - nrc

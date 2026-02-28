@@ -24,8 +24,8 @@ This repository serves as the central hub for the compiled LaTeX document, sourc
 The NRC is part of a larger, interconnected ecosystem of tools and research:
 
 - **[NRC (Core)](https://github.com/Nexus-Resonance-Codex/NRC)**: The main mathematical paper, LaTeX source, and core theorems.
-- **[Protein Folding](https://github.com/Nexus-Resonance-Codex/protein-folding)**: Applications of the NRC framework to biological structures and protein sequence dynamics.
-- **[AI Enhancements](https://github.com/Nexus-Resonance-Codex/ai-enhancements)**: Neural network integrations, machine learning models, and algorithmic enhancements based on NRC principles.
+- **[Protein Folding](https://github.com/Nexus-Resonance-Codex/Protein-Folding)**: Applications of the NRC framework to biological structures and protein sequence dynamics.
+- **[AI Enhancements](https://github.com/Nexus-Resonance-Codex/Ai-Enhancements)**: Neural network integrations, machine learning models, and algorithmic enhancements based on NRC principles.
 
 ## 📄 Documentation & Resources
 

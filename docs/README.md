@@ -4,8 +4,8 @@
 
 ## Quick Links
 
-- **[AI Enhancements](https://github.com/Nexus-Resonance-Codex/ai-enhancements)** — 30 PyTorch drop-in modules
-- **[Protein Folding](https://github.com/Nexus-Resonance-Codex/protein-folding)** — NRC-enhanced protein structure prediction
+- **[AI Enhancements](https://github.com/Nexus-Resonance-Codex/Ai-Enhancements)** — 30 PyTorch drop-in modules
+- **[Protein Folding](https://github.com/Nexus-Resonance-Codex/Protein-Folding)** — NRC-enhanced protein structure prediction
 - **[Core Codex](https://github.com/Nexus-Resonance-Codex/NRC)** — Foundational mathematics and LaTeX papers
 
 ## Mathematical Foundation
