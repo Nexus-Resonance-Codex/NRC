@@ -47,28 +47,154 @@ The NRC is part of an interconnected ecosystem of advanced modeling and research
 
 <br/>
 
-## 🛠️ Installation & Environment
+## 🛠️ Installation & Cross-Platform Execution (Exhaustive Guide)
 
-We have established a unified virtual environment mechanism enforcing strict type-checking and native inter-repository execution.
+The core NRC mathematical engine is built for infinite-precision testing and interactive data visualization. Below are explicitly expanded, foolproof protocols across three dominant operating spheres (Linux, Windows, macOS).
 
-### Global Installation via Pip
+**General Requirements:** 
+- `python3` (Version 3.10+ recommended)
+- `git`
+- Access to terminal/command line
 
-To utilize the exact precision computations globally:
+### ☁️ Remote Access (Google Colab)
 
-```bash
-pip install urllib3 numpy mpmath sympy pandas pyarrow huggingface_hub
-pip install "nrc @ git+https://github.com/Nexus-Resonance-Codex/NRC.git"
-```
+For users lacking the physical compute capabilities required to run these interactive mathematical visualizations natively, Google Colab provides an immediate external environment executing in the cloud.
 
-### Local Development
+1. Navigate to **Google Colab** (https://colab.research.google.com).
+2. At the top menu, select **File > Open Notebook**.
+3. Select the **GitHub** tab.
+4. Input the Repository URL: `https://github.com/Nexus-Resonance-Codex/NRC`
+5. Click on the file **`interactive_nrc_explorer.ipynb`**.
+6. When the notebook opens, you **must prepend** a unique install command to the first cell to load required math operators in Colab. Insert a new block at the beginning containing:
+   ```python
+   !pip install mpmath sympy matplotlib
+   ```
+7. Press `Shift + Enter` to sequentially run and evaluate each interactive mathematical module.
 
-To develop identically against the workspace, create a unified environment above the repositories:
+### 🐧 Linux (Pop!_OS / Ubuntu / Debian) - Primary Target
 
-```bash
-python3 -m venv ../.venv
-source ../.venv/bin/activate
-pip install -e .
-```
+Linux is the premier, biologically analog environment allowing strict control over computational matrices and background physics required by the NRC.
+
+1. **System Core Dependencies Update:**
+   Open an interactive terminal session and execute sequentially:
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   sudo apt install -y git python3-venv python3-pip python3-dev curl build-essential
+   ```
+
+2. **Install `uv` Configuration Wizard:**
+   `uv` rapidly constructs virtual environments minimizing package overlap:
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   # Reactivate session profiles
+   source $HOME/.bashrc
+   ```
+
+3. **Clone & Mount Repository:**
+   ```bash
+   git clone https://github.com/Nexus-Resonance-Codex/NRC.git
+   cd NRC
+   ```
+
+4. **Virtual Environment Isolation:**
+   ```bash
+   uv venv .venv
+   source .venv/bin/activate
+   ```
+
+5. **Install The Engine In Editable Mode:**
+   ```bash
+   uv pip install -e .
+   ```
+
+6. **Deploy Interactive Notebook Server:**
+   This environment grants you graphical mathematical outputs of the NRC framework:
+   ```bash
+   uv pip install jupyterlab
+   # Execute locally
+   jupyter lab interactive_nrc_explorer.ipynb
+   ```
+   *(A browser window will automatically launch displaying the geometric constants and scripts.)*
+
+### 🪟 Windows 11 (via WSL2 / Ubuntu)
+
+Avoid utilizing standalone PowerShell or Command Prompt, as path separation structures (backslash \) and C-libraries diverge from standard POSIX compliances, introducing mathematical anomalies. Instead, Windows users must project their processes into the Windows Subsystem for Linux (WSL).
+
+1. **Enable Virtual Windows Subsystem (WSL2):**
+   Execute from an elevated **Administrator** PowerShell window:
+   ```powershell
+   wsl --install
+   ```
+   Reboot your PC to finalize. When Windows returns, an Ubuntu terminal will pop up. Establish a UNIX user/pass (the password won't show visually while typing).
+
+2. **Update Core OS Features within WSL2:**
+   Inside the Ubuntu window run:
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   sudo apt install -y git python3-venv python3-pip curl build-essential
+   ```
+
+3. **Secure the Mathematics Repository:**
+   (Ensure you clone this directly into the native Linux filesystem path `~`, not `/mnt/c/`)
+   ```bash
+   git clone https://github.com/Nexus-Resonance-Codex/NRC.git
+   cd NRC
+   ```
+
+4. **Create Protective Environment boundaries:**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install --upgrade pip
+   ```
+
+5. **Install Core & Deploy Jupyter Interactive Server:**
+   ```bash
+   pip install -e .
+   pip install jupyterlab
+   # Deploy
+   jupyter lab interactive_nrc_explorer.ipynb
+   ```
+   *(Select the Jupyter link provided in the terminal output, beginning with http://127.0.0.1..., and paste it into Chrome/Edge).*
+
+### 🍏 macOS (Apple Silicon M1/M2/M3 & Intel)
+
+Apple's UNIX underpinning allows the raw mathematical engine to run remarkably fast over its high-memory buses. 
+
+1. **Deploy Homebrew Management Script:**
+   Open Terminal and run:
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+   *(Append to .zprofile if instructed by the Homebrew installation output).*
+
+2. **Install Exact Python Architecture:**
+   ```bash
+   brew install python@3.11 git
+   ```
+
+3. **Clone Data Stream:**
+   ```bash
+   git clone https://github.com/Nexus-Resonance-Codex/NRC.git
+   cd NRC
+   ```
+
+4. **Establish Venv:**
+   ```bash
+   python3.11 -m venv .venv
+   source .venv/bin/activate
+   pip install --upgrade pip
+   ```
+
+5. **Compile Engine and Run Scripts dynamically:**
+   ```bash
+   pip install -e .
+   pip install jupyterlab
+   
+   # Deploy Interactive Lab
+   jupyter lab interactive_nrc_explorer.ipynb
+   ```
+   *(Jupyter Lab will launch in Safari or your default browser automatically).*
 
 <br/>
 
