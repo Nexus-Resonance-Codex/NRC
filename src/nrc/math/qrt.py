@@ -5,9 +5,11 @@ Fractal waveform math to resolve unstable gradients via smooth friction
 instead of stochastic dropout.
 """
 import math
-import numpy as np
 from typing import Union
-from .phi import PHI_FLOAT, GIZA_SLOPE_DEG
+
+import numpy as np
+
+from .phi import GIZA_SLOPE_DEG, PHI_FLOAT
 
 SQRT_2 = math.sqrt(2.0)
 PI = math.pi

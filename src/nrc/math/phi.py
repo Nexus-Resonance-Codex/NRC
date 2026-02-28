@@ -5,9 +5,10 @@ Provides extremely high-precision constants, Binet's equation,
 and continuous geometric operators.
 """
 import math
+from typing import Union, overload
+
 import mpmath
 import numpy as np
-from typing import Union, overload
 
 # Ensure extreme precision locally
 mpmath.mp.dps = 100

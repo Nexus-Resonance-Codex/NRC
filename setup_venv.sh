@@ -15,7 +15,7 @@
 
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VENV_DIR="${SCRIPT_DIR}/.venv"
+VENV_DIR="${SCRIPT_DIR}/../.venv"
 RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; NC='\033[0m'
 
 echo -e "${CYAN}═══════════════════════════════════════════════════════════${NC}"
@@ -44,8 +44,10 @@ if [ -d "${VENV_DIR}" ]; then
     exit 1
 fi
 
-echo "[1/4] Creating virtual environment at .venv ..."
-python3 -m venv "${VENV_DIR}"
+echo "[1/4] Checking virtual environment at ../.venv ..."
+if [ ! -d "${VENV_DIR}" ]; then
+    python3 -m venv "${VENV_DIR}"
+fi
 
 echo "[2/4] Upgrading pip ..."
 "${VENV_DIR}/bin/pip" install --upgrade pip --quiet

@@ -4,8 +4,9 @@ TUPT (The Universal Pattern Theorem) Exclusion Principle.
 Implements the 3-6-9-7 Modular Exclusion Gate verified via the
 NRC Protein Folding Lattice bounds.
 """
-import numpy as np
 from typing import Union
+
+import numpy as np
 
 TUPT_MODULUS: int = 2187
 TUPT_PATTERN = frozenset({3, 6, 7, 9})
