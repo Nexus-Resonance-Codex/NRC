@@ -1,4 +1,9 @@
-name: Compile LaTeX and Deploy to Pages
+# ============================================================
+# NRC Core — LaTeX Build & GitHub Pages Deploy
+# Compiles the Nexus Resonance Codex paper to PDF and
+# deploys the result alongside the HTML to GitHub Pages.
+# ============================================================
+name: LaTeX Build & Pages Deploy
 
 on:
   push:
@@ -16,6 +21,7 @@ concurrency:
 
 jobs:
   build:
+    name: Compile LaTeX → PDF
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,23 +34,31 @@ jobs:
           working_directory: docs/Nexus-Resonance-Codex-tex-files/
           compiler: latexmk
           args: -pdf -interaction=nonstopmode -synctex=1
+          # Run twice to resolve cross-references & TOC
+          extra_system_packages: "py-pygments"
 
-      - name: Move Compiled PDF to deployment root
+      - name: Assemble deployment directory
         run: |
           mkdir -p public
+          # Ship the compiled PDF
           cp docs/Nexus-Resonance-Codex-tex-files/Nexus-Resonance-Codex.pdf public/
-          # If there is an index.html, we can move it too
-          cp docs/index.html public/ || true
+          # Ship HTML viewer if present
+          cp docs/index.html public/ 2>/dev/null || true
+          # Add a simple redirect index if no HTML exists
+          if [ ! -f public/index.html ]; then
+            echo '<meta http-equiv="refresh" content="0; url=Nexus-Resonance-Codex.pdf">' > public/index.html
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: "public"
 
   deploy:
+    name: Deploy to GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
