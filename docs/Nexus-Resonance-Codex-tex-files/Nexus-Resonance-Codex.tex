@@ -1,0 +1,90 @@
+\begin{filecontents}{nrcbib.bib}
+@article{nrc2026,
+  author = {Trageser, James},
+  title = {Nexus Resonance Codex: A Mathematical Framework},
+  journal = {Journal of Resonance Theory},
+  year = {2026},
+  volume = {1},
+  pages = {1-100}
+}
+\end{filecontents}
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage{bookmark}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[title]{appendix}
+
+\usepackage{nrc}
+
+% Hyperref metadata
+\hypersetup{
+    colorlinks=true,
+    linkcolor=deepblue,
+    citecolor=nrcblue,
+    urlcolor=deepblue,
+    pdftitle={Nexus Resonance Codex: A Mathematical Framework of Golden-Ratio-Weighted Series, Modular Exclusion Patterns, Multi-Scale Transforms, and High-Dimensional Lattice Projections},
+    pdfauthor={James Trageser},
+    pdfsubject={Number Theory, Analytic Number Theory, Modular Forms, High-Dimensional Geometry},
+    pdfkeywords={golden ratio, Dirichlet series, modular exclusion, Fibonacci, Lucas, Pell, polylogarithm, tensor transforms, lattice projections, entropy scaling}
+}
+
+
+\title{Nexus Resonance Codex: A Mathematical Framework of Golden-Ratio-Weighted Series, Modular Exclusion Patterns, Multi-Scale Transforms, and High-Dimensional Lattice Projections}
+
+\author{James Trageser \\
+        \href{https://NRC.onl}{NRC.onl} \quad \href{https://MathCodex.com}{MathCodex.com} \\
+        \href{mailto:NexusResonanceCodex@gmail.com}{NexusResonanceCodex@gmail.com}}
+
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract/abstract.tex}
+
+\input{disclaimer/disclaimer.tex}
+
+\input{introduction/introduction.tex}
+
+\input{core_definitions/core_definitions.tex}
+
+\input{phi_weighted_series/phi_weighted_series.tex}
+
+\input{modular_filtering/modular_filtering.tex}
+
+\input{core_transforms/core_transforms.tex}
+
+\input{high_dimensional/high_dimensional.tex}
+
+\input{applications/applications.tex}
+
+\input{conclusion/conclusion.tex}
+
+\input{appendices/appendices.tex}
+
+\bibliographystyle{alpha}
+\bibliography{nrcbib} % 68 entries – external .bib file recommended
+
+\end{document}
