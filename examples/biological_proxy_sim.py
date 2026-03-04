@@ -1,6 +1,4 @@
-import numpy as np
-from scipy.stats import chi2_contingency, kstest
-
+from scipy.stats import chisquare, kstest
 def simulate_deficit():
     """
     Simulation of the observed Mod-9 exclusion principle within structural biological cores.
@@ -20,7 +18,7 @@ def simulate_deficit():
     observed, _ = np.histogram(mod9_core, bins=range(10))
     expected = np.full(9, n / 9.0)
     
-    chi2, p_chi = chi2_contingency([observed, expected])[:2]
+    chi2, p_chi = chisquare(f_obs=observed, f_exp=expected)
     ks_stat, p_ks = kstest(mod9_core / 9.0, 'uniform')
     
     print("-" * 50)
