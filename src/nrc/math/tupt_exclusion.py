@@ -8,14 +8,14 @@ import numpy as np
 from typing import Union
 
 TUPT_MODULUS: int = 2187
-TUPT_PATTERN = frozenset({3, 6, 7, 9})
+TUPT_CHAOTIC = frozenset({1, 2, 4, 5, 8})
 
 def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, float, np.ndarray]:
     """
     Applies the mathematical TUPT Exclusion gate.
 
-    Any value x where (x mod 2187) is perfectly divisible by 3, 6, 7, or 9
-    is forced to 0 (gated out). All other values pass unchanged.
+    Any value x where (x mod 9) resolves to the chaotic sequence {1, 2, 4, 5, 8}
+    is forced to 0 (gated out). The resonant channels (0, 3, 6, 9, 7) pass unchanged.
     This mimics the biological residue stabilities noted in the NRC.
 
     Args:
@@ -25,20 +25,15 @@ def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, fl
         The structurally coherent values remaining after exclusion gating.
     """
     if isinstance(values, (int, float)):
-        mod_val = values % TUPT_MODULUS
-        if any(mod_val % p == 0 for p in TUPT_PATTERN if p != 0):
+        mod_val = (values % 9)
+        if mod_val in TUPT_CHAOTIC:
             return 0.0 if isinstance(values, float) else 0
         return values
 
-    # Vectorized NumPy logic
-    mod_vals = np.mod(values, TUPT_MODULUS)
-
-    mask_3 = (mod_vals % 3 == 0)
-    mask_6 = (mod_vals % 6 == 0)
-    mask_7 = (mod_vals % 7 == 0)
-    mask_9 = (mod_vals % 9 == 0)
-
-    exclusion_mask = mask_3 | mask_6 | mask_7 | mask_9
+    # Vectorized NumPy logic mapped directly to the Mod-9 domain matrix
+    mod_vals = np.mod(values, 9)
+    
+    exclusion_mask = np.isin(mod_vals, list(TUPT_CHAOTIC))
 
     result = np.copy(values)
     result[exclusion_mask] = 0.0
