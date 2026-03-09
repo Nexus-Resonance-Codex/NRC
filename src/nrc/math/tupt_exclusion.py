@@ -2,21 +2,24 @@
 TUPT (The Universal Pattern Theorem) Exclusion Principle.
 ========================================================
 Implements the 3-6-9-7 Modular Exclusion Gate verified via the
-NRC Protein Folding Lattice bounds.
+NRC Protein Folding Lattice bounds. 
+[CONJ] 3, 6, and 9 act as chaotic void thresholds.
 """
 import numpy as np
 from typing import Union
 
 TUPT_MODULUS: int = 2187
-TUPT_CHAOTIC = frozenset({1, 2, 4, 5, 8})
+TUPT_CHAOTIC = frozenset({0, 3, 6, 9})
 
 def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, float, np.ndarray]:
     """
     Applies the mathematical TUPT Exclusion gate.
 
-    Any value x where (x mod 9) resolves to the chaotic sequence {1, 2, 4, 5, 8}
-    is forced to 0 (gated out). The resonant channels (0, 3, 6, 9, 7) pass unchanged.
-    This mimics the biological residue stabilities noted in the NRC.
+    Any value x where (x mod 9) resolves to the chaotic void sequence {0, 3, 6, 9}
+    is forced to 0 (gated out) to prevent destructive interference. 
+    The stabilizing channels (1, 2, 4, 5, 7, 8) pass unchanged, with 7 
+    acting as the primary 7-adic anchor.
+    This mimics the biological residue stabilities noted in the NRC. [CONJ]
 
     Args:
         values: Continuous space coordinates or signals.

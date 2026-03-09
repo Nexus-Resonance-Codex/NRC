@@ -34,8 +34,8 @@ def mst(x: float) -> float:
     return abs(math.floor(1000.0 * math.sinh(min(xp, 20.0))) + math.log(xp**2 + 1.0) + PHI**min(xp, 20.0)) % 24389
 
 def tupt_gate(x: float) -> float:
-    mod_val = x % 2187
-    if any(mod_val % p == 0 for p in [3, 6, 7, 9] if p != 0):
+    mod_val = x % 9
+    if mod_val in [0, 3, 6, 9]:
         return 0.0
     return x
 
@@ -65,7 +65,7 @@ def explore_nrc_math(x_val: float, fib_n: int) -> tuple:
     bn      = binet(int(fib_n))
     l_norm  = lattice_norm(x_val)
 
-    stability = "🔴 EXCLUDED" if tupt_v == 0 else ("🟡 RESONANT" if abs(qrt_v) < 0.5 else "🟢 STABLE")
+    stability = "🔴 EXCLUDED (Void)" if tupt_v == 0 else ("🟡 RESONANT" if abs(qrt_v) < 0.5 else "🟢 STABLE")
 
     table_md = f"""
 | Operation | Result |

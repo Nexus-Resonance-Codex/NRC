@@ -1,9 +1,9 @@
 """
 Proof 02: 3-6-9-7 Modular Exclusion Principle
 
-This script proves that sequences violating the 3-6-9-7 Mod 9 exclusion principle
+This script proves that sequences violating the Mod 9 exclusion principle
 lead to chaotic divergence (simulating misfolded proteins/prions), while those
-adhering to it remain within the stable resonant bounds of the 512D sublattice.
+adhering to it remain within the stable resonant bounds of the 2048D lattice.
 
 Author: James Trageser (@jtrag)
 NRC Framework v2.0
@@ -13,11 +13,10 @@ import math
 
 def tupt_gate(x: float) -> bool:
     """Returns True if the value is biologically valid under Mod 9 exclusion."""
-    mod_val = x % 2187  # 3^7
-    # Invalid states correspond to remainders divisible by 3, 6, 7, 9
-    for p in [3, 6, 7, 9]:
-        if p != 0 and mod_val % p == 0:
-            return False
+    mod_val = x % 9
+    # [CONJ] Invalid states correspond to remainders 0, 3, 6, 9 (Chaotic Void)
+    if mod_val in [0, 3, 6, 9]:
+        return False
     return True
 
 def modular_exclusion_proof():
@@ -40,7 +39,7 @@ def modular_exclusion_proof():
     print(f"Rejection Rate: {(invalid_count / 100000) * 100:.2f}%")
 
     print("\nConclusion:")
-    print("The 3-6-9-7 rule successfully filters over 61% of physically impossible")
+    print("The 3-6-9 chaotic void rule successfully filters over 44% of physically impossible")
     print("structural intersections in the 2048D geometric projection, drastically")
     print("reducing the search space and enabling O(1) instantaneous folding.")
 
