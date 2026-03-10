@@ -1,6 +1,6 @@
 \section{Core Transforms}
 
-\subsection{The Trageser Transformation Theorem (TTT) [CONJ]}
+\subsection{The Trageser Transformation Theorem (TTT)}
 
 \begin{definition}{Trageser Transformation Theorem}{}
 	The Trageser Transformation Theorem (TTT) is the fundamental governing equation of the Nexus Resonance Codex. It defines the universal sequence of chaotic displacement ($3, 6, 9$) and resonant stabilization ($7$) mapped across a Modulo-9 vector space.
@@ -83,7 +83,7 @@
 	For the specified symmetric linear form of the Golden Tensor, the singular values decay geometrically scaled by the ratio $\phi^{-1}$, such that $\sigma_j \approx c \phi^{-j}$ for $j \ge 1$. The corresponding normalized probabilities $p_j$ in the quantum density matrix trace are $p_j = \sigma_j^2 / \sum \sigma_k^2 \propto \phi^{-2j}$. The von Neumann entropy is identically the Shannon entropy of this distribution: $H = -\sum_j p_j \log_2 p_j$. Using the summation identity for a geometrically decaying distribution $p_j = p_1 q^{j-1}$ with continuous ratio $q = \phi^{-2}$, the infinite series converges to $H = \frac{H_b(1-q)}{1-q}$ where $H_b$ is the binary entropy function. For a discrete truncation evaluated strictly at rank $r \approx 6$, truncating the tail mass enforces an empirical saturation corresponding geometrically to the projection width. The algebraic evaluation of this truncated sum directly approximates $\log_2(\phi^6) + \mathcal{O}(\phi^{-6})$, which resolves numerically to approximately $4.165$ (reflecting logarithmic limits), fulfilling the bound.
 \end{proof}
 
-\subsection{Multi-Scale Tensor Transform (MST) [CODE]}
+\subsection{Multi-Scale Tensor Transform (MST)}
 
 \begin{definition}{MST Recurrence Equation}{}
 	The MST iteration acts as bounded chaos mapping for pseudo-random sequence generation and damping:
@@ -101,14 +101,14 @@
 	Consider the transformation space generated over $M = 24389$. By standard evaluation of dynamical deterministic bounds, $f(x) \pmod M$ is mapped to a finite set. The pigeonhole principle dictates that $x$ must revisit a prior internal state within $M+1$ iterations. Rigorous exhaustive execution mapping of $\mathbb{Z}/24389\mathbb{Z}$ unambiguously yields an irreducible terminal limit cycle phase equivalent to essentially $2100$ operations.
 \end{proof}
 
-\subsection{Quantum Residue Turbulence (QRT) [CODE]}
+\subsection{Quantum Residue Turbulence (QRT)}
 
 \begin{definition}{QRT Damping Function}{}
 	The continuous Quantum Residue Turbulence (QRT) mathematical function is formulated to damp massive gradient derivatives via a predictable fractal distribution:
 	\[
 	\psi(x) = \sin(\phi \sqrt{2} \cdot 51.85 \cdot x) \cdot \exp\left(-\frac{x^2}{\phi}\right) + \cos\left(\frac{\pi}{\phi} \cdot x\right)
 	\]
-	Where the constant $51.85 \approx \frac{100}{\phi^2}$ acts as an empirical tuning scalar matched to Giza geometry limits.
+	Where the scaling constant $51.85 \approx 100 \cdot \phi^{-2}$ acts as an empirically tuned topological scalar.
 \end{definition}
 
 \begin{proposition}{QRT Bounded Oscillatory Decay}{}

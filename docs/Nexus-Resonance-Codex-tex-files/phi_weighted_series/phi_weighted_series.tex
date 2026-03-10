@@ -70,24 +70,3 @@ Extensive numerical computations strongly verify this behavior. Below is a summa
 	\end{tabular}
 	\caption{Numerical roots of \(\operatorname{Li}_s(\phi^{-1})\) calculated to 80 precision digits.}
 \end{table}
-
-\begin{lstlisting}[caption=Python snippet for $\phi$-weighted zero discovery (runnable proxy)]
-import mpmath
-mpmath.mp.dps = 80
-phi_inv = mpmath.mpf(1) / mpmath.mp.phi
-
-# Evaluate polylog directly at (s, 1/phi)
-def eval_phi_series(sigma, t):
-    s = mpmath.mpc(sigma, t)
-    return mpmath.polylog(s, phi_inv)
-
-# The predicted critical line
-asymptotic_line = -mpmath.log(mpmath.mp.phi)
-
-# Find a root using a complex secant method
-root = mpmath.findroot(
-    lambda s: mpmath.polylog(s, phi_inv),
-    mpmath.mpc(asymptotic_line, 11.0)
-)
-print(f"Zero found at: Re={root.real}, Im={root.imag}")
-\end{lstlisting}
