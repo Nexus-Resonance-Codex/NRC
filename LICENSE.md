@@ -1,4 +1,4 @@
-# Nexus Resonance License (NRC-L) v2.0 - Core Foundation
+# Nexus Resonance License (NRC-L) - Core Foundation
 
 **Effective Date: February 2026**
 
