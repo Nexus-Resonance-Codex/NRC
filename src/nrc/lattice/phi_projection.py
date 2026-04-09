@@ -1,43 +1,43 @@
-"""Phi-Lattice Projection Math.
+#  Nexus Resonance Codex - 2025-2026 Breakthrough Series
+#  Copyright (c) 2026 James Trageser (@jtrag)
+#
+#  Licensed under CC-BY-NC-SA-4.0 + NRC-L
 
-===========================
-Topological projection from linear space into the 2048D Giza-slope bounded Hyper-Lattice.
-"""
+"""High-dimensional φ-lattice mapping and spectral projection primitives."""
 
-from typing import Union
+from typing import cast
 
 import numpy as np
 
-from ..math.phi import GIZA_SLOPE_RAD, PHI_FLOAT
+# Institutional Global Constants (Local Alias)
+PHI = (1 + 5**0.5) / 2
+GIZA_RAD = 51.853 * (np.pi / 180.0)
 
-LATTICE_DIM: int = 2048
-BIO_SUBLATTICE: int = 512
 
+def phi_lattice_project(x: float, dimension: int = 2048) -> np.ndarray:
+    """Projects scalar x into the N-dimensional φ-lattice.
 
-def phi_lattice_project(x: Union[float, np.ndarray]) -> np.ndarray:
-    """Projects arbitrary scalar spaces into a 2048-dimensional Lattice vector.
-
-    Locked by the Golden Ratio and Giza slope.
-
-    Equation:
-        L_{i}(x) = x · φ^{-i/2048} · cos(i · Giza_{rad})
+    Formula:
+        L_i = x * φ^{-i/N} * cos(i * GIZA_RAD)
 
     Args:
-        x: Base sequence value (mass, molecular weight, or raw scalar).
+        x: Scalar input value.
+        dimension: The target lattice dimension (default 2048).
 
     Returns:
-        A NumPy array of shape (2048,) representing the coordinate
-        in the Nexus hyper-space.
+        The resonant lattice vector.
     """
-    x_val = np.asarray(x, dtype=np.float64)
-    # Shape correction for batched inputs
-    dims = np.arange(LATTICE_DIM, dtype=np.float64)
+    dims = np.arange(dimension, dtype=np.float64)
+    vec = x * np.power(PHI, -dims / dimension) * np.cos(dims * GIZA_RAD)
+    return cast(np.ndarray, vec)
 
-    scaling = np.power(PHI_FLOAT, -dims / LATTICE_DIM)
-    rotation = np.cos(dims * GIZA_SLOPE_RAD)
 
-    if x_val.ndim == 0:
-        return x_val * (scaling * rotation)
-    else:
-        # Broadcasting [batch, 1] * [2048]
-        return x_val[..., np.newaxis] * (scaling * rotation)
+def compute_lattice_norm(vec: np.ndarray) -> float:
+    """Calculates the Euclidean norm of a resonant lattice vector."""
+    return float(np.linalg.norm(vec))
+
+
+def phi_lattice_isomorphism(v1: np.ndarray, v2: np.ndarray) -> np.ndarray:
+    """Computes the spectral isomorphism between two lattice projections."""
+    res = (v1 * PHI + v2) / 2
+    return cast(np.ndarray, res)

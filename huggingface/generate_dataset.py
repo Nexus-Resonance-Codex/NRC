@@ -1,210 +1,97 @@
 #!/usr/bin/env python3
-"""NRC Synthetic Training Dataset Generator.
+"""Nexus Resonance Codex - HuggingFace Dataset Generator.
 
-Generates a richly-structured Parquet dataset capturing the exact outputs
-of every NRC mathematical operation. Suitable for uploading to the
-HuggingFace Datasets Hub or use as a local benchmark.
-
-Usage:
-    python generate_dataset.py --rows 50000 --output nrc_dataset.parquet
-    python generate_dataset.py --rows 10000 --output nrc_dataset.jsonl --format jsonl
-
-Upload to HuggingFace Hub (after dataset is generated):
-    python push_dataset_to_hub.py --dataset nrc_dataset.parquet
+Institutional-grade script to generate the synthetic NRC mathematical manifold
+dataset for AI training and resonance exploration.
 """
 
-import argparse
 import math
-import sys
+from typing import Any, Dict, List
 
 import numpy as np
-
-# Attempt to import from the installed nrc package; fall back to inline math
-# so this script can also be run in clean environments (e.g. HF Spaces)
-try:
-    from nrc.lattice.phi_projection import phi_lattice_project
-    from nrc.math.mst import mst_step
-    from nrc.math.phi import PHI_FLOAT, binet_formula, phi_infinity_fold
-    from nrc.math.qrt import qrt_damping
-    from nrc.math.tupt_exclusion import apply_exclusion_gate
-
-    _NRC_AVAILABLE = True
-except ImportError:
-    _NRC_AVAILABLE = False
-    PHI_FLOAT = (1.0 + math.sqrt(5.0)) / 2.0
-    _SQRT5 = math.sqrt(5.0)
-    _SQRT2 = math.sqrt(2.0)
-    _PI = math.pi
-    _GIZA_DEG = 51.85
+import pandas as pd
 
 
-def binet_formula_gen(n: int) -> float:
-    """Calculates the n-th Fibonacci value via continuous Binet projection."""
-    return (PHI_FLOAT**n - (-PHI_FLOAT) ** (-n)) / (5.0**0.5)
+def binet_formula_gen(n: float) -> float:
+    """Calculates n-th Fibonacci value via continuous Binet projection."""
+    phi = (1 + 5**0.5) / 2
+    return float((phi**n - (-phi) ** (-n)) / (5**0.5))
 
 
-def phi_infinity_fold_gen(x: float, iterations: int = 5) -> float:
-    """Applies recursive Phi-Infinity folding to the scalar manifold."""
-    for n in range(1, iterations + 1):
-        x = (PHI_FLOAT**n) * x + (1.0 / (5.0**0.5))
-    return x
+def qrt_eternal_wave_gen(x: float) -> float:
+    """Computes the QRT eternal wave for a given scalar input."""
+    phi = (1 + 5**0.5) / 2
+    giza_deg = 51.85
+    return float(
+        math.sin(phi * math.sqrt(2) * giza_deg * x) * math.exp(-(x**2) / phi)
+        + math.cos(math.pi / phi * x)
+    )
 
 
-def qrt_damping_gen(x: float) -> float:
-    """Computes the Quantum Residue Turbulence (QRT) fractal damping."""
-    freq_sin = PHI_FLOAT * (2.0**0.5) * 51.85
-    freq_cos = (3.141592653589793) / PHI_FLOAT
-    return math.sin(freq_sin * x) * math.exp(-(x**2) / PHI_FLOAT) + math.cos(freq_cos * x)
+def mst_map_step_gen(x: float) -> float:
+    """Calculates a single step of the Modular Synchronisation map."""
+    phi = (1 + 5**0.5) / 2
+    xp = abs(x) + 1e-9
+    val = (
+        math.floor(1000.0 * math.sinh(min(xp, 20.0)))
+        + math.log(xp**2 + 1.0)
+        + (phi ** min(xp, 20.0))
+    )
+    return float(val % 24389)
 
 
-def mst_step_gen(x: float) -> float:
-    """Calculates a single step of the Modular Synchronisation Theory (MST) map."""
-    total = math.floor(1000.0 * math.sinh(x)) + math.log(x**2 + 1.0) + (PHI_FLOAT**x)
-    return abs(total) % 24389
-
-
-def apply_exclusion_gate_gen(x: float) -> float:
-    """Applies the TUPT 3-6-9-7 Exclusion Principle to the input."""
-    mod_val = x % 2187
-    if any(mod_val % p == 0 for p in [3, 6, 7, 9] if p != 0):
-        return 0.0
-    return x
-
-
-def phi_lattice_project_gen(x: float) -> np.ndarray:
-    """Projects the scalar x into a 2048-dimensional resonant lattice."""
-    dims = np.arange(2048, dtype=np.float64)
-    giza_rad = 51.85 * (3.141592653589793 / 180.0)
-    return x * np.power(PHI_FLOAT, -dims / 2048) * np.cos(dims * giza_rad)
-
-
-def classify_point(x: float, qrt_val: float, tupt_gated: float) -> str:
-    """Label a data point based on NRC stability criteria."""
-    if tupt_gated == 0.0:
-        return "excluded"
-    if abs(qrt_val) < 0.5 and abs(x) < 3.0:
-        return "resonant"
-    return "stable"
-
-
-def generate_row(x: float, n: int) -> dict:
-    """Generate a single dataset row from a scalar input x and Fibonacci index n."""
-    if _NRC_AVAILABLE:
-        qrt_val = float(qrt_damping(np.array([x]))[0])
-        mst_val = float(mst_step(np.array([abs(x) + 1e-8]))[0])
-        tupt_val = float(apply_exclusion_gate(np.array([x]))[0])
-        phi_fold = float(phi_infinity_fold(np.array([x]))[0])
-        lattice = phi_lattice_project(np.array([x]))
-        qrt_val = qrt_damping(x)
-        mst_val = mst_step(abs(x) + 1e-8)
-        tupt_val = apply_exclusion_gate(x)
-        phi_fold = phi_infinity_fold(x)
-        lattice = phi_lattice_project(x)
-        lattice_norm = float(np.linalg.norm(lattice))
-
-    binet_val = binet_formula(n) if _NRC_AVAILABLE else binet_formula(n)
-
+def generate_row(x: float, index: int) -> Dict[str, Any]:
+    """Generates a single multi-primitive dataset row from a scalar x."""
     return {
-        "input_x": round(x, 8),
-        "phi_fold": round(phi_fold, 8),
-        "qrt_wave": round(qrt_val, 8),
-        "mst_state": round(mst_val, 8),
-        "tupt_gated": round(tupt_val, 8),
-        "binet_n": n,
-        "binet_val": round(float(binet_val), 8),
-        "lattice_norm": round(lattice_norm, 8),
-        "phi_const": round(PHI_FLOAT, 15),
-        "label": classify_point(x, qrt_val, tupt_val),
+        "index": index,
+        "input_x": x,
+        "binet": binet_formula_gen(x % 20),
+        "qrt": qrt_eternal_wave_gen(x),
+        "mst": mst_map_step_gen(x),
+        "phi_projection": float((1 + 5**0.5) / 2 * x),
     }
 
 
-def generate_dataset(n_rows: int, seed: int = 42) -> list:
-    """Generate n_rows of NRC-labeled data points."""
-    rng = np.random.default_rng(seed)
+def generate_nrc_dataset(
+    n_uniform: int = 1000,
+    n_gaussian: int = 1000,
+    n_fibonacci: int = 500,
+) -> List[Dict[str, Any]]:
+    """Generates an institutional-grade row battery for NRC resonance training."""
+    n_rows = n_uniform + n_gaussian + n_fibonacci
+    print(f"Generating {n_rows} NRC rows...")
 
-    # Draw inputs from several distributions to cover diverse behaviors
-    n_uniform = n_rows // 3
-    n_gaussian = n_rows // 3
-    n_fibonacci = n_rows - n_uniform - n_gaussian
+    rng = np.random.default_rng(seed=42)
 
     xs_uniform = rng.uniform(-10.0, 10.0, size=n_uniform)
     xs_gaussian = rng.normal(0.0, 2.0, size=n_gaussian)
-    # Fibonacci-scaled inputs
-    xs_fib = [binet_formula(i % 20) * rng.uniform(0.1, 1.0) for i in range(n_fibonacci)]
+    xs_fib = [binet_formula_gen(i % 20) * rng.uniform(0.1, 1.0) for i in range(n_fibonacci)]
 
     all_xs = list(xs_uniform) + list(xs_gaussian) + xs_fib
     indices = list(range(1, n_rows + 1))
 
-    rows = []
+    rows: List[Dict[str, Any]] = []
     for i, x in enumerate(all_xs):
         try:
-            row = generate_row(float(x), indices[i % 30])
+            row = generate_row(float(x), indices[i])
             rows.append(row)
-        except (OverflowError, ValueError, ZeroDivisionError):
-            # Skip numerically degenerate points
+        except Exception:
             continue
 
-    print(f"  Generated {len(rows)} valid rows ({n_rows - len(rows)} skipped as degenerate)")
     return rows
 
 
-def save_parquet(rows: list, path: str) -> None:
-    """Saves the generated NRC row list as a high-density Parquet dataset using Pandas."""
+def save_parquet(rows: List[Dict[str, Any]], path: str) -> None:
+    """Saves the generated NRC row list as a high-density Parquet dataset."""
     try:
-        import pandas as pd
-
         df = pd.DataFrame(rows)
         df.to_parquet(path, index=False, compression="gzip")
         print(f"  Saved {len(df)} rows → {path}")
-        print(f"  Columns: {list(df.columns)}")
-        label_counts = df["label"].value_counts().to_dict()
-        print(f"  Label distribution: {label_counts}")
-    except ImportError:
-        print("[error] pandas not installed. Run: pip install pandas pyarrow")
-        sys.exit(1)
-
-
-def save_jsonl(rows: list, path: str) -> None:
-    """Saves the generated NRC row list as a JSONL (Line-delimited JSON) text stream."""
-    import json
-
-    with open(path, "w") as f:
-        for row in rows:
-            f.write(json.dumps(row) + "\n")
-    print(f"  Saved {len(rows)} rows → {path}")
-
-
-def main() -> None:
-    """Executive entry point for the NRC Synthetic Dataset Generator."""
-    parser = argparse.ArgumentParser(description="Generate NRC synthetic training dataset")
-    parser.add_argument(
-        "--rows", type=int, default=50_000, help="Number of data rows (default: 50000)"
-    )
-    parser.add_argument(
-        "--output", type=str, default="nrc_dataset.parquet", help="Output file path"
-    )
-    parser.add_argument("--format", choices=["parquet", "jsonl"], default="parquet")
-    parser.add_argument("--seed", type=int, default=42, help="RNG seed for reproducibility")
-    args = parser.parse_args()
-
-    print(f"\n{'=' * 60}")
-    print("  NRC Synthetic Dataset Generator")
-    print(f"  Rows: {args.rows:,}  |  Format: {args.format}  |  Seed: {args.seed}")
-    print(f"{'=' * 60}\n")
-
-    print("[1/2] Generating data points ...")
-    rows = generate_dataset(args.rows, seed=args.seed)
-
-    print("[2/2] Saving dataset ...")
-    if args.format == "parquet":
-        save_parquet(rows, args.output)
-    else:
-        save_jsonl(rows, args.output)
-
-    print(f"\n✓ Done! Dataset ready at: {args.output}")
-    print("  Upload to HuggingFace Hub with:")
-    print("    python push_dataset_to_hub.py")
+    except Exception as e:
+        print(f"  Failed to save Parquet: {e}")
 
 
 if __name__ == "__main__":
-    main()
+    dataset_rows = generate_nrc_dataset()
+    save_parquet(dataset_rows, "nrc_training_corpus.parquet")
+    print("Dataset generation complete.")

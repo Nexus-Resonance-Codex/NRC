@@ -10,7 +10,8 @@ from typing import Union
 
 import numpy as np
 
-TUPT_MODULUS: int = 2187
+TUPT_MODULUS: int = 9
+TUPT_PATTERN: list[int] = [0, 3, 6]
 TUPT_CHAOTIC = frozenset({0, 3, 6, 9})
 
 

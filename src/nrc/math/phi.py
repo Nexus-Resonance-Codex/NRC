@@ -1,68 +1,52 @@
-"""Golden Ratio (Phi) Constants and Fibonacci Calculations.
-
-======================================================
-Provides extremely high-precision constants, Binet's equation,
-and continuous geometric operators.
-"""
-
 import math
-from typing import Union, overload
+from typing import Literal, Union, overload
 
-import mpmath
+import mpmath  # type: ignore[import-untyped]
 import numpy as np
 
-# Ensure extreme precision locally
-mpmath.mp.dps = 100
-
-# Constants
-PHI_MP: mpmath.mpf = (mpmath.mpf(1) + mpmath.sqrt(5)) / 2
-PHI_FLOAT: float = float(PHI_MP)
-
-PHI_INVERSE_MP: mpmath.mpf = 1 / PHI_MP
-PHI_INVERSE_FLOAT: float = float(PHI_INVERSE_MP)
-
-SQRT_5_FLOAT: float = math.sqrt(5.0)
-
+# Institutional Global Constants
+PHI_FLOAT: float = (1 + math.sqrt(5)) / 2
+PHI_INVERSE_FLOAT: float = 1 / PHI_FLOAT
+SQRT_5_FLOAT: float = math.sqrt(5)
 GIZA_SLOPE_DEG: float = 51.853
 GIZA_SLOPE_RAD: float = GIZA_SLOPE_DEG * (math.pi / 180.0)
 
 
 @overload
-def binet_formula(n: int, as_mpmath: bool = False) -> Union[float, mpmath.mpf]: ...
+def binet_formula(n: int, as_mpmath: Literal[False] = ...) -> float: ...
+
+
+@overload
+def binet_formula(n: int, as_mpmath: Literal[True]) -> mpmath.mpf: ...
 
 
 def binet_formula(n: int, as_mpmath: bool = False) -> Union[float, mpmath.mpf]:
-    """Computes the exact nth Fibonacci number using Binet's continuous formula.
-
-    Formula:
-        F_n = (φ^n - (-φ)^{-n}) / √5
-
-    Args:
-        n: The sequence index (integer distance).
-        as_mpmath: If True, returns a 100-decimal precision mpmath float.
-
-    Returns:
-        The exact Fibonacci sequence value at spatial location n.
-    """
+    """Calculates n-th Fibonacci value via continuous Binet projection."""
     if as_mpmath:
-        return (PHI_MP**n - (-PHI_MP) ** (-n)) / mpmath.sqrt(5)
-    return (PHI_FLOAT**n - (-PHI_FLOAT) ** (-n)) / SQRT_5_FLOAT
+        phi = (mpmath.mpf(1) + mpmath.sqrt(5)) / 2
+        sqrt5 = mpmath.sqrt(5)
+        return (phi**n - (-phi) ** (-n)) / sqrt5
+
+    return float((PHI_FLOAT**n - (-PHI_FLOAT) ** (-n)) / SQRT_5_FLOAT)
+
+
+@overload
+def phi_projection(x: float) -> float: ...
+
+
+@overload
+def phi_projection(x: np.ndarray) -> np.ndarray: ...
+
+
+def phi_projection(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+    """Projects scalar or vector into the Phi-resonant frequency manifold."""
+    if isinstance(x, np.ndarray):
+        return x * PHI_FLOAT
+    return float(x * PHI_FLOAT)
 
 
 def phi_infinity_fold(x: Union[float, np.ndarray], iterations: int = 5) -> Union[float, np.ndarray]:
-    """Computes the φ^∞ topological folding mechanic.
-
-    Repeated application of φ^n scaling mixed with the 1/√5 stabilization boundary,
-    allowing arrays to infinitely fractalize losslessly into deeper dimensional shards.
-
-    Args:
-        x: Base signal scalar or numpy array.
-        iterations: Number of fractal folding steps (depth).
-
-    Returns:
-        The structurally folded tensor mapping.
-    """
-    folded = np.copy(x) if isinstance(x, np.ndarray) else x
+    """Computes the φ^∞ topological folding mechanic."""
     for n in range(1, iterations + 1):
-        folded = (PHI_FLOAT**n) * folded + (1.0 / SQRT_5_FLOAT)
-    return folded
+        x = (PHI_FLOAT**n) * x + (1.0 / SQRT_5_FLOAT)
+    return x

@@ -1,38 +1,50 @@
-"""Modular Synchronisation Theory (MST) Dynamics.
+#  Nexus Resonance Codex - 2025-2026 Breakthrough Series
+#  Copyright (c) 2026 James Trageser (@jtrag)
+#
+#  Licensed under CC-BY-NC-SA-4.0 + NRC-L
 
-==============================================
-Provides mathematical bounding and cyclic clipping functions rooted
-in the Lyapunov exponent limits.
-"""
+"""Modular Synchronisation Theory (MST) — Foundational Mathematics."""
 
-from typing import Union
+import math
+from typing import Union, cast, overload
 
 import numpy as np
 
-from .phi import PHI_FLOAT
-
+# MST Constants
 MST_MODULUS: int = 24389
-MST_LAMBDA: float = 0.381
+MST_LAMBDA: float = 0.381966  # 1/φ^2
 
 
-def mst_step(x_n: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
-    """Executes a single step of the Modular Synchronisation Theory (MST) bounds.
+@overload
+def mst_step(x: float) -> float: ...
+
+
+@overload
+def mst_step(x: np.ndarray) -> np.ndarray: ...
+
+
+def mst_step(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+    """Calculates a single resonant step of the MST map.
 
     Formula:
-        x_{n+1} = | floor(1000 · sinh(x_n)) + log(x_n² + 1) + φ^{x_n} | mod 24389
-
-    Generates cycles of precisely ~2100 phases with a provable Lyapunov exponent
-    λ ≈ 0.381. Ensures values map back into mathematically stable boundaries.
+        x_{n+1} = (floor(1000 * sinh(x)) + log(x^2 + 1) + φ^x) % MST_MOD
 
     Args:
-        x_n: The current state value (scalar or array).
+        x: Scalar or vector input coordinate.
 
     Returns:
-        The next cyclic state bounded by mod 24389.
+        The synchronised MST coordinate.
     """
-    term1 = np.floor(1000.0 * np.sinh(x_n))
-    term2 = np.log(x_n**2 + 1.0)
-    term3 = np.power(PHI_FLOAT, x_n)
+    phi = (1 + 5**0.5) / 2
+    if isinstance(x, np.ndarray):
+        xp = np.abs(x) + 1e-9
+        val = (
+            np.floor(1000.0 * np.sinh(np.minimum(xp, 20.0))) + np.log(xp**2 + 1.0) + (phi**xp)
+        ) % MST_MODULUS
+        return cast(np.ndarray, val)
 
-    total = term1 + term2 + term3
-    return np.fmod(np.abs(total), MST_MODULUS)
+    xp = abs(x) + 1e-9
+    val = (
+        math.floor(1000.0 * math.sinh(min(xp, 20.0))) + math.log(xp**2 + 1.0) + (phi**xp)
+    ) % MST_MODULUS
+    return float(val)

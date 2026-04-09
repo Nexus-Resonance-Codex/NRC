@@ -5,7 +5,9 @@ Computes numerical zeros for the generalized Polylogarithmic function
 weighted by the golden ratio inverse.
 """
 
-from mpmath import mp
+import math
+
+from mpmath import mp  # type: ignore[import-untyped]
 
 
 def phi_power_series_zeros() -> None:

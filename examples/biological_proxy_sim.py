@@ -5,7 +5,7 @@ Demonstrates the 3-6-9-7 exclusion deficit in biological residue distributions.
 """
 
 import numpy as np
-from scipy.stats import chisquare
+from scipy.stats import chisquare  # type: ignore[import-untyped]
 
 
 def run_biological_proxy_sim() -> None:

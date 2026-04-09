@@ -1,160 +1,115 @@
-#  Nexus Resonance Codex - 2025-2026 Breakthrough Series
-#  Copyright (c) 2026 James Trageser (@jtrag)
-#
-#  Licensed under CC-BY-NC-SA-4.0 + NRC-L
-#  "This work is part of the Nexus Resonance Codex (NRC) incorporating TTT
-#  modular exclusion, phi^inf compression, 256D->729D lattice, QRT, and MST."
-
-"""The Nexus Resonance Codex (NRC) Mathematics Vault - Primitives.
-
-Core primitives for Quantum Residue Turbulence (QRT), Trageser Transformation
-Theorem (TTT), and the Universal Pattern Theorem (TUPT) Exclusion Gate.
-"""
-
-import math
-from typing import Any, Final, Union
+from typing import Any, List, Optional, Union, cast
 
 import numpy as np
-from numpy.typing import NDArray
 
-try:
-    import torch
-except ImportError:
-    torch = None
+# Institutional NRC Constants
+PHI_VAL = (1 + 5**0.5) / 2
+SQRT_5_VAL = 5**0.5
 
-# High-fidelity poly-type alias for the NRC ecosystem
-# Satisfies ANN401 by avoiding 'Any' while maintaining MST-compatibility
-LatticeValue = Union[float, int, NDArray, Any]
+# Institutional Global Constants
+PHI: float = float(PHI_VAL)
+PHI_FLOAT: float = PHI
+PHI_INT: int = 1618
+SQRT_5: float = float(SQRT_5_VAL)
+SQRT_5_FLOAT: float = SQRT_5
+MST_MOD: int = 24389
+TUPT_MOD: int = 9
+TTT_CYCLE: List[int] = [3, 6, 9, 7]
+TUPT_PATTERN = {0, 3, 6}
 
-# --- Fundamental Stability Constants ---
-PHI: Final[float] = (1 + 5**0.5) / 2
-PHI_FLOAT: Final[float] = PHI
-PHI_INT: Final[int] = 1618
-
-# TTT Stabilization Cycle: digital root {3, 6, 9, 7} resonance.
-TTT_CYCLE: Final[list[int]] = [3, 6, 9, 7]
-
-# Numerical Moduli
-MST_MOD: Final[int] = 24389  # (29^3)
-TUPT_MOD: Final[int] = 12289  # Prime field
-TUPT_PATTERN: Final[frozenset[int]] = frozenset({0, 3, 6, 9})
+# Type Aliases for Spectral Clarity
+LatticeValue = Union[float, np.ndarray, Any]
 
 
-class TUPTMixer:
-    """Stateful modular mixer for Nexus Resonance projections."""
-
-    def __init__(self, seed: int = 7) -> None:
-        """Initialize the mixer with a Root-7 stabilized seed."""
-        self.state: int = seed % TUPT_MOD
-        self.step_count: int = 0
-
-    def next_residue(self) -> int:
-        """Generate the next TUPT resonant residue.
-
-        Formula: x_{n+1} = (x_n * φ_int + cycle[step % 4]) mod TUPT_MOD
-        """
-        c_i = TTT_CYCLE[self.step_count % 4]
-        self.state = (self.state * PHI_INT + c_i) % TUPT_MOD
-        self.step_count += 1
-        return self.state
+def binet_formula(n: Any) -> LatticeValue:  # noqa: ANN401
+    """Calculates n-th Fibonacci value via continuous Binet projection."""
+    phi = (np.sqrt(5) + 1) / 2
+    return float((phi**n - (-phi) ** (-n)) / np.sqrt(5))
 
 
-def qrt_damping(x: LatticeValue) -> LatticeValue:
-    """Quantum Residue Turbulence (QRT) damping function with high-fidelity poly-type support.
+def apply_exclusion_gate(values: Any, modulus: int = 9) -> Any:  # noqa: ANN401
+    """Applies the Trageser Universal Protein Tensor (TUPT) exclusion principle."""
+    type_str = str(type(values))
+    is_torch = "torch.Tensor" in type_str
+    is_numpy = "numpy.ndarray" in type_str
 
-    ψ(x) = sin(φ√2 * 51.85 x) * e^(-x^2 / φ) + cos(π/φ * x)
-    """
-    freq_scale = PHI_FLOAT * math.sqrt(2) * 51.85
-
-    # 1. Handle Scalar Types
-    if np.isscalar(x):
-        term1 = math.sin(freq_scale * x) * math.exp(-(x**2) / PHI_FLOAT)
-        term2 = math.cos(math.pi / PHI_FLOAT * x)
-        return float(term1 + term2)
-
-    # 2. Handle PyTorch Tensors natively
-    v_type = str(type(x))
-    if "torch" in v_type:
+    if is_torch:
         import torch
 
-        term1 = torch.sin(freq_scale * x) * torch.exp(-(x**2) / PHI_FLOAT)
-        term2 = torch.cos(math.pi / PHI_FLOAT * x)
-        return term1 + term2
+        t_values = cast(torch.Tensor, values)
+        device = t_values.device
+        dtype = t_values.dtype
+        mask_val = torch.tensor(0.0, device=device, dtype=dtype)
+        mod_val = torch.remainder(t_values, modulus)
+        mask = (mod_val == 0) | (mod_val == 3) | (mod_val == 6)
+        return torch.where(mask, mask_val, t_values)
 
-    # 3. Handle NumPy/Iterable fallback
-    x_arr = np.asanyarray(x, dtype=np.float64)
-    term1 = np.sin(freq_scale * x_arr) * np.exp(-(x_arr**2) / PHI_FLOAT)
-    term2 = np.cos(np.pi / PHI_FLOAT * x_arr)
-    return term1 + term2
+    if is_numpy:
+        n_values = cast(np.ndarray, values)
+        mod_v = n_values % modulus
+        mask_n = (mod_v == 0) | (mod_v == 3) | (mod_v == 6)
+        out = np.copy(n_values)
+        out[mask_n] = 0.0
+        return out
 
-
-def mst_recurrence(x_n: float) -> int:
-    """Multi-Scale Tensor (MST) recurrence step.
-
-    x_{n+1} = floor(1000 * sinh(x_n)) + log(x_n^2 + 1) + φ^{x_n} mod 24389
-    """
     try:
-        # Combined check for exponential and power overflows
-        exp_term = math.sinh(float(x_n))
-        pow_term = PHI ** float(x_n)
+        if float(values) % modulus in [0, 3, 6]:
+            return type(values)(0)
+    except (ValueError, TypeError):
+        pass
 
-        if math.isinf(exp_term) or math.isinf(pow_term):
-            return 0
-
-        res = math.floor(1000 * exp_term) + math.log(x_n**2 + 1) + pow_term
-        return int(res) % MST_MOD
-    except (OverflowError, ValueError):
-        return 0  # Chaotic Void Reset
-
-
-def phi_infinity_shard(x: NDArray[np.float64], k: int) -> NDArray[np.float64]:
-    """Generate a φ^∞ shard for data vector x at index k."""
-    x_arr = np.asanyarray(x, dtype=np.float64)
-    rolled = np.roll(x_arr, k)
-    return x_arr * (PHI**k) + rolled * (PHI**-k)
-
-
-def apply_exclusion_gate(values: LatticeValue) -> LatticeValue:
-    """Apply the TUPT Exclusion gate with high-fidelity poly-type support.
-
-    Supports: float, int, list, numpy.ndarray, torch.Tensor.
-    """
-    # 1. Handle Scalar Types
-    if np.isscalar(values):
-        mod_val = int(values) % 9
-        return 0.0 if mod_val in TUPT_PATTERN else float(values)
-
-    # 2. Handle PyTorch Tensors natively (to prevent type-fracturing)
-    # We use high-precision string reflection to ensure detection even in
-    # complex shadowed environments.
-    v_type_str = str(type(values))
-    if "torch" in v_type_str and ("Tensor" in v_type_str or "Parameter" in v_type_str):
-        import torch
-
-        # Modulo arithmetic on integers
-        v_int = values.to(torch.int32) if values.is_floating_point() else values
-        mod_vals = torch.remainder(v_int, 9)
-
-        # Build the exclusion mask ([0, 3, 6, 9] mapped to True)
-        # Note: 9 mod 9 is 0, so we check {0, 3, 6}
-        mask = (mod_vals == 0) | (mod_vals == 3) | (mod_vals == 6)
-
-        # We use .masked_fill (non-inplace) to maintain graph stability
-        return values.masked_fill(mask, 0.0)
-
-    # 3. Handle NumPy/Iterable fallback
-    v_arr = np.asanyarray(values, dtype=np.float64)
-    mod_vals = np.mod(v_arr.astype(int), 9)
-    mask = np.isin(mod_vals, list(TUPT_PATTERN))
-
-    result = np.copy(v_arr)
-    result[mask] = 0.0
-    return result
+    return values
 
 
 def verify_root_7_stability(value: int) -> bool:
-    """Verify if a result resides in the stabilized Root-7 anchor space."""
-    d_root = value % 9
-    if d_root == 0:
-        d_root = 9
-    return d_root == 7
+    """Verifies if the digital root of the input value is 7."""
+    if value == 0:
+        return False
+    dr = value % 9
+    return (dr if dr != 0 else 9) == 7
+
+
+def mst_recurrence(x: Any) -> LatticeValue:  # noqa: ANN401
+    """Computes the institutional MST recurrence value."""
+    # Poly-type compatible recurrence logic
+    xp = np.abs(x) + 1e-9
+    val = np.floor(1000.0 * np.sinh(np.minimum(xp, 20.0))) + np.log(xp**2 + 1.0)
+    res = val % MST_MOD
+    if isinstance(res, (float, np.float64)):
+        return int(res)
+    return res
+
+
+def phi_infinity_shard(x: Any, alpha: float = 1.0) -> LatticeValue:  # noqa: ANN401
+    """Calculates a single φ^∞ spectral shard with alpha modulation."""
+    return x / (PHI * alpha)
+
+
+def qrt_damping(x: Any) -> LatticeValue:  # noqa: ANN401
+    """Calculates the QRT damping factor for scalar or tensor inputs."""
+    type_str = str(type(x))
+    if "torch.Tensor" in type_str:
+        import torch
+
+        return torch.exp(-(x**2) / PHI)
+    return np.exp(-(x**2) / PHI)
+
+
+class TUPTMixer:
+    """Institutional stateful mixer for TUPT pattern generation."""
+
+    def __init__(self, seed: Optional[int] = None) -> None:
+        """Initialises the stateful TUPT mixer manifold."""
+        self.state = float(seed) if seed is not None else PHI
+        self._counter = 0
+
+    def next_residue(self) -> float:
+        """Generates the next resonant residue in the sequence."""
+        self.state = (self.state * PHI + 1.2345) % TUPT_MOD
+        self._counter += 1
+        return float(self.state)
+
+    @staticmethod
+    def mix(a: float, b: float) -> float:
+        """Static mix manifold for two residues."""
+        return float((a + b * PHI) % TUPT_MOD)

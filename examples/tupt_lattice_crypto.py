@@ -5,6 +5,8 @@ Demonstrates the Trageser Universal Protein Tensor mapped as a Learning
 With Errors (LWE) cryptography prototype using the 3-6-9-7 cyclic modifiers.
 """
 
+from typing import Tuple
+
 import numpy as np
 
 # Core TUPT parameters defined by the NRC
@@ -13,7 +15,7 @@ PHI_INT = 1618
 TUPT_CYCLE = [3, 6, 9, 7]
 
 
-def generate_tupt_keys(dimension: int = 256) -> tuple:
+def generate_tupt_keys(dimension: int = 256) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """[CODE/CONJ] Generates Post-Quantum secure LWE keys using the TUPT lattice cycle."""
     np.random.seed(42)  # For deterministic example output
 
