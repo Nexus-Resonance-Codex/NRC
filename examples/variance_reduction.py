@@ -1,24 +1,29 @@
 import numpy as np
 
 
-def fib_mod9(n):
+def fib_mod9(n: int) -> np.ndarray:
     """Generate first n Fibonacci numbers mod 9."""
     fibs = np.zeros(n, dtype=int)
-    fibs[0], fibs[1] = 0, 1
+    if n > 0:
+        fibs[0] = 0
+    if n > 1:
+        fibs[1] = 1
     for i in range(2, n):
         fibs[i] = (fibs[i - 1] + fibs[i - 2]) % 9
     return fibs
 
 
-def modular_projector(seq):
-    """Applies the M(r) Modular Exclusion Projector to the sequence.
-    M(r) = 0 if r(mod 9) in {0, 3, 6}, else 1.
-    """
-    excluded = {0, 3, 6}
-    return np.array([0 if x in excluded else 1 for x in seq])
+def modular_projector(seq: np.ndarray) -> np.ndarray:
+    """Applies the M(r) Modular Exclusion Projector to the sequence."""
+    out = np.copy(seq)
+    for i in range(len(out)):
+        if out[i] % 9 in [3, 6, 0]:
+            out[i] = 0
+    return out
 
 
 def demonstrate_variance_reduction() -> None:
+    """[CONJ] Demonstrates variance reduction via recursive modular exclusion."""
     print("Nexus Resonance Codex - Variance Reduction Demo")
 
     n_terms = 500

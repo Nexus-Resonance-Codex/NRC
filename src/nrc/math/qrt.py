@@ -1,4 +1,5 @@
 """Quantum Resonance Theory (QRT) Damping Functions.
+
 =================================================
 Fractal waveform math to resolve unstable gradients via smooth friction
 instead of stochastic dropout.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """NRC Synthetic Training Dataset Generator.
-=========================================
+
 Generates a richly-structured Parquet dataset capturing the exact outputs
 of every NRC mathematical operation. Suitable for uploading to the
 HuggingFace Datasets Hub or use as a local benchmark.
@@ -31,40 +31,51 @@ try:
     _NRC_AVAILABLE = True
 except ImportError:
     _NRC_AVAILABLE = False
-    print("[warn] nrc library not found — using inline math definitions.")
     PHI_FLOAT = (1.0 + math.sqrt(5.0)) / 2.0
     _SQRT5 = math.sqrt(5.0)
     _SQRT2 = math.sqrt(2.0)
     _PI = math.pi
-    _GIZA_DEG = 51.853
-    _GIZA_RAD = _GIZA_DEG * (_PI / 180.0)
+    _GIZA_DEG = 51.85
 
-    def binet_formula(n: int) -> float:
-        return (PHI_FLOAT**n - (-PHI_FLOAT) ** (-n)) / _SQRT5
 
-    def phi_infinity_fold(x: float, iterations: int = 5) -> float:
-        for n in range(1, iterations + 1):
-            x = (PHI_FLOAT**n) * x + (1.0 / _SQRT5)
-        return x
+def binet_formula_gen(n: int) -> float:
+    """Calculates the n-th Fibonacci value via continuous Binet projection."""
+    return (PHI_FLOAT**n - (-PHI_FLOAT) ** (-n)) / (5.0**0.5)
 
-    def qrt_damping(x: float) -> float:
-        freq_sin = PHI_FLOAT * _SQRT2 * _GIZA_DEG
-        freq_cos = _PI / PHI_FLOAT
-        return math.sin(freq_sin * x) * math.exp(-(x**2) / PHI_FLOAT) + math.cos(freq_cos * x)
 
-    def mst_step(x: float) -> float:
-        total = math.floor(1000.0 * math.sinh(x)) + math.log(x**2 + 1.0) + (PHI_FLOAT**x)
-        return abs(total) % 24389
+def phi_infinity_fold_gen(x: float, iterations: int = 5) -> float:
+    """Applies recursive Phi-Infinity folding to the scalar manifold."""
+    for n in range(1, iterations + 1):
+        x = (PHI_FLOAT**n) * x + (1.0 / (5.0**0.5))
+    return x
 
-    def apply_exclusion_gate(x: float) -> float:
-        mod_val = x % 2187
-        if any(mod_val % p == 0 for p in [3, 6, 7, 9] if p != 0):
-            return 0.0
-        return x
 
-    def phi_lattice_project(x: float) -> np.ndarray:
-        dims = np.arange(2048, dtype=np.float64)
-        return x * np.power(PHI_FLOAT, -dims / 2048) * np.cos(dims * _GIZA_RAD)
+def qrt_damping_gen(x: float) -> float:
+    """Computes the Quantum Residue Turbulence (QRT) fractal damping."""
+    freq_sin = PHI_FLOAT * (2.0**0.5) * 51.85
+    freq_cos = (3.141592653589793) / PHI_FLOAT
+    return math.sin(freq_sin * x) * math.exp(-(x**2) / PHI_FLOAT) + math.cos(freq_cos * x)
+
+
+def mst_step_gen(x: float) -> float:
+    """Calculates a single step of the Modular Synchronisation Theory (MST) map."""
+    total = math.floor(1000.0 * math.sinh(x)) + math.log(x**2 + 1.0) + (PHI_FLOAT**x)
+    return abs(total) % 24389
+
+
+def apply_exclusion_gate_gen(x: float) -> float:
+    """Applies the TUPT 3-6-9-7 Exclusion Principle to the input."""
+    mod_val = x % 2187
+    if any(mod_val % p == 0 for p in [3, 6, 7, 9] if p != 0):
+        return 0.0
+    return x
+
+
+def phi_lattice_project_gen(x: float) -> np.ndarray:
+    """Projects the scalar x into a 2048-dimensional resonant lattice."""
+    dims = np.arange(2048, dtype=np.float64)
+    giza_rad = 51.85 * (3.141592653589793 / 180.0)
+    return x * np.power(PHI_FLOAT, -dims / 2048) * np.cos(dims * giza_rad)
 
 
 def classify_point(x: float, qrt_val: float, tupt_gated: float) -> str:
@@ -78,15 +89,12 @@ def classify_point(x: float, qrt_val: float, tupt_gated: float) -> str:
 
 def generate_row(x: float, n: int) -> dict:
     """Generate a single dataset row from a scalar input x and Fibonacci index n."""
-    # Core math outputs
     if _NRC_AVAILABLE:
         qrt_val = float(qrt_damping(np.array([x]))[0])
         mst_val = float(mst_step(np.array([abs(x) + 1e-8]))[0])
         tupt_val = float(apply_exclusion_gate(np.array([x]))[0])
         phi_fold = float(phi_infinity_fold(np.array([x]))[0])
         lattice = phi_lattice_project(np.array([x]))
-        lattice_norm = float(np.linalg.norm(lattice))
-    else:
         qrt_val = qrt_damping(x)
         mst_val = mst_step(abs(x) + 1e-8)
         tupt_val = apply_exclusion_gate(x)
@@ -141,6 +149,7 @@ def generate_dataset(n_rows: int, seed: int = 42) -> list:
 
 
 def save_parquet(rows: list, path: str) -> None:
+    """Saves the generated NRC row list as a high-density Parquet dataset using Pandas."""
     try:
         import pandas as pd
 
@@ -156,6 +165,7 @@ def save_parquet(rows: list, path: str) -> None:
 
 
 def save_jsonl(rows: list, path: str) -> None:
+    """Saves the generated NRC row list as a JSONL (Line-delimited JSON) text stream."""
     import json
 
     with open(path, "w") as f:
@@ -165,6 +175,7 @@ def save_jsonl(rows: list, path: str) -> None:
 
 
 def main() -> None:
+    """Executive entry point for the NRC Synthetic Dataset Generator."""
     parser = argparse.ArgumentParser(description="Generate NRC synthetic training dataset")
     parser.add_argument(
         "--rows", type=int, default=50_000, help="Number of data rows (default: 50000)"

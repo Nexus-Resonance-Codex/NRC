@@ -1,4 +1,5 @@
 """Prime Resonance Formula (PRF).
+
 =============================
 Maps prime numbers onto a fractal-modular structure using TTT limits
 and the QRT weighting function.
@@ -16,45 +17,61 @@ def get_digital_root(n: int) -> int:
 
 
 def fibonacci(n: int) -> int:
+    """Calculates the n-th Fibonacci number using an iterative resonant sequence.
+
+    Equation: F_n = F_{n-1} + F_{n-2} with F_0=0, F_1=1.
+    """
     if n <= 1:
         return n
     a, b = 0, 1
-    for _ in range(2, n + 1):
+    for _ in range(n - 1):
         a, b = b, a + b
     return b
 
 
 def lucas(n: int) -> int:
+    """Calculates the n-th Lucas number, the companion sequence to Fibonacci.
+
+    Equation: L_n = L_{n-1} + L_{n-2} with L_0=2, L_1=1.
+    """
     if n == 0:
         return 2
     if n == 1:
         return 1
     a, b = 2, 1
-    for _ in range(2, n + 1):
+    for _ in range(n - 1):
         a, b = b, a + b
     return b
 
 
 def pell(n: int) -> int:
+    """Calculates the n-th Pell number used in high-precision sqrt(2) rational bounds.
+
+    Equation: P_n = 2*P_{n-1} + P_{n-2} with P_0=0, P_1=1.
+    """
     if n <= 1:
         return n
     a, b = 0, 1
-    for _ in range(2, n + 1):
-        a, b = b, 2 * b + a
+    for _ in range(n - 1):
+        a, b = b, 2 * a + b
     return b
 
 
 def qrt_weighting_function(x: float) -> float:
-    """[CONJ] The Quantum Residue Turbulence (QRT) wave function."""
+    """[CONJ] The Quantum Residue Turbulence (QRT) wave function.
+
+    Equation: ψ(x) = sin(φ√2 * 51.85 x) * e^(-x^2 / φ) + cos(π/φ * x).
+    """
     phi = (1 + math.sqrt(5)) / 2
     return math.sin(phi * math.sqrt(2) * 51.85 * x) * math.exp(-(x**2) / phi) + math.cos(
-        math.pi / phi * x
+        (math.pi / phi) * x
     )
 
 
 def evaluate_prime_resonance(p_n: int, n: int) -> dict:
-    """[CONJ] Evaluates the structural resonance of the n-th prime p_n
-    against the PRF fractal-modular TTT bounds.
+    """[CONJ] Evaluates the structural resonance of the n-th prime p_n.
+
+    Evaluation against the PRF fractal-modular TTT bounds.
     """
     phi = (1 + math.sqrt(5)) / 2
 

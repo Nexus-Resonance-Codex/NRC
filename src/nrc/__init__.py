@@ -1,4 +1,5 @@
 """NRC Mathematics Library.
+
 =======================
 The official Nexus Resonance Codex mathematics suite for Python.
 Provides high-precision calculations for the Golden Ratio (φ), Binet's Formula,

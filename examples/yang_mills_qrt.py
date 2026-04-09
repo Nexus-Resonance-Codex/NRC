@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Yang-Mills Mass Gap via QRT Eternal Series [CONJ].
-=================================================
+
 This script demonstrates the derivation of the Yang-Mills Mass Gap bounds mapped
 against the Quantum Residue Turbulence (QRT) eternal sequence.
-The QRT function produces bounded transients in chaotic maps.
 """
 
 import math
@@ -13,17 +12,18 @@ import numpy as np
 
 def qrt_eternal_wave(x: float) -> float:
     """[CONJ] The QRT damping wave function explicitly defining finite chaos bounds.
+
     ψ(x) = sin(φ √2 51.85 x) exp(-x²/φ) + cos(π/φ x).
     """
     phi = (1 + math.sqrt(5)) / 2
     return math.sin(phi * math.sqrt(2) * 51.85 * x) * math.exp(-(x**2) / phi) + math.cos(
-        math.pi / phi * x
+        (math.pi / phi) * x
     )
 
 
 def simulate_mass_gap_bound(resolution: int = 1000) -> None:
-    """[CONJ] Simulates the eternal series expansion to find the convergence abscissa
-    representing the explicit mass gap analytic bound mapped by NRC topology.
+    """[CONJ] Simulates the eternal series expansion to find the convergence abscissa.
+
     Expected bound ≈ 2.9256.
     """
     print("--- Simulating Yang-Mills Mass Gap Bound [CONJ] ---")

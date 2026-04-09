@@ -1,4 +1,5 @@
 """TUPT (The Universal Pattern Theorem) Exclusion Principle.
+
 ========================================================
 Implements the 3-6-9-7 Modular Exclusion Gate verified via the
 NRC Protein Folding Lattice bounds.

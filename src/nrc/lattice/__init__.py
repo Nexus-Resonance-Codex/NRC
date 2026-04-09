@@ -1,4 +1,5 @@
 """2048-Dimensional Lattice Math Submodule.
+
 =======================================
 Implements the hyper-dimensional projections required for biological mapping
 and advanced E8 root representations.

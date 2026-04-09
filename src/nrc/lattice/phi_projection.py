@@ -1,4 +1,5 @@
 """Phi-Lattice Projection Math.
+
 ===========================
 Topological projection from linear space into the 2048D Giza-slope bounded Hyper-Lattice.
 """
@@ -14,8 +15,9 @@ BIO_SUBLATTICE: int = 512
 
 
 def phi_lattice_project(x: Union[float, np.ndarray]) -> np.ndarray:
-    """Projects arbitrary scalar spaces into a 2048-dimensional Lattice vector
-    locked by the Golden Ratio and Giza slope.
+    """Projects arbitrary scalar spaces into a 2048-dimensional Lattice vector.
+
+    Locked by the Golden Ratio and Giza slope.
 
     Equation:
         L_{i}(x) = x · φ^{-i/2048} · cos(i · Giza_{rad})

@@ -19,17 +19,22 @@ PI = math.pi
 
 
 def qrt_wave(x: float) -> float:
+    """Computes the base QRT wave value for the resonance proof.
+
+    Calculates the combined sin/cos/exp fractal damping at point x.
+    """
     # Harmonic propagation term
     harmonic = math.sin(PHI * SQRT2 * GIZA_DEG * x)
-    # Chaos dampening term
-    dampener = math.exp(-(x**2) / PHI)
-    # Resonant baseline
-    baseline = math.cos((PI / PHI) * x)
-
-    return (harmonic * dampener) + baseline
+    damping = math.exp(-(x**2) / PHI)
+    correction = math.cos((math.pi / PHI) * x)
+    return harmonic * damping + correction
 
 
 def qrt_resonance_proof() -> None:
+    """[CONJ] Formally proves the wave-resonance stability of QRT-damped gradients.
+
+    Evaluates the first and second derivatives of the QRT manifold to confirm boundedness.
+    """
     print("--- NRC QRT Resonance Proof ---")
     print("Evaluating Wave Function Dampening on Outliers\n")
 

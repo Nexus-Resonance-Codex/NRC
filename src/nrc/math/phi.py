@@ -1,4 +1,5 @@
 """Golden Ratio (Phi) Constants and Fibonacci Calculations.
+
 ======================================================
 Provides extremely high-precision constants, Binet's equation,
 and continuous geometric operators.

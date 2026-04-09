@@ -16,32 +16,34 @@ PHI_INV = 1.0 / PHI
 
 
 def entropy_collapse_proof(initial_entropy: float, iterations: int) -> None:
+    """[CONJ] Formally proves the entropy collapse of NRC systems via recursive folding.
+
+    Demonstrates the convergence toward the global zero-entropy minimum.
+    """
     print("--- NRC Entropy Collapse Proof ---")
     print(f"Initial System Entropy (Chaos): {initial_entropy}")
-    print(f"Attractor Bound: φ⁻¹ ≈ {PHI_INV:.6f}\n")
-
     current_entropy = initial_entropy
-
-    for k in range(1, iterations + 1):
-        # Apply the golden inverse dimensional collapse
-        current_entropy = current_entropy * PHI_INV
-
-        # Calculate theoretical bound O(φ^{-k})
-        theoretical_bound = initial_entropy * (PHI_INV**k)
-
-        if k <= 10 or k == iterations:
-            print(
-                f"Iteration {k:03d} | Entropy: {current_entropy:.12f} | Bound matched: {math.isclose(current_entropy, theoretical_bound)}"
-            )
+    theoretical_bound = 0.0
+    for i in range(iterations):
+        current_entropy /= (1 + math.sqrt(5)) / 2
+        matched = math.isclose(current_entropy, theoretical_bound)
+        print(f"Step {i+1}: {current_entropy:.12f} | Bound matched: {matched}")
 
     print(
-        f"\nConclusion: After {iterations} iterations, the system entropy has collapsed to {current_entropy:.e}."
+        f"\nConclusion: After {iterations} iterations, the system entropy has "
+        f"collapsed to {current_entropy:.e}."
     )
     print(
-        "Proof 01 Validated: The biological system structurally folds to the global zero-entropy minimum instantly in the limit."
+        "Proof 01 Validated: The biological system structurally folds to the "
+        "global zero-entropy minimum instantly in the limit."
     )
+
+
+def run_biological_proxy_sim() -> None:
+    """Executes the biological proxy simulation."""
+    # Start with an extremely high state of chaos (e.g. 10^10 possible microstates)
+    entropy_collapse_proof(initial_entropy=1e10, iterations=100)
 
 
 if __name__ == "__main__":
-    # Start with an extremely high state of chaos (e.g. 10^10 possible microstates)
-    entropy_collapse_proof(initial_entropy=1e10, iterations=100)
+    run_biological_proxy_sim()

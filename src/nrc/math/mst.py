@@ -1,4 +1,5 @@
 """Modular Synchronisation Theory (MST) Dynamics.
+
 ==============================================
 Provides mathematical bounding and cyclic clipping functions rooted
 in the Lyapunov exponent limits.

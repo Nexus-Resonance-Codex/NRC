@@ -366,10 +366,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛠 Quick Start
+        🛠 Setup
       
     </span>
   </a>
@@ -491,10 +491,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛠 Quick Start
+        🛠 Setup
       
     </span>
   </a>
@@ -546,14 +546,13 @@
   <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
 
 # NRC (Central Math Vault)
-## Institutional-Grade Core Mathematics for the Nexus Resonance Codex
+## Core Mathematics for the Nexus Resonance Codex
 
-[![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Institutional License: CC-BY-NC-SA-4.0")](LICENSE)
+[![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons)](LICENSE)
 [![CI: Math Integrity](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml)
-[![Docs: Nexus Resonance](https://img.shields.io/badge/Docs-Nexus%20Resonance-blue?style=for-the-badge&logo=markdown)](https://nexus-resonance-codex.github.io/NRC/)
-[![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](docs/nrc-math.md)
+[![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](nrc-math.md)
 
-[Foundations](docs/nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
+[Foundations](nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
 
 **"Universal information stability via recursive $\varphi$-logic and modular resonant structures."**
 
@@ -608,21 +607,19 @@
 </tbody>
 </table>
 <hr />
-<h3 id="quick-start">🛠 Quick Start</h3>
-<p>Built for <strong>Maximum Integrity</strong> using <a href="https://github.com/astral-sh/uv">uv</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone the vault</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Nexus-Resonance-Codex/NRC.git
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>NRC
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Anchor the environment</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>uv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Verify the mathematical foundations</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/
+<h3 id="setup">🛠 Setup</h3>
+<p>Built for high-integrity research using <a href="https://github.com/astral-sh/uv">uv</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Initialize the vault environment</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>venv
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Verify the mathematical foundations</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>pytest<span class="w"> </span>tests/
 </code></pre></div>
 <hr />
 <h3 id="mathematical-foundations">📜 Mathematical Foundations</h3>
-<p>The <a href="docs/nrc-math.md">Math Foundations Docs</a> contain the formal proofs for:
+<p>The <a href="nrc-math/">Math Foundations Docs</a> contain the formal proofs for:
 1.  <strong>Pisano Period Stability</strong>: Convergence of <span class="arithmatex">\(\pi(9^k)\)</span> under TTT constraints.
 2.  <strong>Modular Exclusion</strong>: Prime density avoidance in chaotic voids.
 3.  <strong><span class="arithmatex">\(\varphi^{-1}\)</span> Scaling</strong>: The universal attractor in high-dimensional state spaces.</p>
@@ -630,7 +627,7 @@
 <h3 id="strategic-mission">🤝 Strategic Mission</h3>
 <p>The Central Math Vault is the source of truth for all NRC technologies. Every line of code is mathematically verified to prevent entropy-collapse in artificial and biological intelligence systems.</p>
 <div align="center">
-<i>Authored by the Nexus Resonance Codex (2026)</i><br>
+<i>Authored by James Trageser (@jtrag) — Nexus Resonance Codex (2026)</i><br>
 <b>Stabilizing the future of intelligence.</b>
 </div>
 

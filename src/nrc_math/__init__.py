@@ -2,7 +2,7 @@
 #  Copyright (c) 2026 James Trageser (@jtrag)
 #
 #  Licensed under CC-BY-NC-SA-4.0 + NRC-L
-#  "This work is part of the Nexus Resonance Codex (NRC) incorporating TTT 
+#  "This work is part of the Nexus Resonance Codex (NRC) incorporating TTT
 #  modular exclusion, phi^inf compression, 256D->729D lattice, QRT, and MST."
 
 """nrc_math: Core Mathematics for the Nexus Resonance Codex.

@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
 """NRC Interactive Gradio Space.
-============================
+
 Three-tab interactive app demonstrating the full Nexus Resonance Codex
 mathematical and AI framework. Runs on HuggingFace Spaces (CPU tier).
-
-Deploy to HF Spaces:
-    huggingface-cli repo create Nexus-Resonance-Codex/nrc-interactive --type space --space-sdk gradio
-    git push hub main
 """
 
 import math
@@ -26,26 +22,23 @@ GIZA_RAD = GIZA_DEG * (PI / 180.0)
 
 
 def binet(n: int) -> float:
+    """Calculates the n-th Fibonacci value via continuous Binet projection."""
     return (PHI**n - (-PHI) ** (-n)) / SQRT5
 
 
 def qrt(x: float) -> float:
+    """Computes the Quantum Residue Turbulence (QRT) fractal damping at point x."""
     return math.sin(PHI * SQRT2 * GIZA_DEG * x) * math.exp(-(x**2) / PHI) + math.cos(PI / PHI * x)
 
 
 def mst(x: float) -> float:
+    """Calculates a single step of the Modular Synchronisation Theory (MST) map."""
     xp = abs(x) + 1e-9
-    return (
-        abs(
-            math.floor(1000.0 * math.sinh(min(xp, 20.0)))
-            + math.log(xp**2 + 1.0)
-            + PHI ** min(xp, 20.0)
-        )
-        % 24389
-    )
+    return (math.floor(1000.0 * math.sinh(xp)) + math.log(xp**2 + 1.0) + (PHI**xp)) % 24389
 
 
 def tupt_gate(x: float) -> float:
+    """Applies the TUPT 3-6-9-7 Exclusion Principle; returns 0 if excluded."""
     mod_val = x % 9
     if mod_val in [0, 3, 6, 9]:
         return 0.0
@@ -53,12 +46,14 @@ def tupt_gate(x: float) -> float:
 
 
 def phi_fold(x: float, iterations: int = 5) -> float:
+    """Applies recursive Phi-Infinity folding to the scalar input x."""
     for n in range(1, iterations + 1):
         x = (PHI**n) * x + (1.0 / SQRT5)
     return x
 
 
 def lattice_norm(x: float) -> float:
+    """Projects scalar x into the 2048D lattice and returns the Euclidean norm."""
     dims = np.arange(2048, dtype=np.float64)
     vec = x * np.power(PHI, -dims / 2048) * np.cos(dims * GIZA_RAD)
     return float(np.linalg.norm(vec))
@@ -91,6 +86,7 @@ AA_MASS = {
 
 # ─────────────────────────── Tab 1: NRC Math Explorer ──────────────────────────
 def explore_nrc_math(x_val: float, fib_n: int) -> tuple:
+    """Executive explorer function calculating all NRC primitives for a given input."""
     qrt_v = qrt(x_val)
     mst_v = mst(x_val)
     tupt_v = tupt_gate(x_val)
@@ -125,14 +121,17 @@ def explore_nrc_math(x_val: float, fib_n: int) -> tuple:
         value={"x": xs.tolist(), "QRT(x)": ys.tolist()},
         x="x",
         y="QRT(x)",
-        title=f"QRT Wave Function   (marked: x={x_val:.3f})",
+        title=f"QRT Wave Function (marked: x={x_val:.3f})",
     )
-
     return table_md, (xs.tolist(), ys.tolist())
 
 
 # ─────────────────────────── Tab 2: Protein Sequence → Lattice ─────────────────
-def analyze_sequence(sequence: str) -> str:
+def project_sequence(sequence: str) -> str:
+    """Projects a raw amino acid sequence into the 2048-dimensional φ-lattice.
+
+    Returns a Markdown table containing the residue mappings and lattice norms.
+    """
     sequence = sequence.upper().strip()
     if not sequence:
         return "_Please enter a valid amino acid sequence._"
@@ -153,7 +152,8 @@ def analyze_sequence(sequence: str) -> str:
     coord_norms = [float(np.linalg.norm(m_val * scale)) for m_val in mass_arr]
 
     out = f"### Sequence Analysis: `{sequence}`\n\n"
-    out += f"**Length:** {len(sequence)} residues | **Valid:** {len(valid)} | **Unknown:** {len(unknown) if unknown else 0}\n\n"
+    stats = f"**Length:** {len(sequence)} residues | **Valid:** {len(valid)}"
+    out += f"{stats} | **Unknown:** {len(unknown) if unknown else 0}\n\n"
 
     out += "| # | Residue | Mass (Da) | 2048D Lattice ‖L‖ | TUPT Gate |\n"
     out += "|:--|:--------|----------:|------------------:|:---------:|\n"
@@ -176,160 +176,41 @@ def analyze_sequence(sequence: str) -> str:
 
 # ─────────────────────────── Tab 3: AI Enhancement Browser ─────────────────────
 ENHANCEMENTS = [
-    (
-        "PhiInfinityShardFolding",
-        "Attention",
-        "φ^∞ fractal shard folding — replaces standard attention weights with φ-scaled topology",
-    ),
-    (
-        "NRCProteinFoldingEngine",
-        "Scaffold",
-        "2048D lattice + TUPT exclusion — embeds protein physics directly into model layers",
-    ),
-    (
-        "GoldenAttractorFlowNorm",
-        "LayerNorm",
-        "φ-attractor normalization — replaces mean/variance with Golden Ratio normalization",
-    ),
-    (
-        "TripleThetaInitializer",
-        "Weight Init",
-        "3θ resonance seed — initializes weights at positions of maximum φ-harmonic stability",
-    ),
-    (
-        "ResonanceShardKVCache",
-        "KV-Cache",
-        "φ^n memory sharding — organizes KV cache in Golden Ratio proportions",
-    ),
-    (
-        "BiologicalExclusionGradientRouter",
-        "Grad Routing",
-        "TUPT mod-9 gate — routes gradients through biologically stable branches only",
-    ),
-    (
-        "HodgePhiTTorsionAttention",
-        "Self-Attention",
-        "Hodge torsion biasing — warps attention scores with differential geometry",
-    ),
-    (
-        "E8GoldenBasisEmbedding",
-        "Embedding",
-        "E8 root basis + φ — embeds tokens on the E8 exceptional Lie group lattice",
-    ),
-    (
-        "PhiInfinityLosslessLoRA",
-        "LoRA",
-        "φ^∞ lossless adapter — deterministic rank compression without information loss",
-    ),
-    (
-        "NavierStokesDampingRegularizer",
-        "Regularizer",
-        "NS fractional damping — penalizes turbulent weight gradients using fluid equations",
-    ),
-    (
-        "PrimeDensityConditionedGeneration",
-        "Sampling",
-        "Prime density seeds — conditions token generation on prime number distributions",
-    ),
-    (
-        "GTTEntropyCollapseRegularizer",
-        "Entropy Loss",
-        "GTT threshold collapse — penalizes entropy exceeding the Golden Transfer Threshold",
-    ),
-    (
-        "PhiInverseMomentumAccelerator",
-        "Momentum",
-        "φ⁻¹ velocity scaling — accelerates convergence via inverse-Golden momentum",
-    ),
-    (
-        "TUPTAttractorSyncSeed",
-        "RNG Seed",
-        "TUPT cycle sync — synchronizes all random seeds to the TUPT attractor cycle",
-    ),
-    (
-        "QRTKernelConvolution",
-        "Conv1D/2D",
-        "QRT wave kernel — replaces Gaussian/uniform conv kernels with fractal QRT pattern",
-    ),
-    (
-        "LucasWeightedSparseAttention",
-        "Sparse Attn",
-        "Lucas number masking — only attends from positions in Lucas number pattern",
-    ),
-    (
-        "PhiPoweredResonantWeighting",
-        "Weight Init",
-        "φ^n spectral decay — initializes weight spectra with Golden Ratio power decay",
-    ),
-    (
-        "GizaLatticeIsomorphism",
-        "Projection",
-        "51.85° slope map — transforms feature maps through Giza pyramid geometry",
-    ),
-    (
-        "MSTLyapunovGradientClipping",
-        "Grad Clipping",
-        "MST λ≈0.381 bound — clips gradients to the MST Lyapunov stability limit",
-    ),
-    (
-        "PisanoModulatedLRSchedule",
-        "LR Schedule",
-        "Pisano period cycle — modulates learning rate on the Fibonacci Pisano period",
-    ),
-    (
-        "LucasPellHybridWeightDecay",
-        "Weight Decay",
-        "Lucas-Pell recursion — decays weights along the Lucas-Pell hybrid sequence",
-    ),
-    (
-        "TUPTExclusionTokenPruning",
-        "Token Pruning",
-        "Mod-9 pruning gate — prunes tokens at positions excluded by TUPT rule",
-    ),
-    (
-        "PhiVoidResonancePositionalEncoding",
-        "Positional Enc.",
-        "φ-void sinusoidal PE — a new positional encoding based on φ-void gaps",
-    ),
-    (
-        "InfiniteEInfinityContextUnfolder",
-        "Context Window",
-        "E∞ recursive unfolding — expands effective context beyond hardware limits",
-    ),
-    (
-        "TUPTModularDropout",
-        "Dropout",
-        "TUPT-gated structural drop — drops connections at TUPT-excluded positions",
-    ),
-    (
-        "QRTTurbulenceOptimizer",
-        "Optimizer",
-        "QRT turbulence gradient — replaces Adam noise with oscillating QRT corrections",
-    ),
-    (
-        "GizaSlopeAttentionBias",
-        "Attention Bias",
-        "51.85° Giza weighting — biases attention scores with pyramid slope geometry",
-    ),
-    (
-        "FloorSinhActivation",
-        "Activation",
-        "floor(1000·sinh(x)) + φ·x — a new activation replacing ReLU/GELU",
-    ),
-    (
-        "GoldenSpiralRotaryEmbedding",
-        "RoPE",
-        "φ-spiral rotation matrix — embeds rotary positions on the Golden Spiral",
-    ),
-    (
-        "NRCEntropyAttractorEarlyStopping",
-        "Early Stopping",
-        "NRC entropy convergence — stops training when entropy collapses to NRC attractor",
-    ),
+    ("PhiInfinityShardFolding", "Attention", "φ^∞ fractal shard folding"),
+    ("NRCProteinFoldingEngine", "Scaffold", "2048D lattice + TUPT exclusion"),
+    ("GoldenAttractorFlowNorm", "LayerNorm", "φ-attractor normalization"),
+    ("TripleThetaInitializer", "Weight Init", "3θ resonance seed"),
+    ("ResonanceShardKVCache", "KV-Cache", "φ^n memory sharding"),
+    ("BiologicalExclusionGradientRouter", "Grad Routing", "TUPT mod-9 gate"),
+    ("HodgePhiTTorsionAttention", "Self-Attention", "Hodge torsion biasing"),
+    ("E8GoldenBasisEmbedding", "Embedding", "E8 root basis + φ"),
+    ("PhiInfinityLosslessLoRA", "LoRA", "φ^∞ lossless adapter"),
+    ("NavierStokesDampingRegularizer", "Regularizer", "NS fractional damping"),
+    ("PrimeDensityConditionedGeneration", "Sampling", "Prime density seeds"),
+    ("GTTEntropyCollapseRegularizer", "Entropy Loss", "GTT threshold collapse"),
+    ("PhiInverseMomentumAccelerator", "Momentum", "φ⁻¹ velocity scaling"),
+    ("TUPTAttractorSyncSeed", "RNG Seed", "TUPT cycle sync"),
+    ("QRTKernelConvolution", "Conv1D/2D", "QRT wave kernel"),
+    ("LucasWeightedSparseAttention", "Sparse Attn", "Lucas number masking"),
+    ("PhiPoweredResonantWeighting", "Weight Init", "φ^n spectral decay"),
+    ("GizaLatticeIsomorphism", "Projection", "51.85° slope map"),
+    ("MSTLyapunovGradientClipping", "Grad Clipping", "MST λ≈0.381 bound"),
+    ("PisanoModulatedLRSchedule", "LR Schedule", "Pisano period cycle"),
+    ("LucasPellHybridWeightDecay", "Weight Decay", "Lucas-Pell recursion"),
+    ("TUPTExclusionTokenPruning", "Token Pruning", "Mod-9 pruning gate"),
+    ("PhiVoidResonancePositionalEncoding", "Positional Enc.", "φ-void sinusoidal PE"),
+    ("InfiniteEInfinityContextUnfolder", "Context Window", "E∞ recursive unfolding"),
+    ("TUPTModularDropout", "Dropout", "TUPT-gated structural drop"),
+    ("QRTTurbulenceOptimizer", "Optimizer", "QRT turbulence gradient"),
+    ("GizaSlopeAttentionBias", "Attention Bias", "51.85° Giza weighting"),
+    ("FloorSinhActivation", "Activation", "floor(1000·sinh(x)) + φ·x"),
+    ("GoldenSpiralRotaryEmbedding", "RoPE", "φ-spiral rotation matrix"),
+    ("NRCEntropyAttractorEarlyStopping", "Early Stopping", "NRC entropy convergence"),
 ]
 
 
 def browse_enhancement(name: str) -> str:
+    """Retrieves technical specifications for an NRC enhancement."""
     match = next((e for e in ENHANCEMENTS if e[0] == name), None)
     if not match:
         return "_Enhancement not found._"
@@ -344,26 +225,12 @@ layer = nn.Linear(512, 512)
 enhancement = {cls}()
 
 # Forward pass with NRC physics
-x = torch.randn(8, 64, 512)   # (batch, seq_len, d_model)
+x = torch.randn(8, 64, 512)
 out = enhancement(x)
-print(f"Output shape: {{out.shape}}")   # torch.Size([8, 64, 512])
+print(f"Output shape: {{out.shape}}")
 ```"""
 
-    return f"""### `{cls}`
-
-**Replaces:** `{replaces}`
-**Description:** {desc}
-
-**Formula:** Derived from the NRC QRT / MST / TUPT / φ-lattice foundations.
-
-{code}
-
-**Install & use:**
-```bash
-pip install "nrc @ git+https://github.com/Nexus-Resonance-Codex/NRC.git"
-pip install "nrc_ai @ git+https://github.com/Nexus-Resonance-Codex/Ai-Enhancements.git"
-```
-"""
+    return f"### `{cls}`\n\n**Replaces:** `{replaces}`\n**Description:** {desc}\n\n{code}"
 
 
 # ─────────────────────────── Build Gradio App ──────────────────────────────────
@@ -377,7 +244,7 @@ THEME = gr.themes.Soft(
 with gr.Blocks(title="NRC Interactive — Nexus Resonance Codex") as demo:
     gr.Markdown("""
 # 🌀 Nexus Resonance Codex — Interactive Explorer
-*Real-time computation of NRC mathematics, protein lattice projections, and AI enhancement browsing.*
+*Real-time computation of NRC mathematics, protein lattice projections, and AI enhancement browser.*
 
 [![GitHub](https://img.shields.io/badge/GitHub-Nexus--Resonance--Codex-181717?logo=github)](https://github.com/Nexus-Resonance-Codex)
 """)
@@ -404,7 +271,8 @@ with gr.Blocks(title="NRC Interactive — Nexus Resonance Codex") as demo:
         # ── Tab 2 ──────────────────────────────────────────────────────────────
         with gr.Tab("🧬 Protein Sequence → Lattice"):
             gr.Markdown(
-                "Enter an amino acid sequence (1-letter FASTA codes) to project it into the 2048D φ-lattice."
+                "Enter an amino acid sequence (1-letter FASTA codes) to project it "
+                "into the 2048D φ-lattice."
             )
             with gr.Row():
                 with gr.Column(scale=1):
@@ -417,13 +285,14 @@ with gr.Blocks(title="NRC Interactive — Nexus Resonance Codex") as demo:
                     seq_btn = gr.Button("🔬 Analyze", variant="primary")
                 with gr.Column(scale=2):
                     seq_out = gr.Markdown()
-            seq_btn.click(analyze_sequence, inputs=seq_input, outputs=seq_out)
-            demo.load(analyze_sequence, inputs=seq_input, outputs=seq_out)
+            seq_btn.click(project_sequence, inputs=seq_input, outputs=seq_out)
+            demo.load(project_sequence, inputs=seq_input, outputs=seq_out)
 
         # ── Tab 3 ──────────────────────────────────────────────────────────────
         with gr.Tab("🤖 AI Enhancement Browser"):
             gr.Markdown(
-                "Browse all 30 NRC AI Enhancement modules with descriptions, formulas, and ready-to-run PyTorch examples."
+                "Browse all 30 NRC AI Enhancement modules with descriptions, formulas, "
+                "and ready-to-run PyTorch examples."
             )
             with gr.Row():
                 with gr.Column(scale=1):
@@ -439,7 +308,7 @@ with gr.Blocks(title="NRC Interactive — Nexus Resonance Codex") as demo:
 
     gr.Markdown("""
 ---
-*Built with the [NRC Python Libraries](https://github.com/Nexus-Resonance-Codex) — open source, mathematically rigorous, φ-grounded.*
+*Built with the NRC Python Libraries — open source, mathematically rigorous, φ-grounded.*
 """)
 
 if __name__ == "__main__":
