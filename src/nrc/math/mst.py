@@ -1,19 +1,21 @@
-"""
-Modular Synchronisation Theory (MST) Dynamics.
+"""Modular Synchronisation Theory (MST) Dynamics.
 ==============================================
 Provides mathematical bounding and cyclic clipping functions rooted
 in the Lyapunov exponent limits.
 """
-import numpy as np
+
 from typing import Union
+
+import numpy as np
+
 from .phi import PHI_FLOAT
 
 MST_MODULUS: int = 24389
 MST_LAMBDA: float = 0.381
 
+
 def mst_step(x_n: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
-    """
-    Executes a single step of the Modular Synchronisation Theory (MST) bounds.
+    """Executes a single step of the Modular Synchronisation Theory (MST) bounds.
 
     Formula:
         x_{n+1} = | floor(1000 · sinh(x_n)) + log(x_n² + 1) + φ^{x_n} | mod 24389

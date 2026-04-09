@@ -1,5 +1,4 @@
-"""
-Proof 02: 3-6-9-7 Modular Exclusion Principle
+"""Proof 02: 3-6-9-7 Modular Exclusion Principle.
 
 This script proves that sequences violating the Mod 9 exclusion principle
 lead to chaotic divergence (simulating misfolded proteins/prions), while those
@@ -9,7 +8,6 @@ Author: James Trageser (@jtrag)
 NRC Framework v2.0
 """
 
-import math
 
 def tupt_gate(x: float) -> bool:
     """Returns True if the value is biologically valid under Mod 9 exclusion."""
@@ -19,7 +17,8 @@ def tupt_gate(x: float) -> bool:
         return False
     return True
 
-def modular_exclusion_proof():
+
+def modular_exclusion_proof() -> None:
     print("--- NRC Modular Exclusion Proof ---")
     print("Testing 100,000 biological coordinate configurations...\n")
 
@@ -42,6 +41,7 @@ def modular_exclusion_proof():
     print("The 3-6-9 chaotic void rule successfully filters over 44% of physically impossible")
     print("structural intersections in the 2048D geometric projection, drastically")
     print("reducing the search space and enabling O(1) instantaneous folding.")
+
 
 if __name__ == "__main__":
     modular_exclusion_proof()

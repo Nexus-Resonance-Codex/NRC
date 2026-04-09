@@ -1,5 +1,4 @@
-"""
-NRC Core Mathematics Submodule
+"""NRC Core Mathematics Submodule.
 ==============================
 Contains the immutable structural equations dictated by the Codex.
 """

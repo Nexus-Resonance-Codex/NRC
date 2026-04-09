@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
+  <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
 
 # NRC (Central Math Vault)
 ## Institutional-Grade Core Mathematics for the Nexus Resonance Codex
@@ -7,9 +7,9 @@
 [![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Institutional License: CC-BY-NC-SA-4.0")](LICENSE)
 [![CI: Math Integrity](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml)
 [![Docs: Nexus Resonance](https://img.shields.io/badge/Docs-Nexus%20Resonance-blue?style=for-the-badge&logo=markdown)](https://nexus-resonance-codex.github.io/NRC/)
-[![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](docs/nrc-math.md)
+[![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](nrc-math.md)
 
-[Foundations](docs/nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
+[Foundations](nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
 
 **"Universal information stability via recursive $\varphi$-logic and modular resonant structures."**
 
@@ -59,7 +59,7 @@ uv run pytest tests/
 ---
 
 ### 📜 Mathematical Foundations
-The [Math Foundations Docs](docs/nrc-math.md) contain the formal proofs for:
+The [Math Foundations Docs](nrc-math.md) contain the formal proofs for:
 1.  **Pisano Period Stability**: Convergence of $\pi(9^k)$ under TTT constraints.
 2.  **Modular Exclusion**: Prime density avoidance in chaotic voids.
 3.  **$\varphi^{-1}$ Scaling**: The universal attractor in high-dimensional state spaces.

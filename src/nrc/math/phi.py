@@ -1,13 +1,14 @@
-"""
-Golden Ratio (Phi) Constants and Fibonacci Calculations.
+"""Golden Ratio (Phi) Constants and Fibonacci Calculations.
 ======================================================
 Provides extremely high-precision constants, Binet's equation,
 and continuous geometric operators.
 """
+
 import math
+from typing import Union, overload
+
 import mpmath
 import numpy as np
-from typing import Union, overload
 
 # Ensure extreme precision locally
 mpmath.mp.dps = 100
@@ -28,9 +29,9 @@ GIZA_SLOPE_RAD: float = GIZA_SLOPE_DEG * (math.pi / 180.0)
 @overload
 def binet_formula(n: int, as_mpmath: bool = False) -> Union[float, mpmath.mpf]: ...
 
+
 def binet_formula(n: int, as_mpmath: bool = False) -> Union[float, mpmath.mpf]:
-    """
-    Computes the exact nth Fibonacci number using Binet's continuous formula.
+    """Computes the exact nth Fibonacci number using Binet's continuous formula.
 
     Formula:
         F_n = (φ^n - (-φ)^{-n}) / √5
@@ -43,13 +44,12 @@ def binet_formula(n: int, as_mpmath: bool = False) -> Union[float, mpmath.mpf]:
         The exact Fibonacci sequence value at spatial location n.
     """
     if as_mpmath:
-        return (PHI_MP**n - (-PHI_MP)**(-n)) / mpmath.sqrt(5)
-    return (PHI_FLOAT**n - (-PHI_FLOAT)**(-n)) / SQRT_5_FLOAT
+        return (PHI_MP**n - (-PHI_MP) ** (-n)) / mpmath.sqrt(5)
+    return (PHI_FLOAT**n - (-PHI_FLOAT) ** (-n)) / SQRT_5_FLOAT
 
 
 def phi_infinity_fold(x: Union[float, np.ndarray], iterations: int = 5) -> Union[float, np.ndarray]:
-    """
-    Computes the φ^∞ topological folding mechanic.
+    """Computes the φ^∞ topological folding mechanic.
 
     Repeated application of φ^n scaling mixed with the 1/√5 stabilization boundary,
     allowing arrays to infinitely fractalize losslessly into deeper dimensional shards.
