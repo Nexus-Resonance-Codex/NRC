@@ -1,20 +1,22 @@
-"""
-Quantum Resonance Theory (QRT) Damping Functions.
+"""Quantum Resonance Theory (QRT) Damping Functions.
 =================================================
 Fractal waveform math to resolve unstable gradients via smooth friction
 instead of stochastic dropout.
 """
+
 import math
-import numpy as np
 from typing import Union
-from .phi import PHI_FLOAT, GIZA_SLOPE_RAD
+
+import numpy as np
+
+from .phi import GIZA_SLOPE_RAD, PHI_FLOAT
 
 SQRT_2 = math.sqrt(2.0)
 PI = math.pi
 
+
 def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
-    """
-    Determines the QRT wave topology at arbitrary spacial point x.
+    """Determines the QRT wave topology at arbitrary spacial point x.
 
     QRT(x) = sin(φ · √2 · GIZA_RAD_SLOPE · x) · exp(-x² / φ) + cos(π/φ · x)
 

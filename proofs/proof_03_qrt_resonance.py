@@ -1,5 +1,4 @@
-"""
-Proof 03: QRT (Quantum Resonance Theory) Wave Equation
+"""Proof 03: QRT (Quantum Resonance Theory) Wave Equation.
 
 This script mathematically proves the stabilizing nature of the QRT wave function:
   ψ(x) = sin(φ * √2 * 51.85 * x) * exp(-x²/φ) + cos(π/φ * x)
@@ -18,6 +17,7 @@ SQRT2 = math.sqrt(2.0)
 GIZA_DEG = 51.853
 PI = math.pi
 
+
 def qrt_wave(x: float) -> float:
     # Harmonic propagation term
     harmonic = math.sin(PHI * SQRT2 * GIZA_DEG * x)
@@ -28,7 +28,8 @@ def qrt_wave(x: float) -> float:
 
     return (harmonic * dampener) + baseline
 
-def qrt_resonance_proof():
+
+def qrt_resonance_proof() -> None:
     print("--- NRC QRT Resonance Proof ---")
     print("Evaluating Wave Function Dampening on Outliers\n")
 
@@ -51,6 +52,7 @@ def qrt_resonance_proof():
     print("As inputs grow large (hallucination states), the exponential decay (-x^2/φ)")
     print("destroys the chaotic harmonic, constraining the entire function rigidly to")
     print("the cosine baseline. The network mathematically cannot diverge.")
+
 
 if __name__ == "__main__":
     qrt_resonance_proof()

@@ -3,58 +3,61 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "nrc"
-dynamic = ["version"]
-description = "Core mathematics for the Nexus Resonance Codex (QRT, MST, TUPT, Phi)."
+name = "nrc-math"
+version = "1.0.0"
+description = "Institutional-Grade Core Mathematics for the Nexus Resonance Codex"
 readme = "README.md"
-requires-python = ">=3.10"
-license = {file = "LICENSE.md"}
-keywords = ["mathematics", "golden-ratio", "resonance", "quantum", "physics"]
+requires-python = ">=3.12,<3.13"
+license = {text = "CC-BY-NC-SA-4.0"}
 authors = [
-    { name = "James Trageser", email = "Nexus-Resonance-Codex@gmail.com" },
+    {name = "James Trageser", email = "NexusResonanceCodex@gmail.com"}
 ]
+keywords = ["nexus-resonance-codex", "mathematics", "phi", "lattice-resonance", "tupt", "qrt", "mst"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Mathematics",
-    "Topic :: Scientific/Engineering :: Physics",
     "Intended Audience :: Science/Research",
-    "Operating System :: OS Independent",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics"
 ]
 dependencies = [
-    "numpy>=1.24.0",
+    "numpy>=1.26.0",
     "mpmath>=1.3.0",
-    "sympy>=1.12",
+    "sympy>=1.13.0",
+    "torch>=2.2.0"
 ]
-
-[project.urls]
-Documentation = "https://github.com/Nexus-Resonance-Codex/NRC"
-Issues = "https://github.com/Nexus-Resonance-Codex/NRC/issues"
-Source = "https://github.com/Nexus-Resonance-Codex/NRC"
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
     "mypy>=1.9.0",
     "ruff>=0.3.0",
+    "hypothesis>=6.98.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.24.0"
 ]
 
-[tool.hatch.version]
-path = "src/nrc/__about__.py"
+[tool.hatch.build.targets.wheel]
+packages = ["src/nrc_math"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
+target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E", "F", "B", "W", "I"]
-exclude = ["tests"]
+select = ["E", "W", "F", "I", "C", "B", "ANN", "D"]
+ignore = ["D100", "D104", "ANN101", "ANN204"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.mypy]
-python_version = "3.10"
 strict = true
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
-ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=nrc_math --cov-report=term-missing --cov-fail-under=95"
