@@ -2,6 +2,9 @@ from typing import Any, List, Optional, Union, cast
 
 import numpy as np
 
+# Type Aliases for Spectral Clarity
+LatticeValue = Union[float, np.ndarray, Any]
+
 # Institutional Constants
 PHI_INT: int = 1618
 PHI_FLOAT: float = 1.618033988749895
@@ -11,23 +14,21 @@ SQRT_5: float = 2.23606797749979
 SQRT_5_FLOAT: float = SQRT_5
 MST_MOD: int = 24389
 TUPT_MOD: int = 9
-
-def binet_formula(n: int) -> int:
-    """Calculates the n-th Fibonacci number utilizing the closed-form Binet manifold."""
-    phi = (1 + 5**0.5) / 2
-    psi = (1 - 5**0.5) / 2
-    return int((phi**n - psi**n) / 5**0.5)
 TTT_CYCLE: List[int] = [3, 6, 9, 7]
 TUPT_PATTERN = {0, 3, 6}
-
-# Type Aliases for Spectral Clarity
-LatticeValue = Union[float, np.ndarray, Any]
 
 
 def binet_formula(n: Any) -> LatticeValue:  # noqa: ANN401
     """Calculates n-th Fibonacci value via continuous Binet projection."""
-    phi = (np.sqrt(5) + 1) / 2
-    return float((phi**n - (-phi) ** (-n)) / np.sqrt(5))
+    phi = (1 + 5**0.5) / 2
+    psi = (1 - 5**0.5) / 2
+
+    # Check if we are doing a discrete or continuous projection
+    if isinstance(n, int) and n >= 0:
+        return int(round((phi**n - psi**n) / 5**0.5))
+
+    # Continuous manifold for higher dimensions (Tensors/Arrays)
+    return (phi**n - (-phi) ** (-n)) / 5**0.5
 
 
 def apply_exclusion_gate(values: Any, modulus: int = 9) -> Any:  # noqa: ANN401
@@ -84,7 +85,7 @@ def mst_recurrence(x: Any) -> LatticeValue:  # noqa: ANN401
 
 
 def phi_infinity_shard(x: Any, alpha: float = 1.0) -> LatticeValue:  # noqa: ANN401
-    """Calculates a single φ^∞ spectral shard with alpha modulation."""
+    """Calculates a single phi^inf spectral shard with alpha modulation."""
     return x / (PHI * alpha)
 
 
