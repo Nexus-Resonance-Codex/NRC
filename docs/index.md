@@ -1,12 +1,11 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
+  <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
 
 # NRC (Central Math Vault)
-## Institutional-Grade Core Mathematics for the Nexus Resonance Codex
+## Core Mathematics for the Nexus Resonance Codex
 
-[![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Institutional License: CC-BY-NC-SA-4.0")](LICENSE)
+[![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons)](LICENSE)
 [![CI: Math Integrity](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml)
-[![Docs: Nexus Resonance](https://img.shields.io/badge/Docs-Nexus%20Resonance-blue?style=for-the-badge&logo=markdown)](https://nexus-resonance-codex.github.io/NRC/)
 [![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](nrc-math.md)
 
 [Foundations](nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
@@ -40,20 +39,17 @@
 
 ---
 
-### 🛠 Quick Start
-
-Built for **Maximum Integrity** using [uv](https://github.com/astral-sh/uv).
+### 🛠 Setup
+Built for high-integrity research using [uv](https://github.com/astral-sh/uv).
 
 ```bash
-# Clone the vault
-git clone https://github.com/Nexus-Resonance-Codex/NRC.git
-cd NRC
-
-# Anchor the environment
-uv venv && uv pip install -e .[dev]
+# Initialize the vault environment
+uv venv
+source .venv/bin/activate
+uv pip install -e .[dev]
 
 # Verify the mathematical foundations
-uv run pytest tests/
+pytest tests/
 ```
 
 ---
@@ -70,6 +66,6 @@ The [Math Foundations Docs](nrc-math.md) contain the formal proofs for:
 The Central Math Vault is the source of truth for all NRC technologies. Every line of code is mathematically verified to prevent entropy-collapse in artificial and biological intelligence systems.
 
 <div align="center">
-<i>Authored by the Nexus Resonance Codex (2026)</i><br>
+<i>Authored by James Trageser (@jtrag) — Nexus Resonance Codex (2026)</i><br>
 <b>Stabilizing the future of intelligence.</b>
 </div>

@@ -1,5 +1,10 @@
-"""Metadata for nrc_math."""
+#  Nexus Resonance Codex - 2025-2026 Breakthrough Series
+#  Copyright (c) 2026 James Trageser (@jtrag)
+#
+#  Licensed under CC-BY-NC-SA-4.0 + NRC-L
 
-__version__ = "1.0.0"
+"""Package metadata for the NRC Math Vault."""
+
+__version__ = "1.2.0"
 __author__ = "James Trageser"
-__email__ = "NexusResonanceCodex@gmail.com"
+__package_name__ = "nrc-math"

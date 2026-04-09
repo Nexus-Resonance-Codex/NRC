@@ -8,12 +8,20 @@
 [![CI: Math Integrity](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml)
 [![Docs: Nexus Resonance](https://img.shields.io/badge/Docs-Nexus%20Resonance-blue?style=for-the-badge&logo=markdown)](https://nexus-resonance-codex.github.io/NRC/)
 [![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](docs/nrc-math.md)
+[![Visualizer: 256D Lattice](https://img.shields.io/badge/Visualizer-256D%20Lattice-gold?style=for-the-badge&logo=three.js)](visualizations/256D-Lattice-Visualizer.html)
 
 [Foundations](docs/nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
 
 **"Universal information stability via recursive $\varphi$-logic and modular resonant structures."**
 
 </div>
+
+---
+
+### 🛡 Institutional Protection Notice
+**This work is part of the Nexus Resonance Codex (NRC) incorporating TTT modular exclusion, $\varphi^\infty$ compression, 256D→729D lattice, QRT, MST, and all related mathematics developed 2025-2026.**
+
+This repository is strictly governed by the **Nexus Resonance License (NRC-L)**. Academic and non-commercial research use is permitted under **CC-BY-NC-SA-4.0**. Commercial exploitation requires explicit written authorization.
 
 ---
 
@@ -40,20 +48,19 @@
 
 ---
 
-### 🛠 Quick Start
-
-Built for **Maximum Integrity** using [uv](https://github.com/astral-sh/uv).
+### 🛠 Institutional Setup
+The NRC ecosystem uses a **Unified Virtual Environment** for maximum precision.
 
 ```bash
-# Clone the vault
+# 1. Clone the vault
 git clone https://github.com/Nexus-Resonance-Codex/NRC.git
 cd NRC
 
-# Anchor the environment
-uv venv && uv pip install -e .[dev]
+# 2. Activate the Unified NRC Environment
+source ../.venv/bin/activate
 
-# Verify the mathematical foundations
-uv run pytest tests/
+# 3. Verify the mathematical foundations
+pytest tests/
 ```
 
 ---
@@ -70,6 +77,6 @@ The [Math Foundations Docs](docs/nrc-math.md) contain the formal proofs for:
 The Central Math Vault is the source of truth for all NRC technologies. Every line of code is mathematically verified to prevent entropy-collapse in artificial and biological intelligence systems.
 
 <div align="center">
-<i>Authored by the Nexus Resonance Codex (2026)</i><br>
+<i>Authored by James Trageser (@jtrag) — Nexus Resonance Codex (2026)</i><br>
 <b>Stabilizing the future of intelligence.</b>
 </div>
