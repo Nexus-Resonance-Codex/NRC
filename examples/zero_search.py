@@ -30,4 +30,5 @@ def phi_power_series_zeros() -> None:
 
 if __name__ == "__main__":
     import math
+
     phi_power_series_zeros()

@@ -33,6 +33,7 @@ def modular_exclusion_proof() -> None:
     Tests the mathematical stability of the Mod-9 residue manifold against stochastic noise.
     """
     import random
+
     print("--- NRC Modular Exclusion Proof ---")
     print("Testing 100,000 biological coordinate configurations...\n")
 

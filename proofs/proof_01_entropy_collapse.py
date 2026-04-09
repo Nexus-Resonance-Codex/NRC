@@ -27,7 +27,7 @@ def entropy_collapse_proof(initial_entropy: float, iterations: int) -> None:
     for i in range(iterations):
         current_entropy /= (1 + math.sqrt(5)) / 2
         matched = math.isclose(current_entropy, theoretical_bound)
-        print(f"Step {i+1}: {current_entropy:.12f} | Bound matched: {matched}")
+        print(f"Step {i + 1}: {current_entropy:.12f} | Bound matched: {matched}")
 
     print(
         f"\nConclusion: After {iterations} iterations, the system entropy has "
