@@ -2,18 +2,21 @@ from typing import Any, List, Optional, Union, cast
 
 import numpy as np
 
-# Institutional NRC Constants
-PHI_VAL = (1 + 5**0.5) / 2
-SQRT_5_VAL = 5**0.5
-
-# Institutional Global Constants
-PHI: float = float(PHI_VAL)
-PHI_FLOAT: float = PHI
+# Institutional Constants
 PHI_INT: int = 1618
-SQRT_5: float = float(SQRT_5_VAL)
+PHI_FLOAT: float = 1.618033988749895
+PHI_INVERSE_FLOAT: float = 0.618033988749895
+PHI: float = PHI_FLOAT  # Primary institutional alias
+SQRT_5: float = 2.23606797749979
 SQRT_5_FLOAT: float = SQRT_5
 MST_MOD: int = 24389
 TUPT_MOD: int = 9
+
+def binet_formula(n: int) -> int:
+    """Calculates the n-th Fibonacci number utilizing the closed-form Binet manifold."""
+    phi = (1 + 5**0.5) / 2
+    psi = (1 - 5**0.5) / 2
+    return int((phi**n - psi**n) / 5**0.5)
 TTT_CYCLE: List[int] = [3, 6, 9, 7]
 TUPT_PATTERN = {0, 3, 6}
 
