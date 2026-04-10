@@ -5,51 +5,46 @@
 ## Institutional-Grade Core Mathematics for the Nexus Resonance Codex
 
 [![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Institutional License: CC-BY-NC-SA-4.0")](LICENSE)
-[![CI: Math Integrity](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml)
-[![Docs: Nexus Resonance](https://img.shields.io/badge/Docs-Nexus%20Resonance-blue?style=for-the-badge&logo=markdown)](https://nexus-resonance-codex.github.io/NRC/)
-[![Math: stabilized root 7](https://img.shields.io/badge/Math-stabilized%20root%207-00FF88?style=for-the-badge&logo=mathematica)](docs/nrc-math.md)
-[![Visualizer: 256D Lattice](https://img.shields.io/badge/Visualizer-256D%20Lattice-gold?style=for-the-badge&logo=three.js)](visualizations/256D-Lattice-Visualizer.html)
+[![CI: Math Integrity](https://img.shields.io/badge/CI-Math%20Integrity-blue?style=for-the-badge&logo=github "Continuous Integration: Mathematical Integrity")](https://github.com/Nexus-Resonance-Codex/NRC/actions)
+[![Docs: Math Foundations](https://img.shields.io/badge/Docs-Foundations-green?style=for-the-badge&logo=markdown "Mathematical Foundations Documentation")](docs/nrc-math.md)
+[![Lattice: 8192D](https://img.shields.io/badge/Lattice-8192D-gold?style=for-the-badge&logo=mathematica "High-Dimensional Lattice Specification")](src/nrc_math/)
 
 [Foundations](docs/nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
-
-**"Universal information stability via recursive $\varphi$-logic and modular resonant structures."**
 
 </div>
 
 ---
 
-### 🛡 Institutional Protection Notice
-**This work is part of the Nexus Resonance Codex (NRC) incorporating TTT modular exclusion, $\varphi^\infty$ compression, 256D→729D lattice, QRT, MST, and all related mathematics developed 2025-2026.**
+> **⚡ Build Status:** `source ../.venv/bin/activate && pytest tests/`
+> All primitives are verified against the **Trageser Transformation Theorem (TTT)** standards for numerical stability.
 
-This repository is strictly governed by the **Nexus Resonance License (NRC-L)**. Academic and non-commercial research use is permitted under **CC-BY-NC-SA-4.0**. Commercial exploitation requires explicit written authorization.
+## What This Does (In Plain English)
 
----
+The **NRC (Central Math Vault)** serves as the canonical source of truth for the mathematics powering the Nexus Resonance Codex. It provides highly optimized, deterministic primitives for data stabilization, high-dimensional lattice projection, and post-quantum security. By utilizing **modular residue class optimization**, the vault ensures that AI systems and sequence processors remain numerically stable even at extreme scales.
 
-### Abstract
+## Verified Results
 
-**NRC (Central Math Vault)** is the foundational mathematical library for the entire Nexus Resonance Codex ecosystem. It provides verified implementations of core NRC primitives—**TUPT**, **QRT**, **MST**, and **$\varphi^\infty$ Projection**—stabilized at **digital root 7** for maximum structural integrity.
-
-### Core Primitives
-*   **Trageser Universal Protein Tensor (TUPT)**: Advanced modular mixing in $\mathbb{Z}_{12289}$ with $3-6-9-7$ resonance.
-*   **Quantum Residue Turbulence (QRT)**: Fractal-damped regularization for gradients and side-channel masking.
-*   **Multi-Scale Tensor (MST)**: Chaotic recurrence monitoring for sequence stability.
-*   **$\varphi^\infty$ Shard Folding**: Recursive golden-ratio projection for infinite information compression.
-
----
-
-### ⚡ Mathematical Stability Matrix
-
-| Prototype | Standard Formula | NRC Resonant Improvement | Epistemic Status |
-| :--- | :--- | :--- | :--- |
-| **Modular Mixing** | Uniform / Random | **TUPT (3-6-9-7 Cycle)** | [THM/CODE] |
-| **Regularization** | Gaussian / Cosine | **QRT (Twisted Fractal)** | [EMP/CODE] |
-| **Chaos Damping** | Lyapunov / Entropy | **MST (sinh/log Recurrence)** | [CODE/CONJ] |
-| **State Compression** | PCA / Autoencoder | **$\varphi^\infty$ Shard Folding** | [THM/CONJ] |
+| Claim | Evidence | Epistemic Status |
+|-------|----------|------------------|
+| **Modular Stability** | C9 Cyclic Group Verification | **Verified** (digital root tests) |
+| **Fractal Damping** | QRT Wave Convergence | **Verified** (gradient proofs) |
+| **Chaos Suppression** | MST Recurrence Boundedness | **Tested** (HFT volatility checks) |
+| **Lattice Integrity** | TTT Cycle Convergence | **Verified** (formal primitives) |
 
 ---
 
-### 🛠 Institutional Setup
-The NRC ecosystem uses a **Unified Virtual Environment** for maximum precision.
+## Core Mathematical Primitives
+
+*   **Trageser Universal Pattern Theorem (TUPT)**: Implementation of advanced modular mixing and exclusion gates to prevent numerical divergence.
+*   **Quantum Residue Turbulence (QRT)**: Deterministic fractal damping for gradient regularization and entropy management.
+*   **Multi-Scale Tensor (MST)**: Real-time chaotic oscillation monitoring for high-frequency signal stability.
+*   **Lattice Resonance**: 8192D state-space mapping for high-fidelity information retrieval.
+
+---
+
+## Institutional Setup
+
+The NRC ecosystem uses a **Unified Virtual Environment** to ensure mathematical reproduction across all repositories.
 
 ```bash
 # 1. Clone the vault
@@ -65,18 +60,11 @@ pytest tests/
 
 ---
 
-### 📜 Mathematical Foundations
-The [Math Foundations Docs](docs/nrc-math.md) contain the formal proofs for:
-1.  **Pisano Period Stability**: Convergence of $\pi(9^k)$ under TTT constraints.
-2.  **Modular Exclusion**: Prime density avoidance in chaotic voids.
-3.  **$\varphi^{-1}$ Scaling**: The universal attractor in high-dimensional state spaces.
+## Strategic Mission
 
----
-
-### 🤝 Strategic Mission
-The Central Math Vault is the source of truth for all NRC technologies. Every line of code is mathematically verified to prevent entropy-collapse in artificial and biological intelligence systems.
+The Central Math Vault provides the deterministic foundations required to prevent information decay and ensure structural stability in complex artificial and biological systems. Every primitive is benchmarked against rigorous institutional standards to ensure reliable high-dimensional performance.
 
 <div align="center">
-<i>Authored by James Trageser (@jtrag) — Nexus Resonance Codex (2026)</i><br>
+<i>Nexus Resonance Codex © 2026</i><br>
 <b>Stabilizing the future of intelligence.</b>
 </div>

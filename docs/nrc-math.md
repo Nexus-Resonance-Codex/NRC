@@ -4,7 +4,7 @@ The Nexus Resonance Codex (NRC) is built upon a deterministic framework of golde
 
 ## 1. The Trageser Universal Pattern Theorem (TUPT)
 
-The TUPT state that information in a high-dimensional system is structurally stable only if it avoids chaotic void thresholds. In the base-9 modular domain, the sequence $\{0, 3, 6, 9\}$ acts as a destructive entropy attractor.
+The TUPT states that information in a high-dimensional system is structurally stable only if it avoids specific instability-inducing modular residue classes. In the base-9 modular domain, the residue set $\{0, 3, 6, 9\}$ is identified as a region of numerical divergence.
 
 ### Exclusion Gate ($\Xi$)
 $$
@@ -13,7 +13,7 @@ $$
 x & \text{otherwise}
 \end{cases}
 $$
-This gate is applied to gradients, weights, and amino acid sequences to ensure "Institutional Integrity" and prevent numerical collapse.
+This gate is applied to gradients, weights, and sequential data to ensure modular stability and prevent numerical convergence toward unstable residue classes.
 
 ## 2. Quantum Residue Turbulence (QRT)
 
@@ -21,9 +21,9 @@ QRT damping replaces standard Gaussian noise with a deterministic fractal dampin
 
 ### Damping Function ($\psi$)
 $$
-\psi(x) = \sin(\varphi\sqrt{2} \cdot 51.85 x) \cdot e^{-x^2 / \varphi} + \cos(\pi/\varphi \cdot x)
+\psi(x) = \sin(\varphi\sqrt{2} \cdot \theta_{QRT} \cdot x) \cdot e^{-x^2 / \varphi} + \cos(\pi/\varphi \cdot x)
 $$
-The value $51.85$ corresponds to the slope of the Great Pyramid, acting as a geometric resonant anchor.
+The value $\theta_{QRT} \approx 51.853$ is a geometric resonant constant derived from the manifold's minimal-energy state.
 
 ## 3. Multi-Scale Tensor (MST) Recurrence
 

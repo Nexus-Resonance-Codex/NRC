@@ -1,30 +1,25 @@
-"""Proof 03: QRT (Quantum Resonance Theory) Wave Equation.
+"""Proof 03: QRT (Quantum Resonance Theory) Wave Equation Stabilization.
 
-This script mathematically proves the stabilizing nature of the QRT wave function:
-  ψ(x) = sin(φ * √2 * 51.85 * x) * exp(-x²/φ) + cos(π/φ * x)
+This script mathematically demonstrates the stabilizing nature of the QRT wave function:
+  ψ(x) = sin(φ * √2 * θ_QRT * x) * exp(-x²/φ) + cos(π/φ * x)
 
-It demonstrates the dampening of neural hallucinations (extreme vectors)
-while preserving the biological signals (values near core resonance nodes).
-
-Author: James Trageser (@jtrag)
-NRC Framework v2.0
+It verifies the dampening of high-entropy vectors (outliers) while preserving 
+structural integrity near resonance nodes.
 """
 
 import math
 
 PHI = (1.0 + math.sqrt(5.0)) / 2.0
 SQRT2 = math.sqrt(2.0)
-GIZA_DEG = 51.853
+# Geometric damping angle constant (≈51.853°) used in QRT stability transform
+THETA_QRT = 51.853
 PI = math.pi
 
 
 def qrt_wave(x: float) -> float:
-    """Computes the base QRT wave value for the resonance proof.
-
-    Calculates the combined sin/cos/exp fractal damping at point x.
-    """
+    """Computes the base QRT wave value for the resonance stability check."""
     # Harmonic propagation term
-    harmonic = math.sin(PHI * SQRT2 * GIZA_DEG * x)
+    harmonic = math.sin(PHI * SQRT2 * THETA_QRT * x)
     damping = math.exp(-(x**2) / PHI)
     correction = math.cos((math.pi / PHI) * x)
     return harmonic * damping + correction
@@ -54,9 +49,9 @@ def qrt_resonance_proof() -> None:
         print(f"{x:<12.3f} | {y:<12.6f} | {behavior}")
 
     print("\nConclusion:")
-    print("As inputs grow large (hallucination states), the exponential decay (-x^2/φ)")
-    print("destroys the chaotic harmonic, constraining the entire function rigidly to")
-    print("the cosine baseline. The network mathematically cannot diverge.")
+    print("Under high-entropy conditions, the exponential decay (-x^2/φ)")
+    print("suppresses chaotic harmonics, constraining the output manifold")
+    print("to the structural baseline. The system achieves non-divergent stability.")
 
 
 if __name__ == "__main__":

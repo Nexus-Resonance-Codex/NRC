@@ -14,8 +14,8 @@ SQRT_5: float = 2.23606797749979
 SQRT_5_FLOAT: float = SQRT_5
 MST_MOD: int = 24389
 TUPT_MOD: int = 9
-TTT_CYCLE: List[int] = [3, 6, 9, 7]
-TUPT_PATTERN = {0, 3, 6}
+TTT_CYCLE: List[int] = [1, 2, 4, 5, 7, 8]
+TUPT_PATTERN = {0, 3, 6, 9}
 
 
 def binet_formula(n: Any) -> LatticeValue:  # noqa: ANN401
@@ -32,7 +32,7 @@ def binet_formula(n: Any) -> LatticeValue:  # noqa: ANN401
 
 
 def apply_exclusion_gate(values: Any, modulus: int = 9) -> Any:  # noqa: ANN401
-    """Applies the Trageser Universal Protein Tensor (TUPT) exclusion principle."""
+    """Applies the Trageser Universal Pattern Theorem (TUPT) modular exclusion."""
     type_str = str(type(values))
     is_torch = "torch.Tensor" in type_str
     is_numpy = "numpy.ndarray" in type_str
@@ -66,7 +66,7 @@ def apply_exclusion_gate(values: Any, modulus: int = 9) -> Any:  # noqa: ANN401
 
 
 def verify_root_7_stability(value: int) -> bool:
-    """Verifies if the digital root of the input value is 7."""
+    """Verifies modular stability – checks if the digital root is 7."""
     if value == 0:
         return False
     dr = value % 9
@@ -92,7 +92,7 @@ def phi_infinity_shard(x: Any, alpha: float = 1.0) -> LatticeValue:  # noqa: ANN
 def qrt_damping(x: Any) -> LatticeValue:  # noqa: ANN401
     """Calculates the QRT damping factor for scalar or tensor inputs."""
     type_str = str(type(x))
-    if "torch.Tensor" in type_str:
+    if "torch" in type_str:
         import torch
 
         return torch.exp(-(x**2) / PHI)

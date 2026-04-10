@@ -14,13 +14,8 @@ import numpy as np
 import gradio as gr
 
 # ─────────────────────────── NRC Math (inline, no pip install needed) ──────────
-PHI = (1.0 + math.sqrt(5.0)) / 2.0
-PHI_INV = 1.0 / PHI
-SQRT5 = math.sqrt(5.0)
-SQRT2 = math.sqrt(2.0)
-PI = math.pi
-GIZA_DEG = 51.853
-GIZA_RAD = GIZA_DEG * (PI / 180.0)
+THETA_QRT = 51.853
+RAD_QRT = THETA_QRT * (PI / 180.0)
 
 
 def binet(n: int) -> float:
@@ -29,8 +24,8 @@ def binet(n: int) -> float:
 
 
 def qrt(x: float) -> float:
-    """Computes the Quantum Residue Turbulence (QRT) fractal damping at point x."""
-    return math.sin(PHI * SQRT2 * GIZA_DEG * x) * math.exp(-(x**2) / PHI) + math.cos(PI / PHI * x)
+    """Computes the Quantum Residue Transform (QRT) geometric damping at point x."""
+    return math.sin(PHI * SQRT2 * THETA_QRT * x) * math.exp(-(x**2) / PHI) + math.cos(PI / PHI * x)
 
 
 def mst(x: float) -> float:
@@ -40,7 +35,7 @@ def mst(x: float) -> float:
 
 
 def tupt_gate(x: float) -> float:
-    """Applies the TUPT 3-6-9-7 Exclusion Principle; returns 0 if excluded."""
+    """Applies the TUPT Modular Stability Principle; returns 0 if excluded."""
     mod_val = x % 9
     if mod_val in [0, 3, 6, 9]:
         return 0.0
@@ -57,7 +52,7 @@ def phi_fold(x: float, iterations: int = 5) -> float:
 def lattice_norm(x: float) -> float:
     """Projects scalar x into the 2048D lattice and returns the Euclidean norm."""
     dims = np.arange(2048, dtype=np.float64)
-    vec = x * np.power(PHI, -dims / 2048) * np.cos(dims * GIZA_RAD)
+    vec = x * np.power(PHI, -dims / 2048) * np.cos(dims * RAD_QRT)
     return float(np.linalg.norm(vec))
 
 
@@ -134,7 +129,7 @@ def project_sequence(sequence: str) -> str:
 
     mass_arr = np.array([m for _, m in valid]) * PHI
     dims = np.arange(2048, dtype=np.float64)
-    scale = np.power(PHI, -dims / 2048) * np.cos(dims * GIZA_RAD)
+    scale = np.power(PHI, -dims / 2048) * np.cos(dims * RAD_QRT)
 
     coord_norms = [float(np.linalg.norm(m_val * scale)) for m_val in mass_arr]
 
@@ -161,8 +156,8 @@ def project_sequence(sequence: str) -> str:
 # ─────────────────────────── Tab 3: AI Enhancement Browser ─────────────────────
 ENHANCEMENTS = [
     ("PhiInfinityShardFolding", "Attention", "φ^∞ fractal shard folding"),
-    ("NRCProteinFoldingEngine", "Scaffold", "2048D lattice + TUPT exclusion"),
-    ("GoldenAttractorFlowNorm", "LayerNorm", "φ-attractor normalization"),
+    ("NRCProteinFoldingEngine", "Scaffold", "2048D lattice + TUPT stability"),
+    ("GoldenFlowNorm", "LayerNorm", "φ-attractor normalization"),
     ("TripleThetaInitializer", "Weight Init", "3θ resonance seed"),
     ("ResonanceShardKVCache", "KV-Cache", "φ^n memory sharding"),
     ("BiologicalExclusionGradientRouter", "Grad Routing", "TUPT mod-9 gate"),
@@ -173,12 +168,12 @@ ENHANCEMENTS = [
     ("PrimeDensityConditionedGeneration", "Sampling", "Prime density seeds"),
     ("GTTEntropyCollapseRegularizer", "Entropy Loss", "GTT threshold collapse"),
     ("PhiInverseMomentumAccelerator", "Momentum", "φ⁻¹ velocity scaling"),
-    ("TUPTAttractorSyncSeed", "RNG Seed", "TUPT cycle sync"),
+    ("TUPTSyncSeed", "RNG Seed", "TUPT cycle sync"),
     ("QRTKernelConvolution", "Conv1D/2D", "QRT wave kernel"),
     ("LucasWeightedSparseAttention", "Sparse Attn", "Lucas number masking"),
     ("PhiPoweredResonantWeighting", "Weight Init", "φ^n spectral decay"),
-    ("GizaLatticeIsomorphism", "Projection", "51.85° slope map"),
-    ("MSTLyapunovGradientClipping", "Grad Clipping", "MST λ≈0.381 bound"),
+    ("GeometricLatticeIsomorphism", "Projection", "Optimal geometric slope map"),
+    ("MSTLyapunovClipping", "Grad Clipping", "MST λ≈0.381 bound"),
     ("PisanoModulatedLRSchedule", "LR Schedule", "Pisano period cycle"),
     ("LucasPellHybridWeightDecay", "Weight Decay", "Lucas-Pell recursion"),
     ("TUPTExclusionTokenPruning", "Token Pruning", "Mod-9 pruning gate"),
@@ -186,7 +181,7 @@ ENHANCEMENTS = [
     ("InfiniteEInfinityContextUnfolder", "Context Window", "E∞ recursive unfolding"),
     ("TUPTModularDropout", "Dropout", "TUPT-gated structural drop"),
     ("QRTTurbulenceOptimizer", "Optimizer", "QRT turbulence gradient"),
-    ("GizaSlopeAttentionBias", "Attention Bias", "51.85° Giza weighting"),
+    ("QRTGeometricAttentionBias", "Attention Bias", "Optimal geometric weighting"),
     ("FloorSinhActivation", "Activation", "floor(1000·sinh(x)) + φ·x"),
     ("GoldenSpiralRotaryEmbedding", "RoPE", "φ-spiral rotation matrix"),
     ("NRCEntropyAttractorEarlyStopping", "Early Stopping", "NRC entropy convergence"),

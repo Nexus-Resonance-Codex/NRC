@@ -8,7 +8,7 @@
 """nrc_math: Core Mathematics for the Nexus Resonance Codex.
 
 This package provides the foundational mathematical engine for the NRC ecosystem.
-All modules are stabilized according to TTT (Trageser Tensor Theorem) standards.
+All modules are stabilized according to Trageser Transformation Theorem (TTT) standards.
 """
 
 from .primitives import (

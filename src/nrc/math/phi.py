@@ -8,8 +8,8 @@ import numpy as np
 PHI_FLOAT: float = (1 + math.sqrt(5)) / 2
 PHI_INVERSE_FLOAT: float = 1 / PHI_FLOAT
 SQRT_5_FLOAT: float = math.sqrt(5)
-GIZA_SLOPE_DEG: float = 51.853
-GIZA_SLOPE_RAD: float = GIZA_SLOPE_DEG * (math.pi / 180.0)
+THETA_QRT: float = 51.853
+RAD_QRT: float = THETA_QRT * (math.pi / 180.0)
 
 
 @overload

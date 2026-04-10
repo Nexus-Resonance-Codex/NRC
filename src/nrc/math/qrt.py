@@ -10,7 +10,7 @@ from typing import Union
 
 import numpy as np
 
-from .phi import GIZA_SLOPE_RAD, PHI_FLOAT
+from .phi import RAD_QRT, PHI_FLOAT
 
 SQRT_2 = math.sqrt(2.0)
 PI = math.pi
@@ -19,10 +19,10 @@ PI = math.pi
 def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
     """Determines the QRT wave topology at arbitrary spacial point x.
 
-    QRT(x) = sin(φ · √2 · GIZA_RAD_SLOPE · x) · exp(-x² / φ) + cos(π/φ · x)
+    QRT(x) = sin(φ · √2 · RAD_QRT · x) · exp(-x² / φ) + cos(π/φ · x)
 
     This equation forces extreme outliers exponentially downwards towards 0,
-    while gently oscillating stable regions using the Giza slope amplitude.
+    while gently oscillating stable regions using the optimal geometric damping.
 
     Args:
         x: Input scalar or numpy array (activations, gradients, physical wave point).
@@ -30,7 +30,7 @@ def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
     Returns:
         The damped output bounding safely within the QRT fractal topology.
     """
-    freq_sin = PHI_FLOAT * SQRT_2 * GIZA_SLOPE_RAD
+    freq_sin = PHI_FLOAT * SQRT_2 * RAD_QRT
     freq_cos = PI / PHI_FLOAT
 
     term1 = np.sin(freq_sin * x)

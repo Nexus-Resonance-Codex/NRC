@@ -20,6 +20,7 @@ from nrc_math.primitives import (
     TUPT_MOD,
     TUPTMixer,
     apply_exclusion_gate,
+    binet_formula,
     mst_recurrence,
     phi_infinity_shard,
     qrt_damping,
@@ -31,7 +32,7 @@ def test_constants() -> None:
     """Verify core math constants."""
     assert PHI > 1.61
     assert PHI_INT == 1618
-    assert len(TTT_CYCLE) == 4
+    assert len(TTT_CYCLE) == 6
     assert PHI_INT > TUPT_MOD
 
 
@@ -153,3 +154,16 @@ def test_qrt_damping_torch() -> None:
     assert torch.is_tensor(out)
     assert out.shape == x.shape
     assert out.requires_grad
+
+
+def test_binet_formula() -> None:
+    """Verify Binet formula coverage for discrete and continuous paths."""
+    # Discrete
+    assert binet_formula(1) == 1
+    assert binet_formula(2) == 1
+    assert binet_formula(10) == 55
+
+    # Continuous
+    arr = np.array([1.0, 2.0, 10.0])
+    res = binet_formula(arr)
+    np.testing.assert_allclose(res, [1.0, 1.0, 55.0], atol=1e-5)
