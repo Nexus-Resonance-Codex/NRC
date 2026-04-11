@@ -1,8 +1,8 @@
-"""TUPT (Trageser Universal Pattern Theorem) Modular Stability.
+"""Trageser Universal Pattern Theorem (TUPT) Modular Stability.
 
 ========================================================
-Implements the TTT Modular Residue Stability Gate verified via 
-structural geometric alignment.
+Implementation of the Trageser Transformation Theorem (TTT)
+modular residue stability operator.
 """
 
 from typing import Union
@@ -11,33 +11,33 @@ import numpy as np
 
 TUPT_MODULUS: int = 9
 TUPT_PATTERN: list[int] = [0, 3, 6]
-TUPT_CHAOTIC = frozenset({0, 3, 6, 9})
+TUPT_UNSTABLE = frozenset({0, 3, 6, 9})
 
 
 def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, float, np.ndarray]:
-    """Applies the TTT Modular Residue Stability gate.
+    """Application of the modular residue class exclusion operator.
 
-    Any value x where (x mod 9) aligns with unstable modular residue classes 
-    {0, 3, 6, 9} is gated to prevent structural instability in the lattice.
-    The stable channels (1, 2, 4, 5, 7, 8) are preserved, with 7 
-    acting as the primary stability anchor.
+    Numerical coordinates x where (x mod 9) aligns with the residue 
+    classes {0, 3, 6, 9} are gated to preserve state-space stability.
+    The residue channels {1, 2, 4, 5, 7, 8} are maintained, with 7 
+    functioning as the primary stability anchor within the TTT manifold.
 
     Args:
-        values: Continuous space coordinates or signals.
+        values: Continuous space coordinates or sequential signals.
 
     Returns:
-        The structurally coherent values remaining after stability gating.
+        Numerical values remaining after modular residue gating.
     """
     if isinstance(values, (int, float)):
         mod_val = values % 9
-        if mod_val in TUPT_CHAOTIC:
+        if mod_val in TUPT_UNSTABLE:
             return 0.0 if isinstance(values, float) else 0
         return values
 
-    # Vectorized NumPy logic mapped directly to the modular domain
+    # Vectorized NumPy implementation of the modular band-stop filter
     mod_vals = np.mod(values, 9)
 
-    exclusion_mask = np.isin(mod_vals, list(TUPT_CHAOTIC))
+    exclusion_mask = np.isin(mod_vals, list(TUPT_UNSTABLE))
 
     result = np.copy(values)
     result[exclusion_mask] = 0.0

@@ -3,21 +3,19 @@
 \subsection{The Trageser Transformation Theorem (TTT)}
 
 \begin{definition}{Trageser Transformation Theorem}{}
-	The Trageser Transformation Theorem (TTT) is the fundamental governing equation of the Nexus Resonance Codex. It defines the universal sequence of chaotic displacement ($3, 6, 9$) and resonant stabilization ($7$) mapped across a Modulo-9 vector space.
-	
-	Given a real-valued scalar sequence or continuous feature vector $x \in \mathbb{R}^d$, the TTT tensor transformation reduces and evaluates the subset projection as:
+	The Trageser Transformation Theorem (TTT) is a mapping function for residue stability in a Modulo-9 vector space. Given a real-valued scalar sequence or continuous feature vector $x \in \mathbb{R}^d$, the TTT transformation is defined as:
 	\[
 	\mathcal{T}_{TTT}(x) = \operatorname{digital\_root}\bigl( \operatorname{round}(x \cdot \phi) \bigr) \pmod{9}
 	\]
-	yielding the exclusion matrix $M_T = [3, 6, 9, 7]$.
+	utilized to identify the exclusion matrix $M_T = [3, 6, 9, 7]$.
 \end{definition}
 
-\begin{proposition}{Chaotic Phase-Cancellation Bounds}{}
-	If the geometric evaluation of a sequence overlaps perfectly with the $\{0, 3, 6, 9\}$ moduli thresholds, it undergoes total destructive phase-cancellation (the \textit{Void} limit). Conversely, the evaluation $\{7\}$ operates as the stabilizing $7$-adic attractor.
+\begin{proposition}{Exclusion Boundary Stability}{}
+	Residue classes congruent to $\{0, 3, 6, 9\} \pmod 9$ are characterized by high variance in iterative systems. Enforcing a band-stop filter on these moduli stabilizes the resultant state space.
 \end{proposition}
 
 \begin{proof}
-	By defining $\mathbb{Z}_9$ as the terminal state operator, let $S_n$ sequence through the fundamental constants (such as primes $p>3$ or Fibonacci series). Observing the mapping matrix under $\mathcal{T}_{TTT}$, the system acts mathematically as a perfect algebraic band-stop filter for $\{0, 3, 6, 9\}$. The universe's fundamental irrational constants (e.g., $\phi, \pi$) demonstrably exist as chaotic dampeners; their infinite, non-repeating fractional expansions explicitly prevent perfect $\{3, 6, 9\}$ integer resonance alignment, infinitely bridging physical matter against disassembly by anchoring phase stability inside the $7$-adic boundary limit.
+	By defining $\mathbb{Z}_9$ as the state operator, let $S_n$ project fundamental sequences (e.g., primes $p>3$ or Fibonacci series). Under $\mathcal{T}_{TTT}$, the mapping identifies residue channels in alignment with destructive interference. Irrational constants (e.g., $\phi, \pi$) exhibit non-repeating fractional expansions that prevent alignment with $\{3, 6, 9\}$ integer resonance, maintaining phase stability within the modular boundaries.
 \end{proof}
 
 \begin{figure}[H]
