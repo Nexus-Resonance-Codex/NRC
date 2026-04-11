@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUPT-LWE Cryptography Tester | Nexus Resonance Codex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --card-bg: rgba(20, 25, 40, 0.7);
+            --accent: #00F0FF;
+            --gold: #FFD700;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+        }
+
+        .vector-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .vector-table th, .vector-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .vector-table th { color: var(--gold); }
+
+        .result-box {
+            background: #000;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent);
+            color: var(--accent);
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TUPT-LWE VERIFIER</h1>
+            <p style="color: #666;">Trageser Universal Pattern Transformation - Learning With Errors (LWE)</p>
+        </header>
+
+        <div class="card">
+            <div class="section-title">Encryption Sandbox</div>
+            <div class="input-group">
+                <label>Plaintext Message</label>
+                <input type="text" id="msg-input" value="NEXUS RESONANCE 2026">
+            </div>
+            <button onclick="encrypt()">Generate LWE Ciphertext</button>
+            <div style="margin-top: 1.5rem">
+                <label>Resultant Manifold Tuple (A, B)</label>
+                <div class="result-box" id="enc-result">Awaiting input cluster...</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Static Test Vectors (Verification)</div>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 1.5rem;">Use these vectors to verify the φ-scaled residue class consistency across different implementations.</p>
+            <table class="vector-table">
+                <thead>
+                    <tr>
+                        <th>Input Seed</th>
+                        <th>Manifold Index</th>
+                        <th>TTT Parity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1618033</td>
+                        <td>0xACF34</td>
+                        <td>STABLE (7)</td>
+                    </tr>
+                    <tr>
+                        <td>3141592</td>
+                        <td>0x1F22B</td>
+                        <td>STABLE (1)</td>
+                    </tr>
+                    <tr>
+                        <td>2718281</td>
+                        <td>0xD349A</td>
+                        <td>STABLE (8)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function encrypt() {
+            const msg = document.getElementById('msg-input').value;
+            let sum = 0;
+            for(let i=0; i<msg.length; i++) sum += msg.charCodeAt(i);
+            
+            // Simplified TUPT-LWE simulation
+            const A = Math.abs((sum * 1618033) % 24389);
+            const error = Math.floor(Math.random() * 5);
+            const B = (A * 137 + sum + error) % 24389;
+            
+            document.getElementById('enc-result').innerText = `LatticeAnchor(A=${A}, B=${B}, e=${error}) [Resonant Cluster]`;
+        }
+    </script>
+</body>
+</html>

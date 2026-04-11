@@ -8,7 +8,7 @@ on:
 
 jobs:
   mathematical-integrity:
-    name: Institutional Math Audit
+    name: Professional Math Audit
     runs-on: ubuntu-latest
 
     steps:
