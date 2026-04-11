@@ -9,7 +9,7 @@ from typing import cast
 
 import numpy as np
 
-# Institutional Global Constants (Local Alias)
+# Professional Global Constants (Local Alias)
 PHI = (1 + 5**0.5) / 2
 GIZA_RAD = 51.853 * (np.pi / 180.0)
 

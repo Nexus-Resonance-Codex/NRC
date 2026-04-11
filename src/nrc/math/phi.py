@@ -4,7 +4,7 @@ from typing import Literal, Union, overload
 import mpmath  # type: ignore[import-untyped]
 import numpy as np
 
-# Institutional Global Constants
+# Professional Global Constants
 PHI_FLOAT: float = (1 + math.sqrt(5)) / 2
 PHI_INVERSE_FLOAT: float = 1 / PHI_FLOAT
 SQRT_5_FLOAT: float = math.sqrt(5)

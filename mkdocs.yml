@@ -1,5 +1,6 @@
-site_name: NRC Math Vault
-site_description: Institutional core mathematics of the Nexus Resonance Codex
+site_name: NRC Central Math Vault
+site_description: Professional Mathematical Primitives & Lattice Resonance Primes
+site_author: James Trageser
 site_url: https://Nexus-Resonance-Codex.github.io/NRC/
 
 theme:
@@ -11,15 +12,14 @@ theme:
       accent: gold
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: white
-      accent: indigo
+      primary: grey
+      accent: gold
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.top
-    - search.suggest
-    - search.highlight
+    - navigation.expand
     - content.code.copy
+    - content.code.annotate
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -29,9 +29,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
-  - admonition
-  - footnotes
   - attr_list
+  - md_in_html
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -40,4 +39,13 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Mathematical Foundations: nrc-math.md
+  - Math Playground: demos/math-playground.html
+  - Algorithms:
+      - TTT Modular Stability: proofs/index.md
+  - Professional Links:
+      - Resource Manifold: LINKS.md
+
+plugins:
+  - search
+  - minify:
+      minify_html: true

@@ -2,31 +2,31 @@
 
 The Nexus Resonance Codex framework has potential applications across several domains. All claims are supported by verifiable mathematical properties or numerical proxies; no unsubstantiated assertions are made.
 
-\subsection{Modular Exclusion Principle Applications (Expanded)}
+\subsection{TTT Modular Residue Stability Applications}
 
-The 3-6-9-7 modular exclusion principle projects out terms congruent to $0,3,6 \pmod 9$. This has direct applications in filtering and stability analysis.
+The TTT modular residue stability principle gates terms congruent to $0,3,6 \pmod 9$. This has direct applications in filtering and structural alignment analysis.
 
 \textbf{Application 7.1.1 -- Series Filtering} \\
 Applying $M(r)$ to Dirichlet series reduces variance and conjecturally enlarges zero-free regions near $\operatorname{Re}(s)=1$. Numerical evidence on Fibonacci partial sums shows $\approx 30\%$ variance reduction.
 
-\textbf{Application 7.1.2 -- Biological Stability Proxy} \\
-Analysis of 80 high-resolution PDB structures ($\approx 34,200$ core residues) yields a consistent 12.2\% deficit in $\{3,6,9\}$ mod-9 classes using Kidera factor 1 ($\chi^2 = 312.4$, $p \approx 4.8 \times 10^{-63}$; KS $p \approx 2.1 \times 10^{-42}$). Scaling to 1,000,000 residues projects $p < 10^{-1000}$.
+\textbf{Application 7.1.2 -- Structural Stability Analysis} \\
+Analysis of 80 high-resolution PDB structures ($\approx 34,200$ core residues) yields a consistent 12.2\% deviation in modular residue distributions ($\chi^2 = 312.4$, $p \approx 4.8 \times 10^{-63}$; KS $p \approx 2.1 \times 10^{-42}$). Scaling to 1,000,000 residues projects $p < 10^{-1000}$.
 
-\begin{conjecture}{Biological Mod-9 Filtering}{}
-	Core protein regions preferentially exclude certain modular classes modulo 9, potentially acting as a stability filter.
+\begin{conjecture}{Modular Stability Alignment}{}
+	Core protein regions preferentially align with specific modular classes modulo 9, actings as a structural stability indicator.
 \end{conjecture}
-\begin{proof}[Biophysical Justification]
-	The primary driving force of native protein folding is the thermodynamic collapse, minimizing solvent-accessible surface area. By mapping the intrinsic Kidera factors (which strictly quantify hydrophobicity and steric bulk) of the standard amino acids to a discrete base-9 numeric ring, localized steric interactions can be modeled as modular convolutions. Under the hypothesis that 3-6-9 resonance coordinates algebraically function as high-entropy structural voids (as formalized in the Triple Theta Transform architecture), residue chains aligning within these specific moduli would inherently possess higher unconstrained variance. Evolutionary pressures selectively stabilize buried core domains by strictly minimizing native-state spatial fluctuations. Therefore, a discrete algebraic filtration out of the $S_3 = \{0, 3, 6\}$ (or appropriately shifted) modulo 9 classes directly acts as an energetic funnel, systematically lowering the macroscopic free energy of the folded topological core.
+\begin{proof}[Structural Justification]
+	The primary driving force of native protein folding is the thermodynamic collapse, minimizing solvent-accessible surface area. By mapping the intrinsic Kidera factors (which strictly quantify hydrophobicity and steric bulk) of the standard amino acids to a discrete base-9 numeric ring, localized steric interactions can be modeled as modular convolutions. Under the hypothesis that residues aligning with unstable modular residues $\{0, 3, 6\}$ (as formalized in the Trageser Transformation Theorem architecture) possess higher unconstrained variance, evolutionary pressures selectively stabilize buried core domains by strictly minimizing native-state spatial fluctuations. Therefore, a discrete algebraic filtration out of these classes acts as a structural funnel, lowering the macroscopic free energy of the folded topological core.
 \end{proof}
 
-This suggests a low-cost computational filter for \textit{de novo} design: reject sequences with high 3-6-9 digital roots in core positions. Rosetta energy proxy simulations show $15-35\%$ stability improvement in filtered candidates.
+This suggests a low-cost computational filter for \textit{de novo} design: prioritize sequences with stable modular residue alignment in core positions. Rosetta energy proxy simulations show $15-35\%$ stability improvement in filtered candidates.
 
 \subsection{Triple Theta Transform (TTT) Applications}
 
 \textbf{Definition (recap).} $R_n = \operatorname{digital\_root}(\operatorname{round}(S_n \cdot \phi)) \pmod 9$.
 
 \textbf{Application 7.2.1 -- Sequence Uniformization} \\
-For natural sequences (Fibonacci, primes), TTT produces nearly uniform distribution mod 9 with period 16--30. This can be used as a low-cost hash or randomness extractor.
+For natural sequences (Fibonacci, primes), TTT produces nearly uniform distribution mod 9 with period 16--30. This can be used as a low-cost modular fingerprint or stability extractor.
 
 \textbf{Rigorous Property.} For linear recurrence sequences with characteristic root $\phi$, $R_n$ is periodic with period dividing a multiple of the Pisano period.
 
@@ -46,7 +46,7 @@ MST provides exponential decay with rate $-\ln \phi$, useful for regularization 
 
 \subsection{Trageser Universal Prime Transform (TUPT) -- Cryptographic Applications}
 
-\textbf{Definition (recap).} Keyed map over $\mathbb{Z}/12289\mathbb{Z}$ preserving $\{3,6,9,7\} \pmod 9$.
+\textbf{Definition (recap).} Keyed map over $\mathbb{Z}/12289\mathbb{Z}$ preserving modular residue stability $\pmod 9$.
 
 \textbf{Application 7.5.1 -- Post-Quantum Cryptography} \\
 TUPT is at least as hard as standard LWE. Applications: collision-resistant hashing, PRNG, zero-knowledge commitments.
@@ -57,8 +57,8 @@ TUPT is at least as hard as standard LWE. Applications: collision-resistant hash
 
 \textbf{Definition (recap).} $\psi(x) = \sin(\phi \sqrt{2} \cdot \arctan(\sqrt{\phi}) \cdot x) \exp(-x^2/\phi) + \cos(\pi/\phi \cdot x)$.
 
-\textbf{Application 7.6.1 -- Resonant Energy Extraction} \\
-QRT models background noise. Piezoelectric array tuned to $\phi$-derived frequencies yields theoretical harvesting efficiency $\eta \approx 1 - \exp(-Q / \phi)$ (simulated $Q \approx 0.1-0.3$).
+\textbf{Application 7.6.1 -- Resonance Modeling for Structural Harvesting} \\
+QRT models background oscillation modes. Piezoelectric array projections tuned to $\phi$-derived frequencies yields theoretical harvesting efficiency $\eta \approx 1 - \exp(-Q / \phi)$ (simulated $Q \approx 0.1-0.3$).
 
 \textbf{Application 7.6.2 -- Fractal Dimension in Signal Processing} \\
 Numerical box-counting dimension $\approx 1.40$. Useful for persistent correlation analysis.

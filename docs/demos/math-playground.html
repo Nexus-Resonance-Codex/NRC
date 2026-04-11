@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRC Math Playground | Nexus Resonance Codex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0e;
+            --accent-gold: #FFD700;
+            --accent-cyan: #00F0FF;
+            --glass-bg: rgba(20, 20, 30, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .section-title {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        input {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 0.8rem;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(0, 240, 255, 0.2));
+            color: #fff;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            padding: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            box-shadow: 0 0 15px var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .result {
+            background: rgba(0,0,0,0.4);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent-cyan);
+            word-break: break-all;
+        }
+
+        .ttt-status {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .pass { background: rgba(0, 255, 0, 0.2); color: #00ff00; }
+        .fail { background: rgba(255, 0, 0, 0.2); color: #ff0000; }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NRC MATH PLAYGROUND</h1>
+            <p style="color: #888;">Live Primitive Verification for TTT & TUPT Algorithms</p>
+        </header>
+
+        <div class="grid">
+            <!-- TTT Selector -->
+            <div class="card">
+                <div class="section-title">TTT Modular Exclusion</div>
+                <div class="input-group">
+                    <label>Value to Test (Integer)</label>
+                    <input type="number" id="ttt-input" value="1618">
+                </div>
+                <button onclick="testTTT()">Verify Digital Root</button>
+                <div class="result" id="ttt-result">Enter value and verify...</div>
+                <div id="ttt-tag" class="ttt-status">STANDING BY</div>
+            </div>
+
+            <!-- Spiral Compression -->
+            <div class="card">
+                <div class="section-title">φ^∞ Spiral Projection</div>
+                <div class="input-group">
+                    <label>Input Scalar (x)</label>
+                    <input type="number" id="spiral-input" value="1.0" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Depth (n)</label>
+                    <input type="number" id="spiral-depth" value="5" min="1" max="24">
+                </div>
+                <button onclick="testSpiral()">Calculate Resonance</button>
+                <div class="result" id="spiral-result">Computing manifold...</div>
+            </div>
+
+            <!-- TUPT Lattice -->
+            <div class="card" style="grid-column: span 2;">
+                <div class="section-title">TUPT Universal Pattern Mapping</div>
+                <div class="input-group">
+                    <label>Sample String (Data)</label>
+                    <input type="text" id="tupt-input" value="Nexus Resonance Codex 2026">
+                </div>
+                <button onclick="testTUPT()">Generate Lattice Signature</button>
+                <div class="result" id="tupt-result" style="height: 100px; overflow-y: auto;">Awaiting signal...</div>
+            </div>
+        </div>
+
+        <footer>
+            PROFESSIONAL GRADE MATHEMATICAL PRIMITIVES | SYNCED TO φ^∞ MANIFOLD | 2026
+        </footer>
+    </div>
+
+    <script>
+        const PHI = 1.618033988749895;
+
+        function digitalRoot(n) {
+            n = Math.abs(parseInt(n));
+            if (n === 0) return 0;
+            const res = n % 9;
+            return res === 0 ? 9 : res;
+        }
+
+        function testTTT() {
+            const val = document.getElementById('ttt-input').value;
+            const root = digitalRoot(val);
+            const isStable = [1, 2, 4, 5, 7, 8].includes(root);
+            
+            document.getElementById('ttt-result').innerText = `Digital Root: ${root}\nStability: ${isStable ? "STABLE" : "CHAOTIC"}`;
+            const tag = document.getElementById('ttt-tag');
+            tag.innerText = isStable ? "STABILITY PASSED" : "CHAOTIC ZONE DETECTED";
+            tag.className = `ttt-status ${isStable ? 'pass' : 'fail'}`;
+        }
+
+        function testSpiral() {
+            const x = parseFloat(document.getElementById('spiral-input').value);
+            const depth = parseInt(document.getElementById('spiral-depth').value);
+            
+            let res = "";
+            let current = x;
+            for (let n = 1; n <= depth; n++) {
+                const scaled = current * Math.pow(PHI, -2 * n);
+                res += `Layer ${n}: ${scaled.toExponential(6)}\n`;
+            }
+            document.getElementById('spiral-result').innerText = res;
+        }
+
+        function testTUPT() {
+            const input = document.getElementById('tupt-input').value;
+            let sum = 0;
+            for(let i=0; i<input.length; i++) sum += input.charCodeAt(i);
+            
+            const coarse = sum % 24389;
+            const sig = (coarse * 1618) % 12289;
+            
+            document.getElementById('tupt-result').innerText = 
+                `Coarse Lattice Anchor: ${coarse}\n` +
+                `TUPT Integrity Signature: 0x${sig.toString(16).toUpperCase()}\n` +
+                `Lattice Coordinates (8192D): [${(sum/PHI).toFixed(4)}, ..., ${(sum*PHI).toFixed(4)}]`;
+        }
+    </script>
+</body>
+</html>

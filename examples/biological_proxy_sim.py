@@ -1,4 +1,4 @@
-"""Nexus Resonance Codex - Institutional Modular Stability Simulation.
+"""Nexus Resonance Codex - Professional Modular Stability Simulation.
 
 Demonstrates the deviation in modular residue distributions aligning with TTT stability nodes.
 """
@@ -9,7 +9,7 @@ from scipy.stats import chisquare  # type: ignore[import-untyped]
 
 def run_biological_stability_sim() -> None:
     """Certifies structural modular stability distributions."""
-    print("Nexus Resonance Codex - Institutional Modular Stability Simulation")
+    print("Nexus Resonance Codex - Professional Modular Stability Simulation")
 
     np.random.seed(42)
     n = 34200  # Approx. number of core residues in simulation

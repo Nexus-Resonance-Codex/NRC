@@ -5,11 +5,11 @@ import numpy as np
 # Type Aliases for Spectral Clarity
 LatticeValue = Union[float, np.ndarray, Any]
 
-# Institutional Constants
+# Professional Constants
 PHI_INT: int = 1618
 PHI_FLOAT: float = 1.618033988749895
 PHI_INVERSE_FLOAT: float = 0.618033988749895
-PHI: float = PHI_FLOAT  # Primary institutional alias
+PHI: float = PHI_FLOAT  # Primary professional alias
 SQRT_5: float = 2.23606797749979
 SQRT_5_FLOAT: float = SQRT_5
 MST_MOD: int = 24389
@@ -74,7 +74,7 @@ def verify_root_7_stability(value: int) -> bool:
 
 
 def mst_recurrence(x: Any) -> LatticeValue:  # noqa: ANN401
-    """Computes the institutional MST recurrence value."""
+    """Computes the professional MST recurrence value."""
     # Poly-type compatible recurrence logic
     xp = np.abs(x) + 1e-9
     val = np.floor(1000.0 * np.sinh(np.minimum(xp, 20.0))) + np.log(xp**2 + 1.0)
@@ -100,7 +100,7 @@ def qrt_damping(x: Any) -> LatticeValue:  # noqa: ANN401
 
 
 class TUPTMixer:
-    """Institutional stateful mixer for TUPT pattern generation."""
+    """Professional stateful mixer for TUPT pattern generation."""
 
     def __init__(self, seed: Optional[int] = None) -> None:
         """Initialises the stateful TUPT mixer manifold."""

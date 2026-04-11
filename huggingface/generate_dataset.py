@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Nexus Resonance Codex - HuggingFace Dataset Generator.
 
-Institutional-grade script to generate the synthetic NRC mathematical manifold
+Professional-grade script to generate the synthetic NRC mathematical manifold
 dataset for AI training and resonance exploration.
 """
 
@@ -57,7 +57,7 @@ def generate_nrc_dataset(
     n_gaussian: int = 1000,
     n_fibonacci: int = 500,
 ) -> List[Dict[str, Any]]:
-    """Generates an institutional-grade row battery for NRC resonance training."""
+    """Generates an professional-grade row battery for NRC resonance training."""
     n_rows = n_uniform + n_gaussian + n_fibonacci
     print(f"Generating {n_rows} NRC rows...")
 

@@ -2,9 +2,9 @@
 <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
 
 # NRC (Central Math Vault)
-## Institutional-Grade Core Mathematics for the Nexus Resonance Codex
+## Professional-Grade Core Mathematics for the Nexus Resonance Codex
 
-[![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Institutional License: CC-BY-NC-SA-4.0")](LICENSE)
+[![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Professional License: CC-BY-NC-SA-4.0")](LICENSE)
 [![CI: Math Integrity](https://img.shields.io/badge/CI-Math%20Integrity-blue?style=for-the-badge&logo=github "Continuous Integration: Mathematical Integrity")](https://github.com/Nexus-Resonance-Codex/NRC/actions)
 [![Docs: Math Foundations](https://img.shields.io/badge/Docs-Foundations-green?style=for-the-badge&logo=markdown "Mathematical Foundations Documentation")](docs/nrc-math.md)
 [![Lattice: 8192D](https://img.shields.io/badge/Lattice-8192D-gold?style=for-the-badge&logo=mathematica "High-Dimensional Lattice Specification")](src/nrc_math/)
@@ -43,7 +43,7 @@ The framework utilizes a modular exclusion principle based on residue classes mo
 
 ---
 
-### Institutional Setup
+### Professional Setup
 
 The NRC ecosystem uses a **Unified Virtual Environment** to ensure mathematical reproduction across all repositories.
 
