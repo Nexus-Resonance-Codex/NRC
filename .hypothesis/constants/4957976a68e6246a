@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/phi_infinity_lattice_compression/volatility_analysis.py
+# hypothesis_version: 6.151.12
+
+[0.0, 0.01, 0.05, 0.236, 0.382, 0.5, 0.618, 0.786, 1.0, 2.0, 5.0, 128, 8192, 'ACCUMULATE', 'HOLD', 'NEUTRAL', 'STABILIZE', 'is_unstable', 'level_0.0', 'level_0.236', 'level_0.382', 'level_0.500', 'level_0.618', 'level_0.786', 'level_1.0', 'stability_score', 'timestamp_idx', 'volatility']

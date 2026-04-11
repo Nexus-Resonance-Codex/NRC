@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Ai-Enhancements/src/nrc_ai/qrt_attention_bias.py
+# hypothesis_version: 6.151.12
+
+[4096, 'qrt_attention_bias']

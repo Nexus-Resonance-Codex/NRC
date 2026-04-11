@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "..",
+    },
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "/home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/.venv/bin/python",
+  },
+  "extensions": {
+    "recommendations": ["ms-python.vscode-python-envs"],
+  },
+}

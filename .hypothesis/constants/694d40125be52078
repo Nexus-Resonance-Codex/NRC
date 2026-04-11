@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Protein-Folding/src/nrc_bio/__init__.py
+# hypothesis_version: 6.151.12
+
+['NRCFoldAccelerator', 'fold_sequence']

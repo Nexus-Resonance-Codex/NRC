@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/NRC/src/nrc_math/primitives.py
+# hypothesis_version: 6.151.12
+
+[0.0, 0.5, 51.85, 1000, 1618, 12289, 24389, 'is_floating_point', 'masked_fill', 'torch']

@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/phi_infinity_lattice_compression/mst_chaos_control.py
+# hypothesis_version: 6.151.12
+
+[1e-12, 1.0, 2.0, 5.0, 1000, 8192, 12289, 24389]

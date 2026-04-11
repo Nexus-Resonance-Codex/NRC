@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NRC Mathematical Playground | Nexus Resonance Codex</title>
-    <!-- Modern Typography & Icons -->
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-dark: #050508;
-            --card-bg: rgba(20, 20, 35, 0.6);
-            --border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(20, 20, 35, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
             --accent-gold: #FFD700;
             --accent-cyan: #00F0FF;
             --phi: 1.618033988749895;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -34,87 +35,62 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #101025 0%, #050508 100%);
+        nav {
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
         }
 
-        header {
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
+        .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
         }
 
         main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem 5rem;
+            flex: 1;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        /* Module Card */
-        .module {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 24px;
-            padding: 2rem;
+            padding: 2.5rem;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             transition: var(--transition);
         }
 
-        .module:hover {
-            border-color: rgba(0, 240, 255, 0.3);
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .module-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .module-title {
-            font-size: 1.25rem;
+        .section-title {
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--accent-gold);
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .tag {
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--accent-cyan);
-            border: 1px solid var(--accent-cyan);
-            padding: 0.25rem 0.75rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
         }
 
         .input-group {
@@ -123,59 +99,50 @@
             gap: 0.8rem;
         }
 
-        label {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.4);
-        }
+        label { font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
 
         input {
+            width: 100%;
             background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border);
+            border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 1rem;
             color: #fff;
             font-family: 'JetBrains Mono', monospace;
             font-size: 1rem;
-            transition: var(--transition);
         }
 
-        input:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-            background: rgba(0, 0, 0, 0.6);
-        }
+        input:focus { outline: none; border-color: var(--accent-cyan); }
 
         button {
-            padding: 1rem;
+            width: 100%;
+            padding: 1.1rem;
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
-            color: #000;
             border: none;
             border-radius: 12px;
+            color: #000;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-        }
+        button:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
 
         .result-container {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 16px;
             padding: 1.5rem;
             border: 1px solid var(--border);
+            min-height: 100px;
             position: relative;
-            min-height: 120px;
         }
 
         .result-label {
             position: absolute;
             top: -10px;
             left: 20px;
-            background: var(--bg-dark);
+            background: #0d0d15;
             padding: 0 10px;
             font-size: 0.7rem;
             color: #555;
@@ -186,31 +153,25 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
             line-height: 1.6;
-            color: #ccc;
+            word-break: break-all;
         }
 
-        .status-badge {
+        .status {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             font-size: 0.75rem;
             margin-top: 1rem;
         }
 
-        .indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
         .stable { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
-        .void { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        .chaos { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
 
         footer {
             margin-top: auto;
             padding: 3rem;
             text-align: center;
-            border-top: 1px solid var(--border);
             color: rgba(255, 255, 255, 0.2);
             font-size: 0.8rem;
             letter-spacing: 2px;
@@ -218,131 +179,69 @@
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-
-    <header>
-        <h1>NRC PRIMITIVE SANDBOX</h1>
-        <div class="subtitle">Interactive Verification of Trageser Transformation Primitives</div>
-    </header>
+    <nav>
+        <div class="brand">NEXUS RESONANCE CODEX</div>
+        <div style="font-size: 0.8rem; color: #888;">PHASE-III: MATH TRANSFORM VAULT</div>
+    </nav>
 
     <main>
         <!-- TTT Module -->
-        <section class="module">
-            <div class="module-header">
-                <h2 class="module-title">TTT Modular Stability</h2>
-                <div class="tag">TTT-PROTO-L1</div>
-            </div>
-            <p style="font-size: 0.85rem; color: #888;">Validates digital root exclusion mapping. Core principle: Roots {3, 6, 9} are void attractors; {1, 2, 4, 5, 7, 8} are resonant.</p>
-            
+        <section class="card">
+            <div class="section-title">TTT Modular Stability</div>
+            <p style="font-size: 0.9rem; color: #888;">Validates digital root $(\mathbb{Z} \pmod 9)$ exclusion mapping. Roots $\{1, 2, 4, 5, 7, 8\}$ are high-stability resonant classes.</p>
             <div class="input-group">
-                <label>Integer Input ($\mathbb{Z}$)</label>
-                <input type="number" id="ttt-input" placeholder="e.g. 1618033" value="1618033">
-                <button onclick="runTTT()">Verify Transformation</button>
+                <label>Integer Value to Verify</label>
+                <input type="number" id="ttt-input" value="1618033">
+                <button onclick="runTTT()">Transform Logic</button>
             </div>
-
             <div class="result-container">
-                <div class="result-label">Transformation Result</div>
-                <div class="result-content" id="ttt-output">Enter integer to verify modular stability...</div>
+                <div class="result-label">Parity Output</div>
+                <div class="result-content" id="ttt-out">Ready for verification...</div>
             </div>
-            
-            <div class="status-badge">
-                <div id="ttt-indicator" class="indicator"></div>
-                <span id="ttt-status">STANDING BY</span>
+            <div class="status">
+                <div id="ttt-dot" class="dot"></div>
+                <span id="ttt-stat">AWAITING CLUSTER</span>
             </div>
         </section>
 
         <!-- Spiral Module -->
-        <section class="module">
-            <div class="module-header">
-                <h2 class="module-title">φ-Spiral Resonance</h2>
-                <div class="tag">SP-RES-V2</div>
-            </div>
-            <p style="font-size: 0.85rem; color: #888;">Generates hierarchical golden-angle projection coordinates across $4096D$ space.</p>
-            
+        <section class="card">
+            <div class="section-title">Golden Angle Projection</div>
+            <p style="font-size: 0.9rem; color: #888;">Computes scalar resonance across high-dimensional hierarchical layers using $\varphi$-scaling.</p>
             <div class="input-group">
-                <label>Starting Anchor ($x_0$)</label>
+                <label>Base Anchor ($x_0$)</label>
                 <input type="number" id="sp-input" step="0.001" value="1.0">
                 <button onclick="runSpiral()">Compute Manifold</button>
             </div>
-
-            <div class="result-container" style="min-height: 180px;">
-                <div class="result-label">Lattice Coordinates</div>
-                <div class="result-content" id="sp-output" style="font-size: 0.8rem;">Ready for computation...</div>
-            </div>
-        </section>
-
-        <!-- TUPT Module -->
-        <section class="module">
-            <div class="module-header">
-                <h2 class="module-title">TUPT Universal Pattern</h2>
-                <div class="tag">TUPT-LWE-X</div>
-            </div>
-            <p style="font-size: 0.85rem; color: #888;">Maps arbitrary data clusters to fixed coarse lattice coordinates ($24389$ anchors).</p>
-            
-            <div class="input-group">
-                <label>Data Signature (String)</label>
-                <input type="text" id="tupt-input" value="Nexus Resonance Codex 2026">
-                <button onclick="runTUPT()">Anchor to Lattice</button>
-            </div>
-
-            <div class="result-container">
-                <div class="result-label">Coarse Anchor Hash</div>
-                <div class="result-content" id="tupt-output">Waiting for segment data...</div>
+            <div class="result-container" style="min-height: 150px;">
+                <div class="result-label">Lattice Matrix</div>
+                <div class="result-content" id="sp-out">...</div>
             </div>
         </section>
     </main>
 
     <footer>
-        PROFESSIONAL GRADE MATHEMATICAL MANIFESTO | © 2026 TRAGESER MANIFOLD
+        PROFESSIONAL GRADE MATHEMATICAL PRIMITIVES | SYNCED TO φ^∞ MANIFOLD | 2026
     </footer>
 
     <script>
-        function digitalRoot(n) {
-            n = Math.abs(parseInt(n));
-            if (n === 0) return 0;
-            return n % 9 === 0 ? 9 : n % 9;
-        }
-
         function runTTT() {
-            const val = document.getElementById('ttt-input').value;
-            const root = digitalRoot(val);
-            const stableClass = [1, 2, 4, 5, 7, 8].includes(root);
-            
-            const out = document.getElementById('ttt-output');
-            const ind = document.getElementById('ttt-indicator');
-            const stat = document.getElementById('ttt-status');
-
-            out.innerHTML = `Input: ${val}<br>Digital Root: ${root}<br>Manifold Status: ${stableClass ? 'RESONANT' : 'VOID ATTRACTOR'}`;
-            ind.className = `indicator ${stableClass ? 'stable' : 'void'}`;
-            stat.innerText = stableClass ? 'STABILITY CONFIRMED' : 'CHAOTIC INTERFERENCE';
+            const val = Math.abs(parseInt(document.getElementById('ttt-input').value));
+            const root = val === 0 ? 0 : (val % 9 === 0 ? 9 : val % 9);
+            const stable = [1, 2, 4, 5, 7, 8].includes(root);
+            document.getElementById('ttt-out').innerHTML = `Digital Root: ${root}<br>Manifold Status: ${stable ? 'RESONANT' : 'VOID'}`;
+            document.getElementById('ttt-dot').className = `dot ${stable ? 'stable' : 'chaos'}`;
+            document.getElementById('ttt-stat').innerText = stable ? 'STABILITY CONFIRMED' : 'CHAOTIC ZONE';
         }
-
         function runSpiral() {
-            const PHI = (1 + Math.sqrt(5)) / 2;
             const x0 = parseFloat(document.getElementById('sp-input').value);
-            let out = "";
-            
-            for (let i = 1; i <= 6; i++) {
-                const angle = i * 137.507764;
-                const radius = x0 / Math.pow(PHI, i/2);
-                out += `L${i}: [R:${radius.toFixed(5)}, θ:${angle.toFixed(1)}°]<br>`;
+            const phi = (1 + Math.sqrt(5)) / 2;
+            let res = "";
+            for(let i=1; i<=5; i++) {
+                const scaled = x0 / Math.pow(phi, i*2);
+                res += `Layer ${i}: ${scaled.toFixed(8)}<br>`;
             }
-            
-            document.getElementById('sp-output').innerHTML = out;
-        }
-
-        function runTUPT() {
-            const input = document.getElementById('tupt-input').value;
-            let hash = 0;
-            for (let i = 0; i < input.length; i++) {
-                hash = ((hash << 5) - hash) + input.charCodeAt(i);
-                hash |= 0; 
-            }
-            
-            const anchor = Math.abs(hash) % 24389;
-            const signature = (anchor * 1618033).toString(16).toUpperCase().substring(0, 8);
-            
-            document.getElementById('tupt-output').innerHTML = `Coordinate: ${anchor}<br>TUPT Signature: 0x${signature}<br>Lattice Integrity: 100%`;
+            document.getElementById('sp-out').innerHTML = res;
         }
     </script>
 </body>

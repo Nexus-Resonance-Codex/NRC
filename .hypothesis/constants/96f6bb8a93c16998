@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Ai-Enhancements/src/nrc_ai/__init__.py
+# hypothesis_version: 6.151.12
+
+['ExecutiveAgent', 'FloorSinhActivation', 'GoldenFlowNorm', 'MSTLyapunovClipping', 'QRTKernelConvolution', 'TUPTModularDropout', 'TUPTSyncSeed', '__version__']

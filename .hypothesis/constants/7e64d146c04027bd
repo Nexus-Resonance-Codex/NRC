@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Ai-Enhancements/src/nrc_ai/lucas_sparse_mask.py
+# hypothesis_version: 6.151.12
+
+[0.0, 4096, 'lucas_exclusion_mask']

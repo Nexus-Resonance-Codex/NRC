@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/phi_infinity_lattice_compression/financial_chaos.py
+# hypothesis_version: 6.151.12
+
+[-2.0, 0.0, 0.02, 0.5, 1.0, 2.0, 5.0, 100.0, 128, 200, 8192, 1000000, 'ACCUMULATE', 'HOLD', 'STABILIZE', '__main__', 'c9_index', 'is_chaotic', 'level_0.236', 'level_0.382', 'level_0.500', 'level_0.618', 'level_0.786', 'origin', 'recommendation', 'terminal', 'timestamp_idx', 'volatility']
