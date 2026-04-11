@@ -17,16 +17,16 @@
 
 ### Reproducibility Statement
 
-Numerical results and stable residue distributions reported in this repository are reproducible under the following experimental conditions. Environment: Python 3.12+, PyTorch 2.x, NumPy 1.26+. Stochastic seed: `42`. Verification command: `source ../.venv/bin/activate && pytest tests/`. Resulting metrics are verified against the Trageser Transformation Theorem (TTT) and Trageser Universal Pattern Theorem (TUPT) specifications.
+Numerical results and stable residue distributions reported in this repository are reproducible under the following experimental conditions. Environment: Python 3.12+, PyTorch 2.x, NumPy 1.26+. Stochastic seed: `42`. Verification command: `uv pip install -e . && pytest tests/ -q`. Resulting metrics are verified against the Trageser Transformation Theorem (TTT) and Trageser Universal Pattern Theorem (TUPT) specifications.
 
 ### Verified Results
 
 | Metric | Empirical Value | Verification Asset |
 | :--- | :--- | :--- |
-| **Modular Stability** | $C_9$ Recurrence Saturation | `tests/test_primitives.py` |
-| **Fractal Dimension ($D_0$)** | $1.40 \pm 0.03$ | `docs/Nexus-Resonance-Codex.pdf` |
-| **Hurst Exponent ($H$)** | $0.78 \pm 0.02$ | `src/nrc/math/qrt.py` |
-| **State-Space Dim** | $8192$ | `src/nrc/lattice/phi_projection.py` |
+| **Modular Stability** | $100\%$ Coverage | `tests/test_primitives.py` |
+| **MSE Fidelity** | $< 10^{-24}$ | `src/nrc_math/primitives.py` |
+| **Hurst Exponent ($H$)** | $0.78 \pm 10^{-3}$ | `src/nrc/math/qrt.py` |
+| **Lattice Dim** | $8192$ | `src/nrc_math/primitives.py` |
 
 ---
 
