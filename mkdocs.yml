@@ -1,25 +1,37 @@
 site_name: NRC Central Math Vault
-site_description: Professional Mathematical Primitives & Lattice Resonance Primes
+site_description: Institutional-grade mathematical primitives and high-dimensional lattice resonance vaults.
 site_author: James Trageser
-site_url: https://Nexus-Resonance-Codex.github.io/NRC/
+site_url: https://nexus-resonance-codex.github.io/NRC/
+repo_url: https://github.com/Nexus-Resonance-Codex/NRC
+use_directory_urls: false
 
 theme:
   name: material
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: grey
+      primary: black
       accent: gold
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: grey
-      accent: gold
+  font:
+    text: Outfit
+    code: JetBrains Mono
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.top
     - content.code.copy
     - content.code.annotate
+    - content.tooltips
+  logo: https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png
+  favicon: https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Nexus-Resonance-Codex/NRC
+  status:
+    new: Math-Vault v2.1.0
+  social_image: assets/images/social-preview.png
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -39,13 +51,13 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Math Playground: demos/math-playground.html
-  - Algorithms:
-      - TTT Modular Stability: proofs/index.md
-  - Professional Links:
-      - Resource Manifold: LINKS.md
+  - '📐 Math Playground': demos/math-playground.html
+  - '🏛 Proof Vaults':
+    - 'TTT Modular Stability': proofs/index.md
+  - '🔗 Resource Manifold': LINKS.md
 
 plugins:
   - search
   - minify:
       minify_html: true
+

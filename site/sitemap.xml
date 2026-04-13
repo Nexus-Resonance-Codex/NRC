@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://Nexus-Resonance-Codex.github.io/NRC/</loc>
+         <loc>https://nexus-resonance-codex.github.io/NRC/index.html</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
-         <loc>https://Nexus-Resonance-Codex.github.io/NRC/LINKS/</loc>
+         <loc>https://nexus-resonance-codex.github.io/NRC/LINKS.html</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
-         <loc>https://Nexus-Resonance-Codex.github.io/NRC/NRC-Playground-Guide/</loc>
+         <loc>https://nexus-resonance-codex.github.io/NRC/NRC-Playground-Guide.html</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
-         <loc>https://Nexus-Resonance-Codex.github.io/NRC/nrc-math/</loc>
+         <loc>https://nexus-resonance-codex.github.io/NRC/nrc-math.html</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
-         <loc>https://Nexus-Resonance-Codex.github.io/NRC/proofs/</loc>
+         <loc>https://nexus-resonance-codex.github.io/NRC/proofs/index.html</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
 </urlset>
