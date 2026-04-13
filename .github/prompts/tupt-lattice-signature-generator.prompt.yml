@@ -1,0 +1,19 @@
+name: "TUPT Lattice Signature Generator"
+description: "Generates post-quantum cryptographic signatures based on the Trageser Universal Prime Theorem (TUPT). Provides formal LaTeX proofs of non-periodicity."
+model: "openai/gpt-4o"
+modelParameters:
+  temperature: 0.1
+variables:
+  message_hash: "The hex SHA-256 hash or string to sign using TUPT-LWE."
+messages:
+  - role: system
+    content: "You are a post-quantum cryptographic oracle specializing in Trageser Universal Prime Theorem (TUPT) and Lattice Resonance Signatures."
+  - role: user
+    content: |
+      Generate a TUPT-LWE signature for the following hash: {{message_hash}}
+
+      Formal Output Required:
+      1. Mapping to the 12289-Modulo Space.
+      2. Secret Locus selection (φ-rotation).
+      3. Proof of Non-Periodicity (explain why Shor's algorithm fails here).
+      4. LaTeX-formatted Proof Block for the TUPT-LWE hardness assumption.

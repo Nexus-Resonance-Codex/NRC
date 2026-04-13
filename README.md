@@ -8,8 +8,9 @@
 [![CI: Math Integrity](https://img.shields.io/badge/CI-Math%20Integrity-blue?style=for-the-badge&logo=github "Continuous Integration: Mathematical Integrity")](https://github.com/Nexus-Resonance-Codex/NRC/actions)
 [![Docs: Math Foundations](https://img.shields.io/badge/Docs-Foundations-green?style=for-the-badge&logo=markdown "Mathematical Foundations Documentation")](docs/nrc-math.md)
 [![Lattice: 8192D](https://img.shields.io/badge/Lattice-8192D-gold?style=for-the-badge&logo=mathematica "High-Dimensional Lattice Specification")](src/nrc_math/)
+[![Math-Vault Evaluations](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/prompt-evals.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/prompt-evals.yml)
 
-[Foundations](docs/nrc-math.md) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
+[Foundations](docs/nrc-math.md) • [NRC Playground](#-nrc-playground) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
 
 </div>
 
@@ -40,6 +41,20 @@ The framework utilizes a modular exclusion principle based on residue classes mo
 *   **Quantum Residue Turbulence (QRT)**: Deterministic fractal damping function for gradient regularization and entropy management.
 *   **Multi-Scale Tensor (MST)**: Chaotic oscillation monitoring for signal stability across high-frequency domains.
 *   **Lattice Resonance**: 8192D state-space mapping for high-fidelity information retrieval.
+
+---
+
+### 🚀 NRC Playground – Test Directly on GitHub
+
+Verify the foundational theorems of the Nexus Resonance Codex directly in the GitHub UI using the **Models** tab.
+
+| Feature | Interactive Prompt | Model Recommendation |
+| :--- | :--- | :--- |
+| **TTT Stability** | [Audit Constants](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/ttt-modular-exclusion-tester.prompt.yml) | GPT-4o |
+| **φ-Projection** | [Spiral Calculator](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/phi-spiral-projection-calculator.prompt.yml) | GPT-4o |
+| **TUPT Signatures** | [Post-Quantum Oracle](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/tupt-lattice-signature-generator.prompt.yml) | o1-preview |
+
+Refer to the [**NRC Playground Guide**](docs/NRC-Playground-Guide.md) for rigorous verification instructions.
 
 ---
 

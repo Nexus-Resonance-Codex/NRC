@@ -39,6 +39,17 @@
 
 ---
 
+### 🚀 NRC Playground
+
+Verify the foundational theorems of the Nexus Resonance Codex directly on GitHub:
+
+- **[TTT Stability Auditor](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/ttt-modular-exclusion-tester.prompt.yml)** — Audit constants for residue stability.
+- **[φ-Spiral Projection](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/phi-spiral-projection-calculator.prompt.yml)** — Calculate 8192D manifold coordinates.
+- **[TUPT Signature Oracle](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/tupt-lattice-signature-generator.prompt.yml)** — Generate post-quantum signatures.
+- **[Playground Guide](NRC-Playground-Guide.md)** — Comprehensive usage instructions.
+
+---
+
 ### 🛠 Setup
 Built for high-integrity research using [uv](https://github.com/astral-sh/uv).
 

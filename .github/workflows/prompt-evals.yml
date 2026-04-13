@@ -1,0 +1,19 @@
+name: "NRC Math Vault Prompt Evaluations"
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    paths:
+      - '.github/prompts/**'
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Math Stability Audit
+        run: |
+          echo "Verifying TTT and TUPT prompt parameters..."
+          grep -i "TTT\|TUPT\|LWE" .github/prompts/

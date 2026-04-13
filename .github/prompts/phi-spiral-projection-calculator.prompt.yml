@@ -1,0 +1,20 @@
+name: "φ-Spiral Projection Calculator"
+description: "Calculates golden-angle spiral coordinates and Diophantine approximations for any discrete sequence index k."
+model: "openai/gpt-4o"
+modelParameters:
+  temperature: 0.1
+variables:
+  index_k: "The sequence step index (integer)."
+messages:
+  - role: system
+    content: "You are a high-fidelity calculator for the Nexus Resonance Codex. You specialize in golden-ratio (φ) geometry and Diophantine approximations."
+  - role: user
+    content: |
+      Calculate the projection metrics for spiral index k = {{index_k}}.
+
+      Requirements:
+      1. Spiral Angle (α_k = k × 137.507...°)
+      2. Unit Circle Coordinate (cos(α_k), sin(α_k))
+      3. Nearest Lattice Anchor based on fixed-grid hash.
+      4. Resonance Weight (φ^-2k).
+      5. Stability class within the 8192D manifold.
