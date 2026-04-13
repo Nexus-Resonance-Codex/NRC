@@ -6,11 +6,11 @@
 
 [![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons "Professional License: CC-BY-NC-SA-4.0")](LICENSE)
 [![CI: Math Integrity](https://img.shields.io/badge/CI-Math%20Integrity-blue?style=for-the-badge&logo=github "Continuous Integration: Mathematical Integrity")](https://github.com/Nexus-Resonance-Codex/NRC/actions)
-[![Docs: Math Foundations](https://img.shields.io/badge/Docs-Foundations-green?style=for-the-badge&logo=markdown "Mathematical Foundations Documentation")](docs/nrc-math.md)
+[![Docs: Math Foundations](https://img.shields.io/badge/Docs-Foundations-green?style=for-the-badge&logo=markdown "Mathematical Foundations Documentation")](https://nexus-resonance-codex.github.io/NRC/)
 [![Lattice: 8192D](https://img.shields.io/badge/Lattice-8192D-gold?style=for-the-badge&logo=mathematica "High-Dimensional Lattice Specification")](src/nrc_math/)
 [![Math-Vault Evaluations](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/prompt-evals.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/prompt-evals.yml)
 
-[Foundations](docs/nrc-math.md) • [NRC Playground](#-nrc-playground) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
+[Foundations](https://nexus-resonance-codex.github.io/NRC/) • [NRC Playground](#-nrc-playground) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
 
 </div>
 
@@ -54,7 +54,7 @@ Verify the foundational theorems of the Nexus Resonance Codex directly in the Gi
 | **φ-Projection** | [Spiral Calculator](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/phi-spiral-projection-calculator.prompt.yml) | GPT-4o |
 | **TUPT Signatures** | [Post-Quantum Oracle](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/tupt-lattice-signature-generator.prompt.yml) | o1-preview |
 
-Refer to the [**NRC Playground Guide**](docs/NRC-Playground-Guide.md) for rigorous verification instructions.
+Refer to the [**NRC Playground Guide**](https://nexus-resonance-codex.github.io/NRC/NRC-Playground-Guide.html) for rigorous verification instructions.
 
 ---
 
