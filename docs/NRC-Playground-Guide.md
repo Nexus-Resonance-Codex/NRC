@@ -2,22 +2,19 @@
 
 The **Central Math Vault (NRC)** provides interactive tools via GitHub Models to verify the foundational theorems of the Nexus Resonance Codex.
 
-## 📐 Mathematical Verification Tools
+## 📐 How to Run Math-Prompts
 
-1.  **Navigate to the Models Tab**: Click on the **Models** tab at the top of the repository.
-2.  **Select a Model**: GPT-4o is recommended for rigorous multi-step proofs.
-3.  **Load a Math-Prompt**:
-    *   **TTT Modular Exclusion Tester**: Audit any constant for mathematical stability.
-    *   **φ-Spiral Projection Calculator**: Derive exact coordinates for the high-dimensional manifold.
-    *   **TUPT Signature Generator**: Simulate post-quantum signature generation with formal proofs.
-4.  **Verify**: Cross-reference the model's output with the [**Interactive NRC Explorer**](https://Nexus-Resonance-Codex.github.io/NRC/interactive_nrc_explorer.ipynb).
+To verify foundational theorems interactively:
+1.  **Navigate to the Models Tab**: Click on the **Models** tab at the top of this repository on GitHub.com.
+2.  **Select a Base Model**: GPT-4o is recommended for rigorous multi-step proofs.
+3.  **Find the Prompts Section**: Click on **Prompts** in the left sidebar.
+4.  **Load a Math-Prompt**: Select `TTT Modular Exclusion Tester` or `φ-Spiral Projection Calculator`.
+5.  **Run Experiment**: Enter your mathematical value or index as a variable and click **Run**.
+
+## 🔗 Direct View Links
+*   [TTT Modular Exclusion Tester](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/ttt-modular-exclusion-tester.prompt.yml)
+*   [φ-Spiral Projection Calculator](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/phi-spiral-projection-calculator.prompt.yml)
+*   [TUPT Lattice Signature Generator](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/tupt-lattice-signature-generator.prompt.yml)
 
 ## 📊 Evaluation Standards
-
-All prompts in this vault are subject to:
-*   **Proof Rigor**: Verification of LaTeX formatting and axiomatic correctness.
-*   **TTT Integrity**: Ensuring all output residues avoid the 3-6-9 chaotic attractors.
-*   **Quantum Resistance Bounds**: Analysis of the Diophantine approximation quality.
-
----
-*Establishing the mathematical bedrock of computational resonance.*
+All prompts in this vault are subject to proof rigor and TTT integrity checks. View results in the **Actions** tab.
