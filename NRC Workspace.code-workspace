@@ -6,6 +6,9 @@
   ],
   "settings": {
     "python.defaultInterpreterPath": "/home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/.venv/bin/python",
+    "geminicodeassist.project": "gen-lang-client-0202638978",
+    "geminicodeassist.rules": "Always prompt for approval before running any commands that make any changes to my system that could be permanent or break things.\n\nAlways keep in mind that you are running in Antigravity by Google, on Pop OS Linux on a Dell G15 5510 with an Intel Core i5 10500H CPU RTX 3050ti 4gb vRAM GPU 16gb RAM and nvme SSD (Internal nvme 512gb and external nvme 2tb).\n\nAlways utilize uv venv and other virtual environments whenever possible, to avoid utilizing the host system and running into compatibility or dependency issues or breaking my PC/OS or software etc..\n\n\n\n",
+    "geminicodeassist.updateChannel": "Insiders",
   },
   "extensions": {
     "recommendations": ["ms-python.vscode-python-envs"],
