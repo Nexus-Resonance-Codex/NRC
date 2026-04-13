@@ -3,246 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRC Mathematical Playground | Nexus Resonance Codex</title>
-    <!-- Premium Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Protein Lattice Visualizer | NRC</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        :root {
-            --bg-dark: #050508;
-            --glass-bg: rgba(20, 20, 35, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --accent-gold: #FFD700;
-            --accent-cyan: #00F0FF;
-            --phi: 1.618033988749895;
-            --transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-dark);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        nav {
-            padding: 1.5rem 2rem;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .brand {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        main {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            padding: 3rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .section-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 0.5rem;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        label { font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
-
-        input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1rem;
-            color: #fff;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-        }
-
-        input:focus { outline: none; border-color: var(--accent-cyan); }
-
-        button {
-            width: 100%;
-            padding: 1.1rem;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
-            border: none;
-            border-radius: 12px;
-            color: #000;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        button:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
-
-        .result-container {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-            min-height: 100px;
-            position: relative;
-        }
-
-        .result-label {
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: #0d0d15;
-            padding: 0 10px;
-            font-size: 0.7rem;
-            color: #555;
-            text-transform: uppercase;
-        }
-
-        .result-content {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            word-break: break-all;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .dot { width: 8px; height: 8px; border-radius: 50%; }
-        .stable { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
-        .chaos { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
-
-        footer {
-            margin-top: auto;
-            padding: 3rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
+        body { margin: 0; background: #000; color: #fff; font-family: 'Outfit'; overflow: hidden; }
+        .ui { position: absolute; top: 2rem; left: 2rem; width: 300px; padding: 2rem; background: rgba(10,10,20,0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; }
+        input { width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 0.8rem; border-radius: 8px; font-family: 'JetBrains Mono'; margin-top: 1rem; }
+        .label { font-size: 0.7rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        #canvas-container { width: 100vw; height: 100vh; }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="brand">NEXUS RESONANCE CODEX</div>
-        <div style="font-size: 0.8rem; color: #888;">PHASE-III: MATH TRANSFORM VAULT</div>
-    </nav>
-
-    <main>
-        <!-- TTT Module -->
-        <section class="card">
-            <div class="section-title">TTT Modular Stability</div>
-            <p style="font-size: 0.9rem; color: #888;">Validates digital root $(\mathbb{Z} \pmod 9)$ exclusion mapping. Roots $\{1, 2, 4, 5, 7, 8\}$ are high-stability resonant classes.</p>
-            <div class="input-group">
-                <label>Integer Value to Verify</label>
-                <input type="number" id="ttt-input" value="1618033">
-                <button onclick="runTTT()">Transform Logic</button>
-            </div>
-            <div class="result-container">
-                <div class="result-label">Parity Output</div>
-                <div class="result-content" id="ttt-out">Ready for verification...</div>
-            </div>
-            <div class="status">
-                <div id="ttt-dot" class="dot"></div>
-                <span id="ttt-stat">AWAITING CLUSTER</span>
-            </div>
-        </section>
-
-        <!-- Spiral Module -->
-        <section class="card">
-            <div class="section-title">Golden Angle Projection</div>
-            <p style="font-size: 0.9rem; color: #888;">Computes scalar resonance across high-dimensional hierarchical layers using $\varphi$-scaling.</p>
-            <div class="input-group">
-                <label>Base Anchor ($x_0$)</label>
-                <input type="number" id="sp-input" step="0.001" value="1.0">
-                <button onclick="runSpiral()">Compute Manifold</button>
-            </div>
-            <div class="result-container" style="min-height: 150px;">
-                <div class="result-label">Lattice Matrix</div>
-                <div class="result-content" id="sp-out">...</div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        PROFESSIONAL GRADE MATHEMATICAL PRIMITIVES | SYNCED TO φ^∞ MANIFOLD | 2026
-    </footer>
-
+    <div class="ui">
+        <div class="label">NRC Protein Lattice Visualizer</div>
+        <div style="font-size: 1.2rem; margin-top: 5px; font-weight: 700;">8192D Manifold Mode</div>
+        <input type="text" id="seq" value="MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG">
+        <div class="label" style="margin-top: 2rem;">Lattice Anchor Count: <span id="anchors">24388</span></div>
+    </div>
+    <div id="canvas-container"></div>
     <script>
-        function runTTT() {
-            const val = Math.abs(parseInt(document.getElementById('ttt-input').value));
-            const root = val === 0 ? 0 : (val % 9 === 0 ? 9 : val % 9);
-            const stable = [1, 2, 4, 5, 7, 8].includes(root);
-            document.getElementById('ttt-out').innerHTML = `Digital Root: ${root}<br>Manifold Status: ${stable ? 'RESONANT' : 'VOID'}`;
-            document.getElementById('ttt-dot').className = `dot ${stable ? 'stable' : 'chaos'}`;
-            document.getElementById('ttt-stat').innerText = stable ? 'STABILITY CONFIRMED' : 'CHAOTIC ZONE';
-        }
-        function runSpiral() {
-            const x0 = parseFloat(document.getElementById('sp-input').value);
-            const phi = (1 + Math.sqrt(5)) / 2;
-            let res = "";
-            for(let i=1; i<=5; i++) {
-                const scaled = x0 / Math.pow(phi, i*2);
-                res += `Layer ${i}: ${scaled.toFixed(8)}<br>`;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        camera.position.z = 100;
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        function createLattice() {
+            group.clear();
+            const len = document.getElementById('seq').value.length;
+            const geo = new THREE.BufferGeometry();
+            const pos = [];
+            const col = [];
+            for(let i=0; i<3000; i++) {
+                const phi = 1.618033988;
+                const angle = i * 137.5 * (Math.PI / 180);
+                const r = Math.sqrt(i) * 3;
+                pos.push(Math.cos(angle)*r, Math.sin(angle)*r, (i % len) * 5 - (len*2.5));
+                const c = new THREE.Color().setHSL((i % len)/len, 1, 0.5);
+                col.push(c.r, c.g, c.b);
             }
-            document.getElementById('sp-out').innerHTML = res;
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+            geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+            const mat = new THREE.PointsMaterial({ size: 1.5, vertexColors: true, transparent: true, opacity: 0.6 });
+            group.add(new THREE.Points(geo, mat));
         }
+
+        createLattice();
+        document.getElementById('seq').oninput = createLattice;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            group.rotation.y += 0.002;
+            group.rotation.x += 0.001;
+            renderer.render(scene, camera);
+        }
+        animate();
     </script>
 </body>
 </html>
