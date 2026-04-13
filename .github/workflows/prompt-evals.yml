@@ -8,6 +8,10 @@ on:
       - '.github/prompts/**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   evaluate:
     runs-on: ubuntu-latest
@@ -15,5 +19,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Math Stability Audit
         run: |
-          echo "Verifying TTT and TUPT prompt parameters..."
           grep -i "TTT\|TUPT\|LWE" .github/prompts/
