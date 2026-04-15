@@ -1,75 +1,40 @@
-# ============================================================
-# NRC Core — LaTeX Build & GitHub Pages Deploy
-# Compiles the Nexus Resonance Codex paper to PDF and
-# deploys the result alongside the HTML to GitHub Pages.
-# ============================================================
 name: LaTeX Build & Pages Deploy
-
 on:
   push:
-    branches: ["main", "master"]
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
+    branches: [ master ]
 jobs:
   build:
-    name: Compile LaTeX → PDF
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Compile LaTeX Document
+      - uses: actions/checkout@v4
+      - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: docs/Nexus-Resonance-Codex-tex-files/Nexus-Resonance-Codex.tex
+          root_file: Nexus-Resonance-Codex.tex
           working_directory: docs/Nexus-Resonance-Codex-tex-files/
-          compiler: latexmk
-          args: -pdf -interaction=nonstopmode -synctex=1
-          # Run twice to resolve cross-references & TOC
-          extra_system_packages: "py-pygments"
-
       - name: Assemble deployment directory
         run: |
           mkdir -p public
           # Ship the compiled PDF with existence check
-          PDF_PATH="docs/Nexus-Resonance-Codex-tex-files/Nexus-Resonance-Codex.pdf"
-          if [ -f "$PDF_PATH" ]; then
-            cp "$PDF_PATH" public/
-          else
-            echo "Error: Compiled PDF not found at $PDF_PATH"
-            # Fallback scan for artifact
-            find docs/ -name "*.pdf" -exec cp {} public/ \;
-          fi
+          find docs -name "*.pdf" -exec cp {} public/ \;
           # Ship HTML viewer if present
           cp docs/index.html public/ 2>/dev/null || true
           # Add a simple redirect index if no HTML exists
           if [ ! -f public/index.html ]; then
             echo '<meta http-equiv="refresh" content="0; url=Nexus-Resonance-Codex.pdf">' > public/index.html
           fi
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "public"
-
+          path: public/
   deploy:
-    name: Deploy to GitHub Pages
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
