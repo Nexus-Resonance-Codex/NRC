@@ -3,7 +3,7 @@
 This script mathematically demonstrates the stabilizing nature of the QRT wave function:
   ψ(x) = sin(φ * √2 * θ_QRT * x) * exp(-x²/φ) + cos(π/φ * x)
 
-It verifies the dampening of high-entropy vectors (outliers) while preserving 
+It verifies the dampening of high-entropy vectors (outliers) while preserving
 structural integrity near resonance nodes.
 """
 

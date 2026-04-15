@@ -17,9 +17,9 @@ TUPT_UNSTABLE = frozenset({0, 3, 6, 9})
 def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, float, np.ndarray]:
     """Application of the modular residue class exclusion operator.
 
-    Numerical coordinates x where (x mod 9) aligns with the residue 
+    Numerical coordinates x where (x mod 9) aligns with the residue
     classes {0, 3, 6, 9} are gated to preserve state-space stability.
-    The residue channels {1, 2, 4, 5, 7, 8} are maintained, with 7 
+    The residue channels {1, 2, 4, 5, 7, 8} are maintained, with 7
     functioning as the primary stability anchor within the TTT manifold.
 
     Args:

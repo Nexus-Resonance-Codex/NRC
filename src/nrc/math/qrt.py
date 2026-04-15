@@ -10,7 +10,7 @@ from typing import Union
 
 import numpy as np
 
-from .phi import RAD_QRT, PHI_FLOAT
+from .phi import PHI_FLOAT, RAD_QRT
 
 SQRT_2 = math.sqrt(2.0)
 PI = math.pi
