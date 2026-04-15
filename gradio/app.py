@@ -14,6 +14,10 @@ import numpy as np
 import gradio as gr
 
 # ─────────────────────────── NRC Math (inline, no pip install needed) ──────────
+PHI = (1 + 5**0.5) / 2
+PI = 3.141592653589793
+SQRT5 = 5**0.5
+SQRT2 = 2**0.5
 THETA_QRT = 51.853
 RAD_QRT = THETA_QRT * (PI / 180.0)
 
