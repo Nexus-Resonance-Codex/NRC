@@ -9,7 +9,7 @@ import math
 from typing import Any, Dict, List
 
 import numpy as np
-import pandas as pd
+import pandas as pd  # type: ignore[import-untyped]
 
 
 def binet_formula_gen(n: float) -> float:
