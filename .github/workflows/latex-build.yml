@@ -40,8 +40,15 @@ jobs:
       - name: Assemble deployment directory
         run: |
           mkdir -p public
-          # Ship the compiled PDF
-          cp docs/Nexus-Resonance-Codex-tex-files/Nexus-Resonance-Codex.pdf public/
+          # Ship the compiled PDF with existence check
+          PDF_PATH="docs/Nexus-Resonance-Codex-tex-files/Nexus-Resonance-Codex.pdf"
+          if [ -f "$PDF_PATH" ]; then
+            cp "$PDF_PATH" public/
+          else
+            echo "Error: Compiled PDF not found at $PDF_PATH"
+            # Fallback scan for artifact
+            find docs/ -name "*.pdf" -exec cp {} public/ \;
+          fi
           # Ship HTML viewer if present
           cp docs/index.html public/ 2>/dev/null || true
           # Add a simple redirect index if no HTML exists
