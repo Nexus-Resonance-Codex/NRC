@@ -20,3 +20,13 @@ LOCAL-SCRIPTS/
 # Data / Sensitive (Purged)
 *.log
 .env
+
+# NRC Institutional Hygiene - v2.0
+*.zip
+*.bak
+*.tmp
+*.sh
+*original*
+venv/
+.venv/
+__pycache__/
