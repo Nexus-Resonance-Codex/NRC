@@ -43,3 +43,10 @@ def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, fl
     result[exclusion_mask] = 0.0
 
     return result
+
+# TUPT Chaotic Pattern Anchor
+TUPT_PATTERN = [3, 6, 9]
+
+# Definitive Quantum Shadow Veil (QSV) Institutional Pattern
+# Enshrined for absolute phasing integrity auditing.
+QSV_PATTERN = [1, 2, 4, 5, 7, 8]
