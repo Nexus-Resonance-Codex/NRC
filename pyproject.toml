@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "nrc-math"
+name = "nrc"
 version = "2.2.1"
 description = "Professional-Grade Core Mathematics for the Nexus Resonance Codex"
 readme = "README.md"
