@@ -6,9 +6,9 @@ name: Python CI — nrc core library
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   pull_request:
-    branches: ["main"]
+    branches: ["master"]
   workflow_dispatch:
 
 jobs:
@@ -37,16 +37,16 @@ jobs:
 
       - name: Lint with ruff
         run: |
-          ruff check src/ --select E9,F63,F7,F82 --output-format=github
-          ruff check src/ --exit-zero --output-format=github
+          python -m ruff check src/ --select E9,F63,F7,F82 --output-format=github
+          python -m ruff check src/ --exit-zero --output-format=github
 
-      - name: Type-check with mypy
+      - name: Type-check with python -m mypy
         run: |
-          mypy src/nrc --ignore-missing-imports || true
+          python -m mypy src/nrc --ignore-missing-imports || true
 
-      - name: Run tests with pytest
+      - name: Run tests with python -m pytest
         run: |
-          pytest tests/ -v --tb=short
+          python -m pytest tests/ -v --tb=short
 
   # ----------------------------------------------------------------
   # coverage: runs only on Python 3.12 against main
@@ -63,10 +63,10 @@ jobs:
           cache: "pip"
       - name: Install with coverage extras
         run: |
-          pip install ".[dev]" pytest-cov
+          pip install ".[dev]" python -m pytest-cov
       - name: Run tests with coverage
         run: |
-          pytest tests/ --cov=src/nrc --cov-report=term-missing --cov-report=xml
+          python -m pytest tests/ --cov=src/nrc --cov-report=term-missing --cov-report=xml
       - name: Upload coverage report
         uses: codecov/codecov-action@v4
         with:
