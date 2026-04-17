@@ -17,7 +17,9 @@ The **Nexus Resonance Codex (NRC)** is an institutional-grade framework designed
 | Resource | Description | Status |
 | :--- | :--- | :--- |
 | [Lattice Visualizer](Usage.md#working-with-the-256d-lattice-visualizer) | 256D $\to$ 729D Phasing Explorer | ✅ STABLE |
+- [Models](Models.md)
 | [Protein Engine](Usage.md#protein-folding-resonance-accelerator) | Ramachandran Resonance Accelerator | ✅ ACTIVE |
+- [Models](Models.md)
 | [Compression Core](Getting-Started.md) | $\phi^\infty$ Recursive Sharding | ✅ CERTIFIED |
 
 ---
