@@ -16,6 +16,12 @@ SQRT_2 = math.sqrt(2.0)
 PI = math.pi
 
 
+try:
+    import torch
+except ImportError:
+    torch = None  # type: ignore
+
+
 def qrt_damping(
     x: Union[float, np.ndarray, "torch.Tensor"],
 ) -> Union[float, np.ndarray, "torch.Tensor"]:

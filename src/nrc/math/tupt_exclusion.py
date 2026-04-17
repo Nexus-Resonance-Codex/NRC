@@ -53,7 +53,7 @@ def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, fl
         | (mod_vals_torch == 6)
         | (mod_vals_torch == 9)
     )
-    return torch.where(mask == False, values, values.new_zeros(values.shape))
+    return torch.where(~mask, values, values.new_zeros(values.shape))
 
 
 # TUPT Chaotic Pattern Anchor
