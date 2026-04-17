@@ -49,19 +49,20 @@ def qrt_damping(
         return (term1 * term2) + term3
 
     # PyTorch Path (Supports Grad Tensors)
-    import torch
+    if torch is not None:
+        # Ensure x is a tensor for calling methods
+        x_t = torch.as_tensor(x)
 
-    # Ensure x is a tensor for calling methods
-    x_t = torch.as_tensor(x)
+        term1_t = (x_t * freq_sin).sin()
+        term2_t = (-(x_t**2) / PHI_FLOAT).exp()
+        term3_t = (x_t * freq_cos).cos()
+        return (term1_t * term2_t) + term3_t
 
-    term1_t = (x_t * freq_sin).sin()
-    term2_t = (-(x_t**2) / PHI_FLOAT).exp()
-    term3_t = (x_t * freq_cos).cos()
-    return (term1_t * term2_t) + term3_t
+    raise ImportError("torch is required for tensor operations but not installed.")
 
 
 def execute_qrt_damping_tensor(
     x: Union[np.ndarray, "torch.Tensor"],
 ) -> Union[np.ndarray, "torch.Tensor"]:
     """Institutional entry-point for QRT manifold damping (Torch/NumPy)."""
-    return qrt_damping(x)
+    return qrt_damping(x)  # type: ignore[return-value]
