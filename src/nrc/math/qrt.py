@@ -16,7 +16,9 @@ SQRT_2 = math.sqrt(2.0)
 PI = math.pi
 
 
-def qrt_damping(x: Union[float, np.ndarray, "torch.Tensor"]) -> Union[float, np.ndarray, "torch.Tensor"]:
+def qrt_damping(
+    x: Union[float, np.ndarray, "torch.Tensor"],
+) -> Union[float, np.ndarray, "torch.Tensor"]:
     """Determines the QRT wave topology at arbitrary spacial point x.
 
     QRT(x) = sin(φ · √2 · RAD_QRT · x) · exp(-x² / φ) + cos(π/φ · x)
@@ -52,6 +54,8 @@ def qrt_damping(x: Union[float, np.ndarray, "torch.Tensor"]) -> Union[float, np.
     return (term1_t * term2_t) + term3_t
 
 
-def execute_qrt_damping_tensor(x: Union[np.ndarray, "torch.Tensor"]) -> Union[np.ndarray, "torch.Tensor"]:
+def execute_qrt_damping_tensor(
+    x: Union[np.ndarray, "torch.Tensor"],
+) -> Union[np.ndarray, "torch.Tensor"]:
     """Institutional entry-point for QRT manifold damping (Torch/NumPy)."""
     return qrt_damping(x)
