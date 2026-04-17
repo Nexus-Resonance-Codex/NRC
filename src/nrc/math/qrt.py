@@ -39,6 +39,7 @@ def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
 
     return (term1 * term2) + term3
 
+
 def execute_qrt_damping_tensor(x: np.ndarray) -> np.ndarray:
     """Sucessfully aliased for institutional tensor suitabilty."""
     return qrt_damping(x)

@@ -2,18 +2,23 @@
 Supreme NRC Quantum Shadow Veil (QSV) - Python Implementation
 Institutional-Grade Residue-Hiding Encryption for the 4096D Spiral.
 """
-from typing import List, Optional
+
+from typing import List
+
 import numpy as np
-from .phi import binet_formula, PHI_FLOAT
+
+from .phi import PHI_FLOAT
 
 # MST Modulus for residue-hiding
 MST_MODULUS: int = 24389
+
 
 class QuantumShadowVeil:
     """
     Manages the 4096-bit Hierarchical Spiral encryption manifold.
     Enshrines the TUPT absolute phasing integrity check.
     """
+
     def __init__(self, spiral_density: int = 4096):
         self.keys: List[int] = []
         self.spiral_density = spiral_density
@@ -33,7 +38,7 @@ class QuantumShadowVeil:
         key = self.keys[key_index % len(self.keys)]
         # Salt injection using modular residue class
         salt = float(key % 256) / 256.0
-        
+
         # Resonant phasing transform: (payload + salt) * phi^{-n}
         encrypted = (payload + salt) * (PHI_FLOAT ** -(key_index % 13))
         return encrypted

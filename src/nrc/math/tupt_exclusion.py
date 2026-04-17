@@ -44,6 +44,7 @@ def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, fl
 
     return result
 
+
 # TUPT Chaotic Pattern Anchor
 TUPT_PATTERN = [3, 6, 9]
 
