@@ -31,7 +31,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/nrc_math"]
+packages = ["src/nrc", "src/nrc_math"]
 
 [tool.ruff]
 line-length = 100
