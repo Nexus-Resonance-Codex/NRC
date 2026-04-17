@@ -6,7 +6,7 @@ instead of stochastic dropout.
 """
 
 import math
-from typing import Union
+from typing import Union, cast
 
 import numpy as np
 
@@ -46,7 +46,7 @@ def qrt_damping(
         term1 = np.sin(freq_sin * x)
         term2 = np.exp(-(x**2) / PHI_FLOAT)
         term3 = np.cos(freq_cos * x)
-        return (term1 * term2) + term3
+        return cast(Union[float, np.ndarray, "torch.Tensor"], (term1 * term2) + term3)
 
     # PyTorch Path (Supports Grad Tensors)
     if torch is not None:

@@ -23,7 +23,7 @@ class QuantumShadowVeil:
         self.keys: List[int] = []
         self.spiral_density = spiral_density
 
-    def expand_fibonacci_keys(self, seed: int, count: int):
+    def expand_fibonacci_keys(self, seed: int, count: int) -> None:
         """Generates hierarchical key shards following the Fibonacci/Binet sequence."""
         a, b = seed, seed * 2
         for _ in range(count):
