@@ -34,15 +34,20 @@ def apply_exclusion_gate(values: Union[int, float, np.ndarray]) -> Union[int, fl
             return 0.0 if isinstance(values, float) else 0
         return values
 
-    # Vectorized NumPy implementation of the modular band-stop filter
-    mod_vals = np.mod(values, 9)
+    # NumPy / Native Path
+    import torch
+    if not torch.is_tensor(values):
+        mod_vals = np.mod(values, 9)
+        exclusion_mask = np.isin(mod_vals, list(TUPT_UNSTABLE))
+        result = np.copy(values)
+        result[exclusion_mask] = 0.0
+        return result
 
-    exclusion_mask = np.isin(mod_vals, list(TUPT_UNSTABLE))
-
-    result = np.copy(values)
-    result[exclusion_mask] = 0.0
-
-    return result
+    # PyTorch Path (Supports Grad Tensors)
+    mod_vals_torch = values % 9
+    # Gating 0, 3, 6, 9
+    mask = (mod_vals_torch == 0) | (mod_vals_torch == 3) | (mod_vals_torch == 6) | (mod_vals_torch == 9)
+    return torch.where(mask == False, values, values.new_zeros(values.shape))
 
 
 # TUPT Chaotic Pattern Anchor

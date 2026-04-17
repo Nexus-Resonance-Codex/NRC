@@ -16,7 +16,7 @@ SQRT_2 = math.sqrt(2.0)
 PI = math.pi
 
 
-def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+def qrt_damping(x: Union[float, np.ndarray, "torch.Tensor"]) -> Union[float, np.ndarray, "torch.Tensor"]:
     """Determines the QRT wave topology at arbitrary spacial point x.
 
     QRT(x) = sin(φ · √2 · RAD_QRT · x) · exp(-x² / φ) + cos(π/φ · x)
@@ -25,7 +25,7 @@ def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
     while gently oscillating stable regions using the optimal geometric damping.
 
     Args:
-        x: Input scalar or numpy array (activations, gradients, physical wave point).
+        x: Input scalar, numpy array, or torch Tensor.
 
     Returns:
         The damped output bounding safely within the QRT fractal topology.
@@ -33,13 +33,25 @@ def qrt_damping(x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
     freq_sin = PHI_FLOAT * SQRT_2 * RAD_QRT
     freq_cos = PI / PHI_FLOAT
 
-    term1 = np.sin(freq_sin * x)
-    term2 = np.exp(-(x**2) / PHI_FLOAT)
-    term3 = np.cos(freq_cos * x)
+    # NumPy / Native Path
+    if not hasattr(x, "device"):
+        term1 = np.sin(freq_sin * x)
+        term2 = np.exp(-(x**2) / PHI_FLOAT)
+        term3 = np.cos(freq_cos * x)
+        return (term1 * term2) + term3
 
-    return (term1 * term2) + term3
+    # PyTorch Path (Supports Grad Tensors)
+    import torch
+
+    # Ensure x is a tensor for calling methods
+    x_t = torch.as_tensor(x)
+
+    term1_t = (x_t * freq_sin).sin()
+    term2_t = (-(x_t**2) / PHI_FLOAT).exp()
+    term3_t = (x_t * freq_cos).cos()
+    return (term1_t * term2_t) + term3_t
 
 
-def execute_qrt_damping_tensor(x: np.ndarray) -> np.ndarray:
-    """Sucessfully aliased for institutional tensor suitabilty."""
+def execute_qrt_damping_tensor(x: Union[np.ndarray, "torch.Tensor"]) -> Union[np.ndarray, "torch.Tensor"]:
+    """Institutional entry-point for QRT manifold damping (Torch/NumPy)."""
     return qrt_damping(x)
