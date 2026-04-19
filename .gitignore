@@ -12,16 +12,19 @@ build/
 # Local Task Scripts (Professional Cleanup)
 LOCAL-SCRIPTS/
 
-# IDE / System
+# IDE / System / Workspace
 .vscode/
 .idea/
 .DS_Store
+*.code-workspace
+.gemini/
+.antigravity/
 
 # Data / Sensitive (Purged)
 *.log
 .env
 
-# NRC Institutional Hygiene - v2.0
+# NRC Institutional Hygiene - v2.1
 *.zip
 *.bak
 *.tmp
@@ -30,3 +33,4 @@ LOCAL-SCRIPTS/
 venv/
 .venv/
 __pycache__/
+
