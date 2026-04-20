@@ -14,10 +14,11 @@
 [![CI: Math Integrity](https://img.shields.io/badge/CI-Math%20Integrity-blue?style=for-the-badge&logo=github "Continuous Integration: Mathematical Integrity")](https://github.com/Nexus-Resonance-Codex/NRC/actions)
 [![Docs: Math Foundations](https://img.shields.io/badge/Docs-Foundations-green?style=for-the-badge&logo=markdown "Mathematical Foundations Documentation")](https://nexus-resonance-codex.github.io/NRC/)
 [![Hugging Face Space](https://img.shields.io/badge/HF%20Space-Infinite%20Engine-FFD21E?style=for-the-badge&logo=huggingface "Interactive φ^∞ Infinite Engine")](https://huggingface.co/spaces/Nexus-Resonance-Codex/LLM-Infinite-Context-Engine)
+[![Hugging Face Space](https://img.shields.io/badge/HF%20Space-Resonance--Fold-gold?style=for-the-badge&logo=huggingface "Resonance-Fold Protein Prediction")](https://huggingface.co/spaces/Nexus-Resonance-Codex/Resonance-Fold)
 [![Lattice: 8192D](https://img.shields.io/badge/Lattice-8192D-gold?style=for-the-badge&logo=mathematica "High-Dimensional Lattice Specification")](src/nrc_math/)
 [![Math-Vault Evaluations](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/prompt-evals.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/prompt-evals.yml)
 
-[Foundations](https://nexus-resonance-codex.github.io/NRC/) • [Interactive Engine (HF)](https://huggingface.co/spaces/Nexus-Resonance-Codex/LLM-Infinite-Context-Engine) • [NRC Playground](#-nrc-playground) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
+[Foundations](https://nexus-resonance-codex.github.io/NRC/) • [Infinite Engine (HF)](https://huggingface.co/spaces/Nexus-Resonance-Codex/LLM-Infinite-Context-Engine) • [Resonance-Fold (HF)](https://huggingface.co/spaces/Nexus-Resonance-Codex/Resonance-Fold) • [NRC Playground](#-nrc-playground) • [Primitives](src/nrc_math/primitives.py) • [Lattice Research](notebooks/) • [Proofs](proofs/)
 
 </div>
 
