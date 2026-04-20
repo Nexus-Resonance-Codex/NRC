@@ -18,7 +18,7 @@ The **Nexus Resonance Codex (NRC)** is an institutional-grade framework designed
 | :--- | :--- | :--- |
 | [Lattice Visualizer](Usage.md#working-with-the-256d-lattice-visualizer) | 256D $\to$ 729D Phasing Explorer | ✅ STABLE |
 - [Models](Models.md)
-| [Protein Engine](Usage.md#protein-folding-resonance-accelerator) | Ramachandran Resonance Accelerator | ✅ ACTIVE |
+| [Resonance-Fold](Usage.md#protein-folding-resonance-accelerator) | Ramachandran Resonance Accelerator | ✅ ACTIVE |
 - [Models](Models.md)
 | [Compression Core](Getting-Started.md) | $\phi^\infty$ Recursive Sharding | ✅ CERTIFIED |
 
@@ -80,7 +80,7 @@ The Nexus Resonance Codex is manifested through a multi-repository architecture,
 | :--- | :--- | :--- | :--- |
 | **[Nexus-Resonance-Codex](https://github.com/Nexus-Resonance-Codex/NRC)** | Core math vault, TTT/TUPT primitives, and institutional standards. | Python, Gradio, LaTeX | 🟢 STABLE |
 | **[256D-Lattice-Visualizer](https://github.com/Nexus-Resonance-Codex/Ai-Enhancements)** | Holographic exploration of the 256D $\to$ 729D phasing manifold. | CSS, HTML, JavaScript | 🔵 ACTIVE |
-| **[NRC-Protein-Folding](https://github.com/Nexus-Resonance-Codex/Protein-Folding)** | High-dimensional protein folding engine using Ramachandran resonance. | Python, PyTorch, DSSP | 🔵 ACTIVE |
+| **[Resonance-Fold](https://github.com/Nexus-Resonance-Codex/Resonance-Fold)** | High-dimensional protein folding engine using Ramachandran resonance. | Python, PyTorch, DSSP | 🔵 ACTIVE |
 | **[φ^6-Compression-Engine](https://github.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression)** | Institutional $\phi^\infty$ spiral sharding and hierarchical compression. | Rust, Python, SIMD | 🟢 CERTIFIED |
 
 ---

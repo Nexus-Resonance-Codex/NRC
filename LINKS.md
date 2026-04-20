@@ -5,7 +5,7 @@ This document serves as the central directory for all external resources, relate
 ## 🏛️ Project Repositories
 
 - **[NRC Core](https://github.com/Nexus-Resonance-Codex/NRC)**: Main mathematical framework.
-- **[Protein Folding](https://github.com/Nexus-Resonance-Codex/Protein-Folding)**: Biological applications.
+- **[Resonance-Fold](https://github.com/Nexus-Resonance-Codex/Resonance-Fold)**: Biological applications.
 - **[AI Enhancements](https://github.com/Nexus-Resonance-Codex/Ai-Enhancements)**: Algorithmic and machine learning implementations.
 
 ## 📝 Publications & Archives

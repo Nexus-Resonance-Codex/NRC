@@ -56,12 +56,12 @@ Follow these strictly phased steps:
 
 ### ⏭️ Next Steps
 
-Once comfortable with the visualizer, proceed to the **Protein Folding Accelerator** section or the full **[API Reference](API-Reference.md)** for advanced tensor operations.
+Once comfortable with the visualizer, proceed to the **Resonance-Fold Accelerator** section or the full **[API Reference](API-Reference.md)** for advanced tensor operations.
 
 
-## Protein Folding Resonance Accelerator
+## Resonance-Fold Accelerator
 
-The **Protein Folding Resonance Accelerator** is a high-dimensional biological phasing engine that achieves a 99.9% computational speedup over classical distributed folding models. By representing amino acid dihedral angles as state vectors in the 256D $\to$ 729D $\phi$-tensor lattice, we bypass the chaotic folding voids and achieve near-instantaneous global minima resolution through **TUPT/QRT/MST** integration.
+The **Resonance-Fold Accelerator** is a high-dimensional biological phasing engine that achieves a 99.9% computational speedup over classical distributed folding models. By representing amino acid dihedral angles as state vectors in the 256D $\to$ 729D $\phi$-tensor lattice, we bypass the chaotic folding voids and achieve near-instantaneous global minima resolution through **TUPT/QRT/MST** integration.
 
 ### 🧬 1-2-4-5-7 Acceleration Sequence
 
@@ -70,7 +70,7 @@ Follow these strictly phased steps to execute an institutional protein folding j
 1.  **Input FASTA Sequence**:
     Load the target primary structure into the biological resonance manifold.
     ```python
-    from nrc_bio import ProteinEngine
+    from resonance_fold import ProteinEngine
     engine = ProteinEngine()
     engine.load_sequence("MKTLLIL...TRP")
     ```
@@ -78,13 +78,13 @@ Follow these strictly phased steps to execute an institutional protein folding j
 2.  **Initialize Resonance Buffer**:
     Expand the Rama-Spiral to align with the institutional stability anchor.
     ```bash
-    uv run python -m nrc_bio.fold.init --residue-hiding
+    uv run python -m resonance_fold.fold.init --residue-hiding
     ```
 
 4.  **Launch Torsion Sharding**:
     Execute the high-speed folding cycle across the distributed lattice.
     ```bash
-    uv run python -m nrc_bio.fold.run --mode accelerated --ttt-anchor 7
+    uv run python -m resonance_fold.fold.run --mode accelerated --ttt-anchor 7
     ```
 
 5.  **Monitor Folding Trajectory**:

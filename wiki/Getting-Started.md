@@ -22,7 +22,7 @@ To ensure absolute reproducibility of the Codex across all sub-shards, the follo
 | :--- | :--- | :--- | :--- |
 | **CPU** | 8-Core x86_64 / ARM64 | 16-Core High-Frequency | MST/TUPT Processing |
 | **RAM** | 16GB ECC | 64GB+ DDR5 | $\phi^\infty$ Spiral Caching |
-| **GPU** | NVIDIA RTX 30-Series (8GB) | NVIDIA RTX 4090 (24GB+) | Protein Folding & QSV |
+| **GPU** | NVIDIA RTX 30-Series (8GB) | NVIDIA RTX 4090 (24GB+) | Resonance-Fold & QSV |
 | **Disk** | 50GB NVMe SSD | 500GB+ Gen4 NVMe | Dataset Persistence |
 
 ---
@@ -67,7 +67,7 @@ Follow these strictly phased steps:
 
 7. **Link Sub-Shards in Editable Mode**  
    ```bash
-   uv pip install -e ../Ai-Enhancements ../Protein-Folding ../Phi-Infinity-Lattice-Compression
+   uv pip install -e ../Ai-Enhancements ../Resonance-Fold ../Phi-Infinity-Lattice-Compression
    ```
 
 ### 🔍 Verification Handshake
@@ -140,7 +140,8 @@ Follow these steps to execute your first resonant computation:
 7.  **Run Protein Resonance Stub**:
     Execute a limited torsion-sharding test on a sample dihedral manifold.
     ```bash
-    python -m nrc_bio.verify --stub
+    # Run Resonance-Fold Stub
+    python -m resonance_fold.verify --stub
     ```
 
 ### 🔊 Expected Resonance Output
