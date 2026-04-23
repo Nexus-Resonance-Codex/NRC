@@ -32,6 +32,9 @@ Full theory documentation and mathematical proofs are available in the `docs/` d
 
 ---
 
-## 📜 License
-This framework is released under the **Nexus Resonance Codex License (NRC-L)**.  
+## 📜 License & Commercial Use
+This framework is released under the **CC BY-NC-SA 4.0 (Dual-License Model)**.  
+- **Non-Commercial:** Free for academic, humanitarian, and non-profit use.
+- **Commercial:** Requires a separate commercial license for enterprise deployment or commercial integration.
+
 Copyright © 2026 Nexus Resonance Codex Team. All Rights Reserved.
