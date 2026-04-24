@@ -5,7 +5,7 @@
 ![Stability](https://img.shields.io/badge/TTT--7-Stabilized-green?style=for-the-badge)
 
 ## 🌌 The Universal Lattice Protocol
-The **Nexus Resonance Codex (NRC)** is a high-dimensional mathematical framework for information compression, structural prediction, and cryptographic resonance. Built upon the **Trageser Tensor Theorem (TTT)**, NRC projects data into a **256D φ-spiral manifold**, enabling O(1) retrieval and deterministic structural resonance.
+The **Nexus Resonance Codex (NRC)** is a high-dimensional mathematical framework for information compression, structural prediction, and cryptographic resonance. Built upon the **Trageser Tensor Theorem (TTT)**, NRC projects data into a **2048D φ-spiral manifold**, enabling O(1) retrieval and deterministic structural resonance.
 
 ### 🏛 Theoretical Pillars
 - **φ∞-Spiral Compression**: Recursive golden-ratio partitioning for lossless semantic grounding.
@@ -15,7 +15,7 @@ The **Nexus Resonance Codex (NRC)** is a high-dimensional mathematical framework
 ---
 
 ## 🏗 Sub-Systems
-- **[Protein-Folding](https://github.com/Nexus-Resonance-Codex/Protein-Folding)**: Real-time structural topology prediction for complex biopolymers.
+- **[Protein-Folding (Omni-Modal)](https://github.com/Nexus-Resonance-Codex/Protein-Folding)**: Institutional-grade biophysics engine for Proteins, DNA/RNA, and Ligands.
 - **[Ai-Enhancements](https://github.com/Nexus-Resonance-Codex/Ai-Enhancements)**: Sovereign LLM instrumentation and agentic logic hardening.
 - **[Omega-Cypher](https://github.com/Nexus-Resonance-Codex/Omega-Cypher)**: Post-quantum cryptographic resonance and zero-knowledge manifolds.
 
