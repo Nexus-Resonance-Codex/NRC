@@ -15,7 +15,7 @@ The **Nexus Resonance Codex (NRC)** is a high-dimensional mathematical framework
 ---
 
 ## 🏗 Sub-Systems
-- **[Protein-Folding (Omni-Modal)](https://github.com/Nexus-Resonance-Codex/Protein-Folding)**: Institutional-grade biophysics engine for Proteins, DNA/RNA, and Ligands.
+- **[Protein-Folding (Omni-Modal)](https://github.com/Nexus-Resonance-Codex/Protein-Folding)**: Professional-grade biophysics engine for Proteins, DNA/RNA, and Ligands.
 - **[Ai-Enhancements](https://github.com/Nexus-Resonance-Codex/Ai-Enhancements)**: Sovereign LLM instrumentation and agentic logic hardening.
 - **[Omega-Cypher](https://github.com/Nexus-Resonance-Codex/Omega-Cypher)**: Post-quantum cryptographic resonance and zero-knowledge manifolds.
 
