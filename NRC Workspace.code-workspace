@@ -1,0 +1,37 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "NRC (Core)"
+    },
+    {
+      "path": "../Protein-Folding",
+      "name": "Protein Folding"
+    },
+    {
+      "path": "../Ai-Enhancements",
+      "name": "AI Enhancements"
+    },
+    {
+      "path": "../Phi-Infinity-Lattice-Compression",
+      "name": "Phi-Infinity"
+    },
+    {
+      "path": "../willow-golden-floquet",
+      "name": "Willow"
+    },
+    {
+      "path": "../Meta-Materials",
+      "name": "Meta-Materials"
+    },
+    {
+      "path": ".."
+    },
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "",
+  },
+  "extensions": {
+    "recommendations": ["ms-python.vscode-python-envs"],
+  },
+}
