@@ -28,7 +28,7 @@ During the development of the Codex, it was discovered that combining the 3-6-9 
 ---
 
 ## 🚀 Live Demos
-- **[Resonance-Fold Pro](https://huggingface.co/spaces/Nexus-Resonance-Codex/Resonance-Fold)**: Interactive IDP folding portal.
+- **[Resonance-Fold Pro V2](https://huggingface.co/spaces/Nexus-Resonance-Codex/NRC-PRO-FOLD-V2)**: 100% Deterministic φ-Lattice Folding Portal.
 - **[Lattice Visualizer](https://nexus-resonance-codex.github.io/NRC/)**: Real-time 256D φ-manifold exploration.
 
 ---
