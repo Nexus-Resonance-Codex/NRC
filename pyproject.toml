@@ -29,6 +29,20 @@ dev = [
     "mkdocs-material>=9.5.0",
     "mkdocstrings[python]>=0.24.0"
 ]
+ai = [
+    "transformers>=4.40.0",
+    "datasets>=2.19.0",
+    "huggingface_hub>=0.23.0",
+    "accelerate>=0.30.0"
+]
+gcp = [
+    "google-cloud-storage>=2.16.0",
+    "google-cloud-aiplatform>=1.50.0",
+    "google-cloud-bigquery>=3.20.0"
+]
+math-proof = [
+    "z3-solver>=4.13.0"
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/nrc", "src/nrc_math"]

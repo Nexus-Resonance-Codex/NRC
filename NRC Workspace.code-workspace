@@ -27,18 +27,37 @@
     {
       "path": "..",
     },
+    {
+      "path": "../NRC-LLM",
+    },
   ],
   "settings": {
-    "python.defaultInterpreterPath": "",
     "tfa.cache.autoCleanKeepCount": 7,
     "tfa.dashboard.includeSecondaryModels": false,
     "tfa.commitMessageClaude.model": "gemma:2b",
     "tfa.commitMessageClaude.maxDiffChars": 77777,
     "tfa.commitMessageClaude.format": "simple",
     "tfa.cache.warningSize": 4096,
-    "tfa.cache.autoClean": true,
+    "tfa.cache.autoClean": false,
+    "cloudcode.enableTelemetry": false,
+    "geminicodeassist.enableTelemetry": false,
+    "gitlens.telemetry.enabled": false,
+    "telemetry.feedback.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "goosecode.startAutomatically": true,
+    "geminicodeassist.outlines.automaticOutlineGeneration": true,
+    "geminicodeassist.inlineSuggestions.enableAuto": false,
+    "gcp.project": "free-credits-493517",
+    "gcp.region": "us-central1"
   },
   "extensions": {
-    "recommendations": ["ms-python.vscode-python-envs"],
-  },
+    "recommendations": [
+      "ms-python.vscode-python-envs",
+      "ms-python.python",
+      "ms-toolsai.jupyter",
+      "leanprover.lean4",
+      "huggingface.huggingface-vscode",
+      "googlecloudtools.cloudcode"
+    ]
+  }
 }
