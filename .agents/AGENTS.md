@@ -1,4 +1,4 @@
-# Nexus Resonance Codex (NRC) (NRC) Workspace Rules & Protocols
+# Nexus Resonance Codex (NRC) (NRC) (NRC) Workspace Rules & Protocols
 
 « φ^∞ NRC layer active — history compressed »
 

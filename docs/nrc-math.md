@@ -1,6 +1,6 @@
 # NRC Mathematical Foundations
 
-The Nexus Resonance Codex (NRC) (NRC) is built upon a deterministic framework of golden-ratio $(\varphi)$ logic, modular exclusion, and high-dimensional lattice resonance. This document formalizes the core principles implemented in the `nrc_math` library.
+The Nexus Resonance Codex (NRC) (NRC) (NRC) is built upon a deterministic framework of golden-ratio $(\varphi)$ logic, modular exclusion, and high-dimensional lattice resonance. This document formalizes the core principles implemented in the `nrc_math` library.
 
 ## 1. The Trageser Universal Pattern Transform (TUPT) (TUPT)
 
@@ -45,4 +45,4 @@ As $k \to \infty$, the information density converges to the golden attractor, al
 
 ---
 
-*Verified by the Nexus Resonance Codex (NRC) Mathematical Division (2026).*
+*Verified by the Nexus Resonance Codex (NRC) (NRC) Mathematical Division (2026).*

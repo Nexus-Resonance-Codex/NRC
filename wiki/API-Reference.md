@@ -1,10 +1,10 @@
 # API Reference
 
-Welcome to the technical ledger for the Nexus Resonance Codex (NRC). This page provides the formal specifications for the core modules, classes, and mathematical primitives that drive the resonance engine.
+Welcome to the technical ledger for the Nexus Resonance Codex (NRC) (NRC). This page provides the formal specifications for the core modules, classes, and mathematical primitives that drive the resonance engine.
 
 ## Core Mathematical Primitives
 
-The `nrc.math` module is the architectural heart of the Nexus Resonance Codex (NRC). It implements the high-dimensional tensors and algebraic foundations required for the **Trageser Tensor Theorem (TTT)**, **Trageser Universal Pattern Transform (TUPT) (TUPT)**, and **Quantum Resonance Transform (QRT) (QRT)** damping. Every primitive is strictly phased to ensure 100% computational integrity across all research tracks.
+The `nrc.math` module is the architectural heart of the Nexus Resonance Codex (NRC) (NRC). It implements the high-dimensional tensors and algebraic foundations required for the **Trageser Tensor Theorem (TTT)**, **Trageser Universal Pattern Transform (TUPT) (TUPT)**, and **Quantum Resonance Transform (QRT) (QRT)** damping. Every primitive is strictly phased to ensure 100% computational integrity across all research tracks.
 
 ### 📜 Principal API Index
 
