@@ -1,6 +1,6 @@
 # NRC Math Vault Playground – Testing Directly on GitHub
 
-The **Central Math Vault (NRC)** provides interactive tools via GitHub Models to verify the foundational theorems of the Nexus Resonance Codex (NRC) (NRC).
+The **Central Math Vault (NRC)** provides interactive tools via GitHub Models to verify the foundational theorems of the Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC).
 
 ## 📐 How to Run Math-Prompts
 

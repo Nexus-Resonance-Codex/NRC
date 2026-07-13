@@ -24,7 +24,7 @@ def modular_projector(seq: np.ndarray) -> np.ndarray:
 
 def demonstrate_variance_reduction() -> None:
     """[CONJ] Demonstrates variance reduction via recursive modular exclusion."""
-    print("Nexus Resonance Codex (NRC) (NRC) - Variance Reduction Demo")
+    print("Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) - Variance Reduction Demo")
 
     n_terms = 500
     fibs = fib_mod9(n_terms)
