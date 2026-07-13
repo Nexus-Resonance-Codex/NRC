@@ -1,0 +1,4 @@
+# file: /home/jtrag/NRC/github-repos/Nexus-Resonance-Codex/NRC/src/nrc_math/__init__.py
+# hypothesis_version: 6.151.12
+
+['MST_MOD', 'PHI', 'PHI_FLOAT', 'PHI_INT', 'TTT_CYCLE', 'TUPTMixer', 'TUPT_MOD', 'TUPT_PATTERN', 'apply_exclusion_gate', 'mst_recurrence', 'mst_step', 'phi_infinity_shard', 'qrt_damping']
