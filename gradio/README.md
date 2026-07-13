@@ -1,5 +1,5 @@
 ---
-title: NRC Interactive — Nexus Resonance Codex
+title: NRC Interactive — Nexus Resonance Codex (NRC)
 emoji: 🌀
 colorFrom: violet
 colorTo: indigo
@@ -20,7 +20,7 @@ tags:
 
 # NRC Interactive Space
 
-This Space provides a live, interactive explorer for the mathematical and AI framework of the **Nexus Resonance Codex**.
+This Space provides a live, interactive explorer for the mathematical and AI framework of the **Nexus Resonance Codex (NRC)**.
 
 ## Features
 

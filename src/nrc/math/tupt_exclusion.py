@@ -1,7 +1,7 @@
-"""Trageser Universal Pattern Theorem (TUPT) Modular Stability.
+"""Trageser Universal Pattern Transform (TUPT) (TUPT) Modular Stability.
 
 ========================================================
-Implementation of the Trageser Transformation Theorem (TTT)
+Implementation of the Trageser Tensor Theorem (TTT-7) (TTT)
 modular residue stability operator.
 """
 

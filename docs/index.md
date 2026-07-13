@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/Nexus-Resonance-Codex/Phi-Infinity-Lattice-Compression/main/docs/assets/phi_spiral_banner.png" width="100%" alt="NRC Math Vault Banner">
 
 # NRC (Central Math Vault)
-## Core Mathematics for the Nexus Resonance Codex
+## Core Mathematics for the Nexus Resonance Codex (NRC)
 
 [![License: CC-BY-NC-SA-4.0](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-00F0FF?style=for-the-badge&logo=creative-commons)](LICENSE)
 [![CI: Math Integrity](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml/badge.svg)](https://github.com/Nexus-Resonance-Codex/NRC/actions/workflows/ci.yml)
@@ -18,11 +18,11 @@
 
 ### Abstract
 
-**NRC (Central Math Vault)** is the foundational mathematical library for the entire Nexus Resonance Codex ecosystem. It provides verified implementations of core NRC primitives—**TUPT**, **QRT**, **MST**, and **$\varphi^\infty$ Projection**—stabilized at **digital root 7** for maximum structural integrity.
+**NRC (Central Math Vault)** is the foundational mathematical library for the entire Nexus Resonance Codex (NRC) ecosystem. It provides verified implementations of core NRC primitives—**TUPT**, **QRT**, **MST**, and **$\varphi^\infty$ Projection**—stabilized at **digital root 7** for maximum structural integrity.
 
 ### Core Primitives
 *   **Trageser Universal Protein Tensor (TUPT)**: Advanced modular mixing in $\mathbb{Z}_{12289}$ with $3-6-9-7$ resonance.
-*   **Quantum Residue Turbulence (QRT)**: Fractal-damped regularization for gradients and side-channel masking.
+*   **Quantum Resonance Transform (QRT) (QRT)**: Fractal-damped regularization for gradients and side-channel masking.
 *   **Multi-Scale Tensor (MST)**: Chaotic recurrence monitoring for sequence stability.
 *   **$\varphi^\infty$ Shard Folding**: Recursive golden-ratio projection for infinite information compression.
 
@@ -41,7 +41,7 @@
 
 ### 🚀 NRC Playground
 
-Verify the foundational theorems of the Nexus Resonance Codex directly on GitHub:
+Verify the foundational theorems of the Nexus Resonance Codex (NRC) directly on GitHub:
 
 - **[TTT Stability Auditor](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/ttt-modular-exclusion-tester.prompt.yml)** — Audit constants for residue stability.
 - **[φ-Spiral Projection](https://github.com/Nexus-Resonance-Codex/NRC/blob/master/.github/prompts/phi-spiral-projection-calculator.prompt.yml)** — Calculate 8192D manifold coordinates.
@@ -77,6 +77,6 @@ The [Math Foundations Docs](nrc-math.md) contain the formal proofs for:
 The Central Math Vault is the source of truth for all NRC technologies. Every line of code is mathematically verified to prevent entropy-collapse in artificial and biological intelligence systems.
 
 <div align="center">
-<i>Authored by James Trageser (@jtrag) — Nexus Resonance Codex (2026)</i><br>
+<i>Authored by James Paul Trageser (@jtrag) — Nexus Resonance Codex (NRC) (2026)</i><br>
 <b>Stabilizing the future of intelligence.</b>
 </div>

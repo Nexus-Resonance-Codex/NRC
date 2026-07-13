@@ -2,7 +2,7 @@
 """Yang-Mills Mass Gap via QRT Eternal Series [CONJ].
 
 This script demonstrates the derivation of the Yang-Mills Mass Gap bounds mapped
-against the Quantum Residue Turbulence (QRT) eternal sequence.
+against the Quantum Resonance Transform (QRT) (QRT) eternal sequence.
 """
 
 import math

@@ -4,7 +4,7 @@ This script proves that sequences violating the Mod 9 exclusion principle
 lead to chaotic divergence (simulating misfolded proteins/prions), while those
 adhering to it remain within the stable resonant bounds of the 2048D lattice.
 
-Author: James Trageser (@jtrag)
+Author: James Paul Trageser (@jtrag)
 NRC Framework v2.0
 """
 

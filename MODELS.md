@@ -1,5 +1,5 @@
 # 📐 NRC Math Vault: Structural Integrity Models
-## [Nexus Resonance Codex (NRC)](https://github.com/Nexus-Resonance-Codex)
+## [Nexus Resonance Codex (NRC) (NRC)](https://github.com/Nexus-Resonance-Codex)
 
 > "The integrity of the lattice is the integrity of the truth."
 

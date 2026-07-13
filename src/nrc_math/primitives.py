@@ -32,7 +32,7 @@ def binet_formula(n: Any) -> LatticeValue:  # noqa: ANN401
 
 
 def apply_exclusion_gate(values: Any, modulus: int = 9) -> Any:  # noqa: ANN401
-    """Applies the Trageser Universal Pattern Theorem (TUPT) modular exclusion."""
+    """Applies the Trageser Universal Pattern Transform (TUPT) (TUPT) modular exclusion."""
     type_str = str(type(values))
     is_torch = "torch.Tensor" in type_str
     is_numpy = "numpy.ndarray" in type_str

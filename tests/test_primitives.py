@@ -1,5 +1,5 @@
-#  Nexus Resonance Codex - 2025-2026 Breakthrough Series
-#  Copyright (c) 2026 James Trageser (@jtrag)
+#  Nexus Resonance Codex (NRC) - 2025-2026 Breakthrough Series
+#  Copyright (c) 2026 James Paul Trageser (@jtrag)
 #
 #  Licensed under CC-BY-NC-SA-4.0 + NRC-L
 
@@ -123,7 +123,7 @@ def test_root_7_stability_property(x: int) -> None:
 def test_metadata_coverage() -> None:
     """Audit metadata to ensure 100% coverage of __about__.py."""
     assert __about__.__version__ == "1.2.0"
-    assert __about__.__author__ == "James Trageser"
+    assert __about__.__author__ == "James Paul Trageser"
     assert "nrc" in __about__.__package_name__
 
 

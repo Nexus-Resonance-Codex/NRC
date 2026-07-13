@@ -1,6 +1,6 @@
-# Nexus Resonance Codex Links 🔗
+# Nexus Resonance Codex (NRC) Links 🔗
 
-This document serves as the central directory for all external resources, related projects, and publications associated with the Nexus Resonance Codex.
+This document serves as the central directory for all external resources, related projects, and publications associated with the Nexus Resonance Codex (NRC).
 
 ## 🏛️ Project Repositories
 

@@ -5,7 +5,7 @@ Golden Ratio Inverse Attractor (φ⁻¹) logarithmically converges to absolute z
 entropy (0.00 limits) with O(φ^{-k}) precision scaling, mimicking the exact
 instantaneous compression folding of native proteins inside the resonant lattice.
 
-Author: James Trageser (@jtrag)
+Author: James Paul Trageser (@jtrag)
 NRC Framework v2.0
 """
 

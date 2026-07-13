@@ -1,4 +1,4 @@
-"""Proof 03: QRT (Quantum Resonance Theory) Wave Equation Stabilization.
+"""Proof 03: QRT (Quantum Resonance Transform (QRT)) Wave Equation Stabilization.
 
 This script mathematically demonstrates the stabilizing nature of the QRT wave function:
   ψ(x) = sin(φ * √2 * θ_QRT * x) * exp(-x²/φ) + cos(π/φ * x)

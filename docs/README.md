@@ -1,4 +1,4 @@
-# Nexus Resonance Codex — GitHub Pages
+# Nexus Resonance Codex (NRC) — GitHub Pages
 
 > The 30 AI Enhancements for replacing stochastic neural networks with resonant high-dimensional geometries.
 
@@ -23,4 +23,4 @@ Licensed under the [NRC License v2.0](https://github.com/Nexus-Resonance-Codex/N
 
 ---
 
-_© 2024–2026 James Trageser · [Nexus Resonance Codex on GitHub](https://github.com/Nexus-Resonance-Codex)_
+_© 2024–2026 James Paul Trageser · [Nexus Resonance Codex (NRC) on GitHub](https://github.com/Nexus-Resonance-Codex)_

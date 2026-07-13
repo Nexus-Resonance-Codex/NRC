@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 """NRC Interactive Gradio Space.
 
-Three-tab interactive app demonstrating the full Nexus Resonance Codex
+Three-tab interactive app demonstrating the full Nexus Resonance Codex (NRC)
 mathematical and AI framework. Runs on HuggingFace Spaces (CPU tier).
 """
 
@@ -28,7 +28,7 @@ def binet(n: int) -> float:
 
 
 def qrt(x: float) -> float:
-    """Computes the Quantum Residue Transform (QRT) geometric damping at point x."""
+    """Computes the Quantum Resonance Transform (QRT) (QRT) geometric damping at point x."""
     return math.sin(PHI * SQRT2 * THETA_QRT * x) * math.exp(-(x**2) / PHI) + math.cos(PI / PHI * x)
 
 
@@ -224,9 +224,9 @@ THEME = gr.themes.Soft(
     font=[gr.themes.GoogleFont("Inter"), "sans-serif"],
 )
 
-with gr.Blocks(title="NRC Interactive — Nexus Resonance Codex", theme=THEME) as demo:
+with gr.Blocks(title="NRC Interactive — Nexus Resonance Codex (NRC)", theme=THEME) as demo:
     gr.Markdown("""
-# 🌀 Nexus Resonance Codex — Interactive Explorer
+# 🌀 Nexus Resonance Codex (NRC) — Interactive Explorer
 *Real-time computation of NRC mathematics, protein lattice projections, and AI enhancement browser.*
 
 [![GitHub](https://img.shields.io/badge/GitHub-Nexus--Resonance--Codex-181717?logo=github)](https://github.com/Nexus-Resonance-Codex)
