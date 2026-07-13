@@ -4,7 +4,7 @@
 
 ## Preamble
 
-This License governs the foundational **Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) (NRC)** framework, including all core mathematical models, theorems, equations, proofs, conceptual architecture, visual representations, LaTeX source documentation, and derivative frameworks (collectively, the **"Core NRC Materials"**) provided within this repository.
+This License governs the foundational **Nexus Resonance Codex (NRC)** framework, including all core mathematical models, theorems, equations, proofs, conceptual architecture, visual representations, LaTeX source documentation, and derivative frameworks (collectively, the **"Core NRC Materials"**) provided within this repository.
 
 The NRC framework promotes rigorous, resonant mathematical innovation. To balance open scientific collaboration with the protection of foundational intellectual property, this License adopts a dual-licensing model:
 
@@ -18,12 +18,12 @@ The NRC framework promotes rigorous, resonant mathematical innovation. To balanc
 2.  **"Derivative Works"** refers to any modifications, extensions, integrations, or novel applications derived substantially from the Core NRC Materials.
 3.  **"Commercial Use"** refers to any use of the Core NRC Materials for financial gain, monetization, incorporation into commercial products, or direct business applications.
 4.  **"Harmful Use"** refers to applications involving weaponry, unauthorized surveillance, environmental degradation, illegal activities, or purposes reasonably determined to be detrimental to humanity.
-5.  **"Attribution"** refers to the mandatory crediting of "James Paul Trageser (@jtrag) - Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC)" alongside a direct link to the official organizational repository (https://github.com/Nexus-Resonance-Codex).
+5.  **"Attribution"** refers to the mandatory crediting of "James Paul Trageser (@jtrag) - Nexus Resonance Codex (NRC)" alongside a direct link to the official organizational repository (https://github.com/Nexus-Resonance-Codex).
 6.  **"Educational Purposes"** refers strictly to non-commercial learning, teaching, and academic research within recognized institutions or personal capacity, devoid of any intent to monetize the derivative directly or indirectly.
 
 ## 1.5. Reservation of Rights
 
-All rights not expressly granted to you in this License are reserved and retained by Licensor (James Paul Trageser). This License does not grant you any rights to use any trademarks, logos, or service marks associated with the Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) or James Paul Trageser.
+All rights not expressly granted to you in this License are reserved and retained by Licensor (James Paul Trageser). This License does not grant you any rights to use any trademarks, logos, or service marks associated with the Nexus Resonance Codex (NRC) or James Paul Trageser.
 
 ## 2. Non-Commercial Use (Open Academic Grant)
 
@@ -80,5 +80,5 @@ For commercial licensing inquiries, exemptions, or general questions, please con
 
 ---
 
-© 2026 James Paul Trageser — Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC)
+© 2026 James Paul Trageser — Nexus Resonance Codex (NRC)
 All rights reserved except as expressly granted herein.

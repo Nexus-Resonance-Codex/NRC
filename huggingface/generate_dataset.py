@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) - HuggingFace Dataset Generator.
+"""Nexus Resonance Codex (NRC) - HuggingFace Dataset Generator.
 
 Professional-grade script to generate the synthetic NRC mathematical manifold
 dataset for AI training and resonance exploration.

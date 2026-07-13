@@ -40,7 +40,7 @@ def generate_tupt_keys(dimension: int = 256) -> Tuple[np.ndarray, np.ndarray, np
 
 def run_tupt_crypto_demo() -> None:
     """Executes the TUPT cryptographic primitive demonstration."""
-    print("Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) - TUPT Lattice Cryptography Simulation")
+    print("Nexus Resonance Codex (NRC) - TUPT Lattice Cryptography Simulation")
 
 
 def check_tupt_security(s_key: np.ndarray, t_key: np.ndarray) -> None:

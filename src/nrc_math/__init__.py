@@ -1,11 +1,11 @@
-#  Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) - 2025-2026 Breakthrough Series
+#  Nexus Resonance Codex (NRC) - 2025-2026 Breakthrough Series
 #  Copyright (c) 2026 James Paul Trageser (@jtrag)
 #
 #  Licensed under CC-BY-NC-SA-4.0 + NRC-L
-#  "This work is part of the Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) (NRC) incorporating TTT
+#  "This work is part of the Nexus Resonance Codex (NRC) incorporating TTT
 #  modular exclusion, phi^inf compression, 256D->729D lattice, QRT, and MST."
 
-"""nrc_math: Core Mathematics for the Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC).
+"""nrc_math: Core Mathematics for the Nexus Resonance Codex (NRC).
 
 This package provides the foundational mathematical engine for the NRC ecosystem.
 All modules are stabilized according to Trageser Tensor Theorem (TTT-7) (TTT) standards.

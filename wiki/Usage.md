@@ -1,6 +1,6 @@
 # Usage Guide
 
-Welcome to the institutional Usage Guide. This documentation provides the standardized protocols for interacting with the Nexus Resonance Codex (NRC) (NRC) (NRC) (NRC) manifolds, beginning with the exploration of the 256D Lattice.
+Welcome to the institutional Usage Guide. This documentation provides the standardized protocols for interacting with the Nexus Resonance Codex (NRC) manifolds, beginning with the exploration of the 256D Lattice.
 
 
 ## Working with the 256D Lattice Visualizer
