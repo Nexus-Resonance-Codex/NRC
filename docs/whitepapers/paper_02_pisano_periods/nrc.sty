@@ -1,0 +1,138 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{nrc}[2026/02/26 Nexus Resonance Codex Style]
+
+% Core Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,mathtools}
+\usepackage{booktabs}
+\DeclareUnicodeCharacter{03C6}{\ensuremath{\phi}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{03C7}{\ensuremath{\chi}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^2}}
+\DeclareUnicodeCharacter{221A}{\ensuremath{\surd}}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shadows}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage{bookmark}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[title]{appendix}
+\usepackage{lettrine}
+
+% NRC Constants & Symbols
+\newcommand{\nrcphi}{\phi}
+\newcommand{\nrcmod}{\ensuremath{\pmod{9}}}
+\newcommand{\nrcpattern}{[3,6,9,7]}
+
+% Professional color palette (WCAG AA compliant)
+\definecolor{nrcblue}{RGB}{0, 43, 54}
+\definecolor{nrccream}{RGB}{253, 246, 227}
+\definecolor{forestgreen}{RGB}{34, 139, 34}
+\definecolor{deepblue}{RGB}{31, 119, 180}
+\definecolor{accentorange}{RGB}{255, 127, 14}
+
+% Theorem styles
+\tcbset{
+  thmbox/.style={
+    enhanced,
+    colframe=nrcblue,
+    colback=nrccream!90!white,
+    boxrule=0.8pt,
+    arc=3pt,
+    drop shadow={black!20, opacity=0.3, shadow xshift=2mm, shadow yshift=-2mm},
+    fonttitle=\bfseries\sffamily,
+    attach boxed title to top left={xshift=12pt, yshift=-3pt},
+  }
+}
+\newtcbtheorem[number within=section]{theorem}{Theorem}{thmbox}{th}
+\newtcbtheorem[number within=section]{lemma}{Lemma}{thmbox}{lem}
+\newtcbtheorem[number within=section]{proposition}{Proposition}{thmbox}{prop}
+\newtcbtheorem[number within=section]{definition}{Definition}{thmbox}{def}
+\newtcbtheorem[number within=section]{conjecture}{Conjecture}{thmbox}{conj}
+
+\newtcolorbox{abstractbox}[1][]{
+  enhanced,
+  colframe=nrcblue,
+  colback=white,
+  boxrule=1pt,
+  arc=4pt,
+  drop shadow={black!20, opacity=0.3, shadow xshift=2mm, shadow yshift=-2mm},
+  title=\textbf{\Large Abstract},
+  fonttitle=\sffamily,
+  center title,
+  attach boxed title to top center={yshift=-10pt},
+  boxed title style={colback=nrcblue},
+  #1
+}
+
+\newtcolorbox{disclaimerbox}[1][]{
+  enhanced,
+  colframe=accentorange,
+  colback=nrccream!50!white,
+  boxrule=1.2pt,
+  arc=3pt,
+  drop shadow={black!20, opacity=0.3, shadow xshift=2mm, shadow yshift=-2mm},
+  title=\textbf{\Large Disclaimer},
+  fonttitle=\sffamily\color{black},
+  center title,
+  attach boxed title to top center={yshift=-10pt},
+  boxed title style={colback=accentorange, colframe=accentorange},
+  #1
+}
+
+\newtcolorbox{quotebox}[1][]{
+  enhanced,
+  colframe=nrcblue,
+  colback=nrccream!40!white,
+  boxrule=0.8pt,
+  arc=3pt,
+  left=15pt,
+  right=15pt,
+  top=10pt,
+  bottom=10pt,
+  fontupper=\itshape,
+  drop shadow={black!15, shadow xshift=1mm, shadow yshift=-1mm},
+  overlay={
+    \node[anchor=north west, text=nrcblue!20, font=\fontsize{45}{45}\sffamily\bfseries\selectfont] at ([yshift=-2pt, xshift=2pt]frame.north west) {``};
+  },
+  #1
+}
+
+% Section formatting
+\titlespacing*{\section}{0pt}{1.4ex plus 0.5ex minus 0.2ex}{0.8ex plus 0.2ex}
+\titleformat{\section}{\Large\bfseries\sffamily}{\thesection}{1em}{}
+
+% Code listings
+\lstdefinestyle{nrcstyle}{
+    backgroundcolor=\color{white!95!gray},
+    commentstyle=\color{forestgreen},
+    keywordstyle=\color{deepblue}\bfseries,
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{accentorange},
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numbersep=5pt,
+    showstringspaces=false,
+    tabsize=2
+}
+\lstset{style=nrcstyle}
+\captionsetup{font=small,labelfont=sc,justification=centering}
