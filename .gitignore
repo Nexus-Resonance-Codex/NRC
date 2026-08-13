@@ -34,3 +34,14 @@ venv/
 .venv/
 __pycache__/
 
+# Internal Agents & Security Exclusions
+.agents/
+ORIGINAL_REQUEST.md
+scratch/
+.solomd/
+.hypothesis/
+.coverage
+*_keys.json
+nim_generator.py
+
+
