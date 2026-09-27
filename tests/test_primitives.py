@@ -122,7 +122,7 @@ def test_root_7_stability_property(x: int) -> None:
 
 def test_metadata_coverage() -> None:
     """Audit metadata to ensure 100% coverage of __about__.py."""
-    assert __about__.__version__ == "1.2.0"
+    assert __about__.__version__ == "0.1.0"
     assert __about__.__author__ == "James Paul Trageser"
     assert "nrc" in __about__.__package_name__
 
