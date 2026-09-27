@@ -1472,7 +1472,7 @@ wheels = [
 
 [[package]]
 name = "nrc"
-version = "2.2.1"
+version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "mpmath" },
