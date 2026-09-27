@@ -26,7 +26,7 @@ The **Nexus Resonance Codex (NRC)** is an institutional-grade framework designed
 
 ### 🛡️ Institutional Certification
 
-![Version](https://img.shields.io/badge/Version-v2.2.1-7eb344?style=for-the-badge&logo=github)
+![Version](https://img.shields.io/badge/Version-v0.1.0-7eb344?style=for-the-badge&logo=github)
 ![Status](https://img.shields.io/badge/Integrity-100%25-gold?style=for-the-badge&logo=shield)
 
 ### 📸 Visual Teaser: The 256D Lattice

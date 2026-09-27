@@ -5,6 +5,6 @@
 
 """Package metadata for the NRC Math Vault."""
 
-__version__ = "1.2.0"
+__version__ = "0.1.0"
 __author__ = "James Paul Trageser"
 __package_name__ = "nrc-math"

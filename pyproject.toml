@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nrc"
-version = "2.2.1"
+version = "0.1.0"
 description = "Professional-Grade Core Mathematics for the Nexus Resonance Codex"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
